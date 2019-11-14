@@ -42,7 +42,7 @@ namespace Trabalho_Pratico_AED{
                 this.output_txt.AppendText("Falha ao carregar DAO.\n ");
                 this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.StackTrace);
             }
-            grid_tabelaOutput.DataSource = this.pilhaDAO.Listar();
+            grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
         }
 
@@ -85,7 +85,7 @@ namespace Trabalho_Pratico_AED{
                 output_txt.AppendText("Desempilhando...\n");
                 this.pilhaDAO.Desempilhar();
                 this.pilhaDAO.SalvarDao();
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar();
+                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
             else if(this.estruturaSelecionada==EnumEstrutura.FILA){}//TODO: inserir filaDAO
             else if(this.estruturaSelecionada==EnumEstrutura.LISTA){}//TODO: inserir listaDAO
@@ -101,7 +101,7 @@ namespace Trabalho_Pratico_AED{
                 output_txt.AppendText("Empilhando...\n");
                 this.pilhaDAO.Empilhar(elemento);
                 this.pilhaDAO.SalvarDao();
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar();
+                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
                 output_txt.AppendText("Empilhado!\n");
             }
             else{
