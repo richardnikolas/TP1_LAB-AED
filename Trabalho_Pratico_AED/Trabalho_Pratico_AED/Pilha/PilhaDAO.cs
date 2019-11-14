@@ -56,6 +56,7 @@ namespace Trabalho_Pratico_AED.Pilha
                 this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message);
             }
             fs.Close();
+            this.output_txt.AppendText("DAO Salvo!\n");
         }
         public void CarregarDao(){
             this.output_txt.AppendText("Carregando DAO...\n");

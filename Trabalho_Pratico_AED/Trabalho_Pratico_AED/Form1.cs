@@ -43,6 +43,7 @@ namespace Trabalho_Pratico_AED{
                 this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.StackTrace);
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar();
+            this.output_txt.AppendText("DAO Carregado!\n ");
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
@@ -101,6 +102,7 @@ namespace Trabalho_Pratico_AED{
                 this.pilhaDAO.Empilhar(elemento);
                 this.pilhaDAO.SalvarDao();
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar();
+                output_txt.AppendText("Empilhado!\n");
             }
             else{
                 output_txt.AppendText("Não é possível inserir elementos não-inteiros!\n");
