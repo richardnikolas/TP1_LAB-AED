@@ -40,7 +40,7 @@ namespace Trabalho_Pratico_AED{
             }
             catch (Exception ex){
                 this.output_txt.AppendText("Falha ao carregar DAO.\n ");
-                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.StackTrace);
+                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.StackTrace +"\n");
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");

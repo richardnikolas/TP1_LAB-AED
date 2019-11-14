@@ -53,7 +53,7 @@ namespace Trabalho_Pratico_AED.Pilha
                 ser.Serialize(fs, this.valoresParaOutput);
             }
             catch (Exception e){
-                this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message);
+                this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
             }
             fs.Close();
             this.output_txt.AppendText("DAO Salvo!\n");
@@ -68,7 +68,6 @@ namespace Trabalho_Pratico_AED.Pilha
             }
             catch(Exception e){
                 ser.Serialize(fs, this.valoresParaOutput);
-                this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message);
                 throw e;
             }
             finally{
