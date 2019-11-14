@@ -23,7 +23,7 @@ namespace Trabalho_Pratico_AED{
 
         //TODO: inserir hashDAO
         
-        public EnumEstrutura estruturaSelecionada;
+        public string estruturaSelecionada;
         
         public Form1(){
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Trabalho_Pratico_AED{
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
             grid_tabelaOutput.DataSource = null;
-            this.estruturaSelecionada = EnumEstrutura.PILHA;
+            this.estruturaSelecionada = "Pilha";
             try{
                 this.pilhaDAO.CarregarDao();
             }
@@ -49,7 +49,7 @@ namespace Trabalho_Pratico_AED{
         private void btn_lista_Click(object sender, EventArgs e){
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
-            estruturaSelecionada = EnumEstrutura.LISTA;
+            estruturaSelecionada = "Lista";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir filaDAO
         }
@@ -57,7 +57,7 @@ namespace Trabalho_Pratico_AED{
         private void btn_fila_Click(object sender, EventArgs e){
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
-            estruturaSelecionada = EnumEstrutura.FILA;
+            estruturaSelecionada = "Fila";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir listaDAO
         }
@@ -65,7 +65,7 @@ namespace Trabalho_Pratico_AED{
         private void btn_arvore_Click(object sender, EventArgs e){
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
-            estruturaSelecionada = EnumEstrutura.ARVORE;
+            estruturaSelecionada = "Arvore";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir arvoreDAO
         }
@@ -73,7 +73,7 @@ namespace Trabalho_Pratico_AED{
         private void btn_hash_Click(object sender, EventArgs e){
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
-            estruturaSelecionada = EnumEstrutura.HASH;
+            estruturaSelecionada = "Hash";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir hashDAO
         }
@@ -81,16 +81,16 @@ namespace Trabalho_Pratico_AED{
         private void btn_delete_Click(object sender, EventArgs e){
             output_txt.Clear();
             grid_tabelaOutput.DataSource = null;
-            if (this.estruturaSelecionada == EnumEstrutura.PILHA){
+            if (this.estruturaSelecionada.Equals("Pilha")){
                 output_txt.AppendText("Desempilhando...\n");
                 this.pilhaDAO.Desempilhar();
                 this.pilhaDAO.SalvarDao();
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
-            else if(this.estruturaSelecionada==EnumEstrutura.FILA){}//TODO: inserir filaDAO
-            else if(this.estruturaSelecionada==EnumEstrutura.LISTA){}//TODO: inserir listaDAO
-            else if(this.estruturaSelecionada==EnumEstrutura.ARVORE){}//TODO: inserir arvoreDAO
-            else if(this.estruturaSelecionada==EnumEstrutura.HASH){}//TODO: inserir hashDAO
+            else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
+            else if(this.estruturaSelecionada.Equals("Lista")){}//TODO: inserir listaDAO
+            else if(this.estruturaSelecionada.Equals("Arvore")){}//TODO: inserir arvoreDAO
+            else if(this.estruturaSelecionada.Equals("Hash")){}//TODO: inserir hashDAO
         }
 
         private void btn_inserir_Click(object sender, EventArgs e){

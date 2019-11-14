@@ -26,7 +26,7 @@ namespace Trabalho_Pratico_AED.Pilha
         }
         public void Desempilhar()
         {
-            if (!this.pilha.Vazia()){
+            if (this.valoresParaOutput.Count >0){
                 try{
                     this.pilha.Desempilha();
                     this.valoresParaOutput.RemoveAt(this.valoresParaOutput.Count - 1);
