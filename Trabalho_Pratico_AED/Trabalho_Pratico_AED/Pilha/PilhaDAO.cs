@@ -59,11 +59,9 @@ namespace Trabalho_Pratico_AED.Pilha
         }
         public void CarregarDao(){
             this.output_txt.AppendText("Carregando DAO...\n");
-            XmlSerializer ser = null;
-            FileStream fs = null;
+            XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+            FileStream fs = new FileStream("C://temp//pilha.xml", FileMode.OpenOrCreate);
             try{
-                ser = new XmlSerializer(typeof(List<int>));
-                fs = new FileStream("C://temp//pilha.xml", FileMode.OpenOrCreate);
                 //Carregar o arquivo xml e jogar na lista:
                 this.valoresParaOutput = ser.Deserialize(fs) as List<int>;
             }

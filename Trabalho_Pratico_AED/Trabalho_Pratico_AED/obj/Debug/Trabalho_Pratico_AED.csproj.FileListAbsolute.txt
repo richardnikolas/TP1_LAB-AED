@@ -7,3 +7,12 @@ C:\Users\Dunning\RiderProjects\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Deb
 C:\Users\Dunning\RiderProjects\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
 C:\Users\Dunning\RiderProjects\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
 C:\Users\Dunning\RiderProjects\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Form1.resources
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.exe.config
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.exe
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.pdb
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csprojResolveAssemblyReference.cache
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Form1.resources
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Properties.Resources.resources
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.Cache
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
+C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
