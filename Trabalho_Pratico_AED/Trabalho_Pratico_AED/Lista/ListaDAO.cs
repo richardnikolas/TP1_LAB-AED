@@ -5,8 +5,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace VS_Code{
-    public class ListaDAO
-    {
+    public class ListaDAO{
         /*
          * Classe para manipulação de arquivo XML encontrado em "C:/temp/lista.xml"
          *

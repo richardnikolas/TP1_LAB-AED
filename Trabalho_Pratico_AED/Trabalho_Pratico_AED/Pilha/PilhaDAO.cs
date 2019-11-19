@@ -23,11 +23,13 @@ namespace Trabalho_Pratico_AED.Pilha
         
         private Pilha pilha;
         private RichTextBox output_txt;
+        private string caminho;
 
         public PilhaDAO(RichTextBox output_txt){
             this.pilha = new Pilha();
             this.valoresParaOutput = new List<int>();
             this.output_txt = output_txt;
+            this.caminho = "C://temp//pilha.xml";
         }
         public List<int> Listar(){ return this.valoresParaOutput; }
 
@@ -60,7 +62,7 @@ namespace Trabalho_Pratico_AED.Pilha
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
 
                 //Carrega o aqruivo da memória:
-                fs = new FileStream("C://temp//pilha.xml", FileMode.OpenOrCreate);
+                fs = new FileStream(caminho, FileMode.OpenOrCreate);
 
                 //Usando a lista criada e mandando para o FileStream, num formato de XML:
                 ser.Serialize(fs, this.valoresParaOutput);
@@ -72,9 +74,9 @@ namespace Trabalho_Pratico_AED.Pilha
             this.output_txt.AppendText("Pilha Salva!\n");
         }
         public void CarregarDao(){
-            this.output_txt.AppendText("Carregando DAO...\n");
+            this.output_txt.AppendText("Carregando Pilha...\n");
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-            FileStream fs = new FileStream("C://temp//pilha.xml", FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(caminho, FileMode.OpenOrCreate);
             try{
                 //Carregar o arquivo xml e jogar na lista:
                 this.valoresParaOutput = ser.Deserialize(fs) as List<int>;
@@ -86,12 +88,14 @@ namespace Trabalho_Pratico_AED.Pilha
             finally{
                 fs.Close();
             }
+            this.output_txt.AppendText("Pilha Carregada!\n");
         }
         public void LimparDao(){
-            this.output_txt.AppendText("Limpando DAO...\n");
+            this.output_txt.AppendText("Limpando Lista...\n");
             this.pilha = new Pilha();
             this.valoresParaOutput = new List<int>();
             SalvarDao();
+            this.output_txt.AppendText("Lista Limpa!\n");
         }
     }
 }
