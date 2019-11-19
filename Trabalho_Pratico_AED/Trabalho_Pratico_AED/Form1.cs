@@ -19,7 +19,7 @@ namespace Trabalho_Pratico_AED{
          * Lógica: Philemon da Silva Souza
          * Classes: Adicionadas do exercício de AED's passado na mesma semana.
          *          (créditos individuais podem ser encontrados na classe)
-         * Documentação: Richard Nikolas
+         * Documentação: Richard Nikolas e André Valentim
          * 
          */
         public PilhaDAO pilhaDAO;
