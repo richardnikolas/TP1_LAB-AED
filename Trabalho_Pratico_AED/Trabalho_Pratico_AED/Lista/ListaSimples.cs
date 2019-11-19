@@ -4,35 +4,35 @@
  namespace VS_Code 
 {
     public class ListaSimples : IEnumerable{
-        private Celula primeira, ultima;
+        private Celula cabeca, ultima;
         private int quant;
 
         public ListaSimples(){
-            this.primeira = null;
+            this.cabeca = null;
             this.ultima = null;
         }
 
         public bool vazia(){
-            return primeira == null;
+            return cabeca == null;
         }
         public void insereComeco(Object valorItem){
-            Celula novaCelula = new Celula(valorItem, primeira);
-            primeira = novaCelula;
+            Celula novaCelula = new Celula(valorItem, cabeca);
+            cabeca = novaCelula;
             ++quant;
         }
         public Object removeComeco(){
             Object output = null;
-            if (this.primeira != null){
-                output = primeira.Item;
-                primeira = primeira.Prox;
+            if (this.cabeca != null){
+                output = cabeca.Item;
+                cabeca = cabeca.Prox;
                 --quant;
             }
             return output;
         }
         public void insereFim(Object valorItem){
             Celula novaCelula = new Celula(valorItem);
-            if(primeira == null){
-                primeira = novaCelula;
+            if(cabeca == null){
+                cabeca = novaCelula;
                 ultima = novaCelula;
             }
             else{
@@ -43,8 +43,8 @@
         }
         public Object removeFim(){
             Object output = null;
-            if (this.primeira != null){
-                Celula aux = primeira;
+            if (this.cabeca != null){
+                Celula aux = cabeca;
                 while (aux.Prox.Prox != null){
                     aux = aux.Prox;
                 }
@@ -70,7 +70,7 @@
         // Torna possível iterar sobre a Estrutura usando o comando foreach
         public IEnumerator GetEnumerator()
         {
-            for (Celula aux = primeira; aux != null; aux = aux.Prox)
+            for (Celula aux = cabeca; aux != null; aux = aux.Prox)
                 yield return aux.Item;
         } 
     }

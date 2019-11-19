@@ -43,7 +43,9 @@ namespace Trabalho_Pratico_AED.Pilha
                     this.valoresParaOutput.RemoveAt(this.valoresParaOutput.Count - 1);
                 }
                 catch (Exception e){
-                    this.output_txt.AppendText("Ocorreu um erro interno! Função: Remover() em PilhaDAO.cs\n");
+                    this.output_txt.AppendText("Ocorreu um erro Interno!\n");
+                    this.output_txt.AppendText("Mensagem da Excessão:\n" + e.Message);
+                    this.output_txt.AppendText("Local da Excessão:\n" + e.Source);
                 }   
             }
             else{
@@ -51,7 +53,7 @@ namespace Trabalho_Pratico_AED.Pilha
             }
         }
         public void SalvarDao(){
-            this.output_txt.AppendText("Salvando DAO...\n");
+            this.output_txt.AppendText("Salvando Pilha...\n");
             FileStream fs = null;
             try{
                 //Acesso a dados XML (DAO):
@@ -67,7 +69,7 @@ namespace Trabalho_Pratico_AED.Pilha
                 this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
             }
             fs.Close();
-            this.output_txt.AppendText("DAO Salvo!\n");
+            this.output_txt.AppendText("Pilha Salva!\n");
         }
         public void CarregarDao(){
             this.output_txt.AppendText("Carregando DAO...\n");
