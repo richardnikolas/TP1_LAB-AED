@@ -8,8 +8,19 @@ namespace Trabalho_Pratico_AED.Pilha
 {
     public class PilhaDAO
     {
-        //Classe para manipulação de arquivo XML encontrado em "C:/temp/pilha.xml"
+        /*
+         * Classe para manipulação de arquivo XML encontrado em "C:/temp/pilha.xml"
+         *
+         * Feita por Philemon da Silva Souza
+         *
+         * com suporte de:
+         *       Fabio Leandro Rodrigues Cordeiro
+         */
+        
+        // A lista "valoresParaOutput" se faz necessária devido à classe DataGridView, nativa do C#,
+        //que, até onde entendo, só aceita a inserção de uma lista de objetos:
         private List<int> valoresParaOutput;
+        
         private Pilha pilha;
         private RichTextBox output_txt;
 
