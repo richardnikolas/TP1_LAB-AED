@@ -28,3 +28,5 @@ e) hash
 A implementação de todos as estruturas deverá ser feita de forma dinâmica, ou poderá ser utilizado estruturas estáticas para Pilha e Fila, com tamanho pré alocado que suporte uma inserção de cem mil elementos.
 
 Seja criativo e prático na construção da interface, utilize componentes que tornem a utilização fácil e intuitiva com elementos de interface homem-máquina.
+
+Teste de novo commit blablabla
