@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_Pratico_AED;
 using Trabalho_Pratico_AED.Pilha;
+using VS_Code;
 
 namespace Trabalho_Pratico_AED{
     public partial class Form1 : Form{
@@ -27,7 +28,7 @@ namespace Trabalho_Pratico_AED{
 
         //TODO: inserir filaDAO
 
-        //TODO: inserir listaDAO
+        public ListaDAO listaDao;
 
         //TODO: inserir arvoreDAO
 
@@ -38,6 +39,7 @@ namespace Trabalho_Pratico_AED{
         public Form1(){
             InitializeComponent();
             this.pilhaDAO = new PilhaDAO(output_txt);
+            this.listaDao = new ListaDAO(output_txt);
         }
 
         private void btn_pilha_Click_1(object sender, EventArgs e){
@@ -61,7 +63,15 @@ namespace Trabalho_Pratico_AED{
             output_txt.AppendText("Mostrando Lista...\n");
             estruturaSelecionada = "Lista";
             grid_tabelaOutput.DataSource = null;
-            //TODO: inserir filaDAO
+            try{
+                this.pilhaDAO.CarregarDao();
+            }
+            catch (Exception ex){
+                this.output_txt.AppendText("Falha ao carregar ListaDAO!\n ");
+                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
+            }
+            grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+            this.output_txt.AppendText("DAO Carregado!\n ");
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
@@ -69,7 +79,7 @@ namespace Trabalho_Pratico_AED{
             output_txt.AppendText("Mostrando Fila...\n");
             estruturaSelecionada = "Fila";
             grid_tabelaOutput.DataSource = null;
-            //TODO: inserir listaDAO
+            //TODO: inserir filaDAO
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
@@ -98,7 +108,12 @@ namespace Trabalho_Pratico_AED{
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
             else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
-            else if(this.estruturaSelecionada.Equals("Lista")){}//TODO: inserir listaDAO
+            else if (this.estruturaSelecionada.Equals("Lista")){
+                output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
+                this.listaDao.Remover(grid_tabelaOutput.CurrentRow.Index);
+                this.pilhaDAO.SalvarDao();
+                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+            }
             else if(this.estruturaSelecionada.Equals("Arvore")){}//TODO: inserir arvoreDAO
             else if(this.estruturaSelecionada.Equals("Hash")){}//TODO: inserir hashDAO
         }
