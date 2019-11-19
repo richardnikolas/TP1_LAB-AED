@@ -11,8 +11,17 @@ using Trabalho_Pratico_AED;
 using Trabalho_Pratico_AED.Pilha;
 
 namespace Trabalho_Pratico_AED{
-    public partial class Form1 : Form
-    {
+    public partial class Form1 : Form{
+        /*
+         * Classe controladora do formulário.
+         *
+         * Design: Philemon da Silva Souza
+         * Lógica: Philemon da Silva Souza
+         * Classes: Adicionadas do exercício de AED's passado na mesma semana.
+         *          (créditos individuais podem ser encontrados na classe)
+         * Documentação: Richard Nikolas
+         * 
+         */
         public PilhaDAO pilhaDAO;
 
         //TODO: inserir filaDAO
