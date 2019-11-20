@@ -7,7 +7,7 @@ namespace Exercicios.Exercicio1{
         static private Random geradorNumeroAleatorio = new Random(DateTime.Now.Millisecond);
 
         public TabelaHashLinear(){
-            estrutura = new List<int>[50];
+            estrutura = new List<int>[1000];
         }
 
         public TabelaHashLinear(int tamanho){
@@ -50,7 +50,7 @@ namespace Exercicios.Exercicio1{
         public static void testarTudo(){
             TabelaHashLinear hashLinear = new TabelaHashLinear();
             Console.WriteLine("Teste iniciado...");
-            int numeroInserido = geradorNumeroAleatorio.Next(0, 100);
+            int numeroInserido = geradorNumeroAleatorio.Next(0, 1000);
             testarInsercao(hashLinear, numeroInserido);
             testarRemocao(hashLinear,numeroInserido);
             testarInsercao(hashLinear, (numeroInserido*10));

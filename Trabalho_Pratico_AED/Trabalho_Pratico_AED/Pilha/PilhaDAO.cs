@@ -46,8 +46,8 @@ namespace Trabalho_Pratico_AED.Pilha
                 }
                 catch (Exception e){
                     this.output_txt.AppendText("Ocorreu um erro Interno!\n");
-                    this.output_txt.AppendText("Mensagem da Excessão:\n" + e.Message);
-                    this.output_txt.AppendText("Local da Excessão:\n" + e.Source);
+                    this.output_txt.AppendText("Mensagem da Exceção:\n" + e.Message);
+                    this.output_txt.AppendText("Local da Exceção:\n" + e.Source);
                 }   
             }
             else{

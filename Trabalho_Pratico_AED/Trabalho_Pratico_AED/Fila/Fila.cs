@@ -1,52 +1,56 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Trabalho_Pratico_AED.Fila {
     class Fila {
+        private List<int> valoresParaOutput;
         private Celula firstCell;
         private Celula lastCell;
         private ushort quantity;
 
         public Fila() {
-            firstCell = null;
+            firstCell = new Celula();
             lastCell = firstCell;
             quantity = 0;
         }
-
         public void clear() {
-            firstCell = null;
+            firstCell = new Celula();
             lastCell = firstCell;
             quantity = 0;
         }
-        public ArrayList getAllElements() {
-            ArrayList elements = new ArrayList(quantity);
+        public List<int> getAllElements() {
+            valoresParaOutput = loadAllElements();
+            return valoresParaOutput;
+        }
+        private List<int> loadAllElements() {
+            List<int> elements = new List<int>(quantity);
             Celula coursing = firstCell;
             while(coursing.getNext() != null) {
-                elements.Add(coursing.getValue());
+                elements.Add((int)coursing.getValue());
             }
             return elements;
         }
-
-        public void insertNewCell(Celula newCell) {
+        public void enqueue(int value) {
             if(quantity <= 1000)
-                enqueue(newCell);
+                insertNewCell(value);
             else
                 Console.WriteLine("O tamanho máximo da fila foi atingido! [{0} elementos]", quantity);
         }
-        private void enqueue(Celula newCell) {
-            lastCell.setNext(newCell);
-            lastCell = lastCell.getNext();
+        private void insertNewCell(int value) {
+            Celula newCell = new Celula(value);
+                lastCell.setNext(newCell);
+                lastCell = lastCell.getNext();
             quantity++;
         }
-
-        public object removeFirstCell() {
-            return dequeue();
+        public object dequeue() {
+            return removeFirstCell();
         }
-        private object dequeue() {
+        private object removeFirstCell() {
             Celula firstOfQueue = null;
             if(firstCell != lastCell) {
-                firstCell = firstCell.getNext();
-                firstOfQueue.setValue(firstCell.getValue());
+                firstOfQueue = firstCell.getNext();
+                firstCell.setNext(firstCell.getNext().getNext());
                 quantity--;
             }
             return firstOfQueue.getValue();
