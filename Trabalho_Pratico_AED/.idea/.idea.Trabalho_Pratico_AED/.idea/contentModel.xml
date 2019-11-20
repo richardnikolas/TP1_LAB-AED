@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Dunning\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Dunning\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_Trabalho_Pratico_AED.249363556.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Trabalho_Pratico_AED" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="Arvore" t="Include">
+          <e p="ArvoreAVL.cs" t="Include" />
+          <e p="Nodulo.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Fila" t="Include">
+          <e p="Celula.cs" t="Include" />
+          <e p="Fila.cs" t="Include" />
+        </e>
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="FormExperimental.cs" t="Include" />
+        <e p="FormExperimental.Designer.cs" t="Include" />
+        <e p="FormExperimental.resx" t="Include" />
+        <e p="Hash" t="Include">
+          <e p="TabelaHashLinear.cs" t="Include" />
+        </e>
+        <e p="Lista" t="Include">
+          <e p="Celula.cs" t="Include" />
+          <e p="ListaDAO.cs" t="Include" />
+          <e p="ListaSimples.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Pilha" t="Include">
+          <e p="Celula.cs" t="Include" />
+          <e p="Pilha.cs" t="Include" />
+          <e p="PilhaDAO.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+        <e p="Trabalho_Pratico_AED.csproj" t="IncludeRecursive" />
+      </e>
+      <e p="Trabalho_Pratico_AED.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
