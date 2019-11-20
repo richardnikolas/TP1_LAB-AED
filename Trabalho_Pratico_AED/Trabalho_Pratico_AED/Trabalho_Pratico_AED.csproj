@@ -48,11 +48,19 @@
   <ItemGroup>
     <Compile Include="Arvore\ArvoreAVL.cs" />
     <Compile Include="Arvore\Nodulo.cs" />
+    <Compile Include="Fila\Celula.cs" />
+    <Compile Include="Fila\Fila.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormExperimental.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormExperimental.Designer.cs">
+      <DependentUpon>FormExperimental.cs</DependentUpon>
     </Compile>
     <Compile Include="Hash\TabelaHashLinear.cs" />
     <Compile Include="Lista\Celula.cs" />
@@ -65,6 +73,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormExperimental.resx">
+      <DependentUpon>FormExperimental.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
