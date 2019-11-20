@@ -100,11 +100,11 @@ namespace Trabalho_Pratico_AED{
 
         private void btn_delete_Click(object sender, EventArgs e){
             output_txt.Clear();
-            grid_tabelaOutput.DataSource = null;
             if (this.estruturaSelecionada.Equals("Pilha")){
                 output_txt.AppendText("Desempilhando...\n");
                 this.pilhaDAO.Desempilhar();
                 this.pilhaDAO.SalvarDao();
+                grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
             else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
@@ -112,6 +112,7 @@ namespace Trabalho_Pratico_AED{
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
                 this.listaDao.Remover(grid_tabelaOutput.CurrentRow.Index);
                 this.pilhaDAO.SalvarDao();
+                grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
             else if(this.estruturaSelecionada.Equals("Arvore")){}//TODO: inserir arvoreDAO
