@@ -124,11 +124,28 @@ namespace Trabalho_Pratico_AED{
             grid_tabelaOutput.DataSource = null;
             int elemento;
             if (int.TryParse(inserir_txt.Text, out elemento)){
-                output_txt.AppendText("Empilhando...\n");
-                this.pilhaDAO.Empilhar(elemento);
-                this.pilhaDAO.SalvarDao();
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
-                output_txt.AppendText("Empilhado!\n");
+                if (this.estruturaSelecionada.Equals("Pilha")){
+                    output_txt.AppendText("Empilhando...\n");
+                    this.pilhaDAO.Empilhar(elemento);
+                    this.pilhaDAO.SalvarDao();
+                    grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                    output_txt.AppendText("Empilhado!\n");
+                }
+                else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
+                else if (this.estruturaSelecionada.Equals("Lista"))
+                {
+                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
+                    this.listaDao.Inserir(elemento);
+                    this.listaDao.SalvarDao();
+                    grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
+                    output_txt.AppendText("Elemento inserido!\n");
+                }
+                else if (this.estruturaSelecionada.Equals("Arvore"))
+                {
+                }
+                else if (this.estruturaSelecionada.Equals("Hash"))
+                {
+                }
             }
             else{
                 output_txt.AppendText("Não é possível inserir elementos não-inteiros!\n");
