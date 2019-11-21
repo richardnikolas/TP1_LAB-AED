@@ -18,7 +18,6 @@ C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico
 C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
 C:\Users\Dunning\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.FormExperimental.resources
 D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csprojAssemblyReference.cache
-D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Form1.resources
 D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.FormExperimental.resources
 D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Properties.Resources.resources
 D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.cache
@@ -37,3 +36,4 @@ D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP1_L
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.pdb
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
+D:\Bubble Laboratory Co\TP_AED\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.formStructures.resources

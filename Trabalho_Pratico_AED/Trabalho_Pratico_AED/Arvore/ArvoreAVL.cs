@@ -18,12 +18,12 @@ namespace Trabalho_Pratico_AED.Arvore {
          *                          -Einstein, probably.
         */
         
-        private Nodulo raiz;
+        private Node raiz;
         
         public ArvoreAVL() {}
         
         public void inserir(int elemento) {
-            Nodulo novoNodulo = new Nodulo(elemento);
+            Node novoNodulo = new Node(elemento);
 
             if (raiz == null)
                 raiz = novoNodulo;
@@ -31,7 +31,7 @@ namespace Trabalho_Pratico_AED.Arvore {
                 raiz = insere(raiz, novoNodulo);
         }
 
-        private Nodulo insere(Nodulo noduloAtual, Nodulo novoNodulo) {
+        private Node insere(Node noduloAtual, Node novoNodulo) {
             if (noduloAtual == null) {
                 noduloAtual = novoNodulo;
                 return noduloAtual;
@@ -50,7 +50,7 @@ namespace Trabalho_Pratico_AED.Arvore {
             return noduloAtual;
         }
 
-        private Nodulo balancear(Nodulo novoNodulo) {
+        private Node balancear(Node novoNodulo) {
             int fatorBalanceamento = calculaFatorBalanceamento(novoNodulo);
 
             if (fatorBalanceamento > 1) {
@@ -73,8 +73,8 @@ namespace Trabalho_Pratico_AED.Arvore {
             raiz = deleta(raiz, item);
         }
 
-        private Nodulo deleta(Nodulo noduloAtual, int itemASerDeletado) {
-            Nodulo pai;
+        private Node deleta(Node noduloAtual, int itemASerDeletado) {
+            Node pai;
 
             if (noduloAtual.Equals(null))
                 return null;
@@ -135,7 +135,7 @@ namespace Trabalho_Pratico_AED.Arvore {
                 return false;
         }
 
-        private Nodulo pesquisa(int item, Nodulo noduloAtual) { 
+        private Node pesquisa(int item, Node noduloAtual) { 
                 if (item < (int)noduloAtual.getItem()) {
                     if (item == (int) noduloAtual.getItem())
                         return noduloAtual;
@@ -163,7 +163,7 @@ namespace Trabalho_Pratico_AED.Arvore {
         }
 
         //Impriem subárvore em ordem:
-        private void imprimirEmOrdem(Nodulo nohAtual){
+        private void imprimirEmOrdem(Node nohAtual){
             if (!nohAtual.Equals(null)) {
                 imprimirEmOrdem(nohAtual.getEsq());
                 Console.Write("({0}) ", (int)nohAtual.getItem());
@@ -175,7 +175,7 @@ namespace Trabalho_Pratico_AED.Arvore {
             return item1 > item2 ? item1 : item2;
         }
 
-        private int getAltura(Nodulo noduloAtual){
+        private int getAltura(Node noduloAtual){
             int height = 0;
 
             if (noduloAtual.Equals(null)) {
@@ -187,7 +187,7 @@ namespace Trabalho_Pratico_AED.Arvore {
             return height;
         }
 
-        private int calculaFatorBalanceamento(Nodulo noduloAtual) {
+        private int calculaFatorBalanceamento(Node noduloAtual) {
             int fatorBalanceamentoEsq = getAltura(noduloAtual.getEsq());
             int fatorBalanceamentoDir = getAltura(noduloAtual.getDir());
             int fatorBalanceamento = fatorBalanceamentoEsq - fatorBalanceamentoDir;
@@ -195,30 +195,30 @@ namespace Trabalho_Pratico_AED.Arvore {
             return fatorBalanceamento;
         }
 
-        private Nodulo rotacaoDD(Nodulo pai) {
-            Nodulo noduloParaGiro = pai.getDir();
+        private Node rotacaoDD(Node pai) {
+            Node noduloParaGiro = pai.getDir();
             pai.setDir(noduloParaGiro.getEsq()) ;
             noduloParaGiro.setEsq(pai);
 
             return noduloParaGiro;
         }
 
-        private Nodulo rotacaoEE(Nodulo pai) {
-            Nodulo noduloParaGiro = pai.getEsq();
+        private Node rotacaoEE(Node pai) {
+            Node noduloParaGiro = pai.getEsq();
             pai.setEsq(noduloParaGiro.getDir());
             noduloParaGiro.setDir(pai);
 
             return noduloParaGiro;
         }
 
-        private Nodulo rotacaoED(Nodulo parent) {
-            Nodulo noduloParaGiro = parent.getEsq();
+        private Node rotacaoED(Node parent) {
+            Node noduloParaGiro = parent.getEsq();
             parent.setEsq(rotacaoDD(noduloParaGiro));
             return rotacaoEE(parent);
         }
 
-        private Nodulo rotacaoDE(Nodulo parent) {
-            Nodulo noduloParaGiro = parent.getDir();
+        private Node rotacaoDE(Node parent) {
+            Node noduloParaGiro = parent.getDir();
             parent.setDir(rotacaoEE(noduloParaGiro));
             return rotacaoDD(parent);
         }
@@ -232,12 +232,12 @@ namespace Trabalho_Pratico_AED.Arvore {
         }
 
         //Checa se uma subárvore está vazia:
-        private bool subarvoreEstaVazia(Nodulo raizDaSubArvore) {
+        private bool subarvoreEstaVazia(Node raizDaSubArvore) {
             return (raizDaSubArvore.getEsq().Equals(null) && raizDaSubArvore.getDir().Equals(null));
         }
 
         //Retorna a quantidade de elementos em uma subárvore
-        private int calcularQuantNohsSubArvore(Nodulo noduloRaizSubarvore){
+        private int calcularQuantNohsSubArvore(Node noduloRaizSubarvore){
             int quantNohs = 0;
             if(!subarvoreEstaVazia(noduloRaizSubarvore)) {
                 if (!noduloRaizSubarvore.getEsq().Equals(null)) 

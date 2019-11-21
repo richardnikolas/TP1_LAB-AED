@@ -2,7 +2,7 @@
 
 ﻿namespace Trabalho_Pratico_AED.Arvore {
 
-    public class Nodulo {
+    public class Node {
 
         /*
          * Classe que caracteriza uma unidade de uma estrutura de árvoreAVL.
@@ -10,22 +10,22 @@
          * Feita por Philemon da Silva Souza
          */
 
-        private Nodulo esq;
-        private Nodulo dir;
+        private Node esq;
+        private Node dir;
         public int balanceFactor;
         public int height;
         public int depth;
-        public object item;
+        public int item;
 
-        public Nodulo() {
+        public Node() {
             this.esq = null;
             this.dir = null;
-            this.item = null;
+            this.item = 0;
             this.balanceFactor = 0;
             this.height = 1;
             this.depth = 0;
         }
-        public Nodulo(object value){
+        public Node(int value){
             esq = null;
             dir = null;
             item = value;
@@ -34,24 +34,24 @@
             depth = 0;
         }
 
-        public void setEsq(Nodulo esq) {
+        public void setEsq(Node esq) {
             this.esq = esq;
         }
 
-        public Nodulo getEsq() {
+        public Node getEsq() {
             return this.esq;
         }
 
-        public void setDir(Nodulo dir) {
+        public void setDir(Node dir) {
             this.dir = dir;
         }
 
-        public Nodulo getDir() {
+        public Node getDir() {
             return this.dir;
         }
 
         public void setItem(object item) {
-            this.item = item;
+            this.item = (int)item;
         }
 
         public object getItem() {

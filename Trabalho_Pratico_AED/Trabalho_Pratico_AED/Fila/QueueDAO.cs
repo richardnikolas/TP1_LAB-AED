@@ -6,31 +6,34 @@ using System.Xml.Serialization;
 
 namespace Trabalho_Pratico_AED.Fila {
 
-    public class FilaDAO {
-        List<int> valoresParaOutput;
-        private Fila fila;
+    public class QueueDAO {
+        List<int> valuesToOutput;
+        private Queue queue;
         private RichTextBox output_txt;
-        private string caminho;
+        private string path;
 
-        public FilaDAO(RichTextBox output_txt) {
-            fila = new Fila();
-            valoresParaOutput = new List<int>(1000);
+        public QueueDAO(RichTextBox output_txt) {
+            queue = new Queue();
+            valuesToOutput = new List<int>(1000);
             this.output_txt = output_txt;
-            caminho = "C://temp/fila.xml";
+            path = "C://temp/fila.xml";
         }
 
-        public List<int> Listar() { return valoresParaOutput; }
+        public List<int> Listar() { return valuesToOutput; }
 
-        public void Enfileirar(int elemento) {
-            valoresParaOutput.Add(elemento);
-            this.fila.enqueue(elemento);
+        public int GetNumberOfElements() {
+            return queue.GetQuantity();
+        }
+        public void EnqueueElement(int elemento) {
+            valuesToOutput.Add(elemento);
+            this.queue.Enqueue(elemento);
         }
 
-        public void Desenfileirar() {
-            if(valoresParaOutput.Count > 0) {
+        public void DequeueElement() {
+            if(valuesToOutput.Count > 0) {
                 try {
-                    fila.dequeue();
-                    valoresParaOutput.RemoveAt(0);
+                    queue.Dequeue();
+                    valuesToOutput.RemoveAt(0);
                 }
                 catch (Exception e){
                     output_txt.AppendText("Ocorreu um erro interno!\n");
@@ -49,9 +52,9 @@ namespace Trabalho_Pratico_AED.Fila {
             try {
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
 
-                fs = new FileStream(caminho, FileMode.OpenOrCreate);
+                fs = new FileStream(path, FileMode.OpenOrCreate);
 
-                ser.Serialize(fs, valoresParaOutput);
+                ser.Serialize(fs, valuesToOutput);
 
                 output_txt.AppendText("Fila salva!\n");
             } catch (Exception e) {
@@ -64,13 +67,13 @@ namespace Trabalho_Pratico_AED.Fila {
         public void CarregarDAO() {
             output_txt.AppendText("Carregando fila...\n");
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-            FileStream fs = new FileStream(caminho, FileMode.OpenOrCreate);
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                valoresParaOutput = ser.Deserialize(fs) as List<int>;
+                valuesToOutput = ser.Deserialize(fs) as List<int>;
             } catch(Exception e) { 
-                ser.Serialize(fs, valoresParaOutput);
+                ser.Serialize(fs, valuesToOutput);
                 throw e;
             } finally {
                 fs.Close();
@@ -81,8 +84,8 @@ namespace Trabalho_Pratico_AED.Fila {
 
         public void LimparDao() {
             output_txt.AppendText("Limpando Lista...\n");
-            fila = new Fila();
-            this.valoresParaOutput = new List<int>();
+            queue = new Queue();
+            this.valuesToOutput = new List<int>();
             SalvarDAO();
             this.output_txt.AppendText("Lista Limpa!\n");
         }

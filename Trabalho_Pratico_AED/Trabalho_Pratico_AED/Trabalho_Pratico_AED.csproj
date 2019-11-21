@@ -48,10 +48,11 @@
   <ItemGroup>
     <Compile Include="Arvore\ArvoreABP.cs" />
     <Compile Include="Arvore\ArvoreAVL.cs" />
-    <Compile Include="Arvore\Nodulo.cs" />
-    <Compile Include="Fila\Celula.cs" />
-    <Compile Include="Fila\Fila.cs" />
-    <Compile Include="Fila\FilaDAO.cs" />
+    <Compile Include="Arvore\ArvoreDAO.cs" />
+    <Compile Include="Arvore\Node.cs" />
+    <Compile Include="Fila\Cell.cs" />
+    <Compile Include="Fila\Queue.cs" />
+    <Compile Include="Fila\QueueDAO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
