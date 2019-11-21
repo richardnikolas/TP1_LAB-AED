@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Dunning\.Rider2019.2\system\extResources" t="IncludeRecursive" />
@@ -8,13 +8,16 @@
       <e p="Trabalho_Pratico_AED" t="IncludeRecursive">
         <e p="App.config" t="Include" />
         <e p="Arvore" t="Include">
+          <e p="ArvoreABP.cs" t="Include" />
           <e p="ArvoreAVL.cs" t="Include" />
-          <e p="Nodulo.cs" t="Include" />
+          <e p="ArvoreDAO.cs" t="Include" />
+          <e p="Node.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Fila" t="Include">
-          <e p="Celula.cs" t="Include" />
-          <e p="Fila.cs" t="Include" />
+          <e p="Cell.cs" t="Include" />
+          <e p="Queue.cs" t="Include" />
+          <e p="QueueDAO.cs" t="Include" />
         </e>
         <e p="Form1.cs" t="Include" />
         <e p="Form1.Designer.cs" t="Include" />
@@ -23,6 +26,7 @@
         <e p="FormExperimental.Designer.cs" t="Include" />
         <e p="FormExperimental.resx" t="Include" />
         <e p="Hash" t="Include">
+          <e p="HashDAO.cs" t="Include" />
           <e p="TabelaHashLinear.cs" t="Include" />
         </e>
         <e p="Lista" t="Include">

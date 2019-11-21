@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Trabalho_Pratico_AED;
 using Trabalho_Pratico_AED.Pilha;
+using Trabalho_Pratico_AED.Fila;
 using VS_Code;
 
 namespace Trabalho_Pratico_AED{
-    public partial class Form1 : Form{
+    public partial class formStructures : Form{
         /*
          * Classe controladora do formulário.
          *
@@ -26,7 +27,7 @@ namespace Trabalho_Pratico_AED{
          */
         public PilhaDAO pilhaDAO;
 
-        //TODO: inserir filaDAO
+        public QueueDAO filaDAO;
 
         public ListaDAO listaDao;
 
@@ -36,13 +37,72 @@ namespace Trabalho_Pratico_AED{
         
         public string estruturaSelecionada;
         
-        public Form1(){
+        public formStructures(){
             InitializeComponent();
             this.pilhaDAO = new PilhaDAO(output_txt);
             this.listaDao = new ListaDAO(output_txt);
+            this.filaDAO = new QueueDAO(output_txt);
+        }
+
+        public void disableDelete() {
+            delete_txt.Enabled = false;
+            btn_delete.Enabled = false;
+        }
+        public void enableDelete() {
+            delete_txt.Enabled = true;
+            btn_delete.Enabled = true;
+        }
+        public void changeEnabled(byte option) {
+            switch(option) {
+                case 1:
+                    btn_pilha.Enabled = false;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 2:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = false;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 3:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = false;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 4:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = false;
+                    btn_hash.Enabled = true;
+                    break;
+                case 5:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = false;
+                    break;
+                default:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+            }
         }
 
         private void btn_pilha_Click_1(object sender, EventArgs e){
+            changeEnabled(1);
+            disableDelete();
+            labelSelectedStructure.Text = "PILHA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
             grid_tabelaOutput.DataSource = null;
@@ -59,30 +119,46 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
+            changeEnabled(2);
+            enableDelete();
+            labelSelectedStructure.Text = "LISTA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
             estruturaSelecionada = "Lista";
             grid_tabelaOutput.DataSource = null;
             try{
-                this.pilhaDAO.CarregarDao();
+                this.listaDao.CarregarDao();
             }
             catch (Exception ex){
                 this.output_txt.AppendText("Falha ao carregar ListaDAO!\n ");
-                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
+                this.output_txt.AppendText("Exceção: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
+            changeEnabled(3);
+            disableDelete();
+            labelSelectedStructure.Text = "FILA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
             estruturaSelecionada = "Fila";
             grid_tabelaOutput.DataSource = null;
-            //TODO: inserir filaDAO
+            try {
+                this.filaDAO.CarregarDAO();
+            } catch(Exception ex) {
+                this.output_txt.AppendText("Falha ao carregar ListaDAO!\n ");
+                this.output_txt.AppendText("Exceção: \n " + ex.Message + "\n Local : \n" + ex.Source + "\n");
+            }
+            grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
+            this.output_txt.AppendText("DAO Carregado!\n ");
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
+            changeEnabled(4);
+            enableDelete();
+            labelSelectedStructure.Text = "ÁRVORE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
             estruturaSelecionada = "Arvore";
@@ -91,6 +167,9 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_hash_Click(object sender, EventArgs e){
+            changeEnabled(5);
+            enableDelete();
+            labelSelectedStructure.Text = "HASHTABLE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
             estruturaSelecionada = "Hash";
@@ -107,7 +186,13 @@ namespace Trabalho_Pratico_AED{
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             }
-            else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
+            else if(this.estruturaSelecionada.Equals("Fila")){
+                output_txt.AppendText("Desempilhando...\n");
+                this.filaDAO.DequeueElement();
+                this.filaDAO.SalvarDAO();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
+            }
             else if (this.estruturaSelecionada.Equals("Lista")){
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
                 this.listaDao.Remover(grid_tabelaOutput.CurrentRow.Index);
@@ -131,7 +216,14 @@ namespace Trabalho_Pratico_AED{
                     grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
                     output_txt.AppendText("Empilhado!\n");
                 }
-                else if(this.estruturaSelecionada.Equals("Fila")){}//TODO: inserir filaDAO
+                else if(this.estruturaSelecionada.Equals("Fila")) {
+                    output_txt.AppendText("Enfileirando...\n");
+                    filaDAO.EnqueueElement(elemento);
+                    filaDAO.SalvarDAO();
+                    grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
+                    output_txt.AppendText("Enfileirado!\n");
+
+                }
                 else if (this.estruturaSelecionada.Equals("Lista"))
                 {
                     output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
@@ -150,6 +242,14 @@ namespace Trabalho_Pratico_AED{
             else{
                 output_txt.AppendText("Não é possível inserir elementos não-inteiros!\n");
             }
+        }
+
+        private void formStructures_Load(object sender, EventArgs e) {
+            disableDelete();
+        }
+
+        private void btn_qtde_Click(object sender, EventArgs e) {
+
         }
     }
 }
