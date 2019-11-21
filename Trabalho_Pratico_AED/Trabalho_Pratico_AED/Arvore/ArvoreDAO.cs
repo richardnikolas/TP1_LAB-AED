@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Trabalho_Pratico_AED.Arvore {
-    class ArvoreDAO {
+    public class ArvoreDAO {
         List<int> valuesToOutput;
         private ArvoreABP tree;
         private RichTextBox output_txt;

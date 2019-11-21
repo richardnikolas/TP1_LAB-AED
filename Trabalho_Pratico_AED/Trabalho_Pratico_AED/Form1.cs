@@ -8,7 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Exercicios.Exercicio1;
 using Trabalho_Pratico_AED;
+using Trabalho_Pratico_AED.Arvore;
 using Trabalho_Pratico_AED.Pilha;
 using Trabalho_Pratico_AED.Fila;
 using VS_Code;
@@ -31,7 +33,9 @@ namespace Trabalho_Pratico_AED{
 
         public ListaDAO listaDao;
 
-        //TODO: inserir arvoreDAO
+        public ArvoreDAO arvoreDao;
+        
+        public HashDAO hashDao;
 
         //TODO: inserir hashDAO
         
@@ -42,6 +46,7 @@ namespace Trabalho_Pratico_AED{
             this.pilhaDAO = new PilhaDAO(output_txt);
             this.listaDao = new ListaDAO(output_txt);
             this.filaDAO = new QueueDAO(output_txt);
+            this.arvoreDao = new ArvoreDAO(output_txt);
         }
 
         public void disableDelete() {
@@ -113,7 +118,7 @@ namespace Trabalho_Pratico_AED{
             }
             catch (Exception ex){
                 this.output_txt.AppendText("Falha ao carregar DAO.\n ");
-                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.StackTrace +"\n");
+                this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
@@ -173,7 +178,17 @@ namespace Trabalho_Pratico_AED{
             ContadorOperacoes.Reset();
             estruturaSelecionada = "Arvore";
             grid_tabelaOutput.DataSource = null;
-            //TODO: inserir arvoreDAO
+            try{
+                arvoreDao.CarregarDAO();
+            }
+            catch (Exception ex){
+                this.output_txt.AppendText("Falha ao carregar Arvore!\n ");
+                this.output_txt.AppendText("Exceção: \n " + ex.Message + "\n Local : \n" + ex.Source + "\n");
+            }
+            grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k => new { Valor = k }).ToList();
+            this.output_txt.AppendText("DAO Carregado!\n ");
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_hash_Click(object sender, EventArgs e){
@@ -185,19 +200,23 @@ namespace Trabalho_Pratico_AED{
             ContadorOperacoes.Reset();
             estruturaSelecionada = "Hash";
             grid_tabelaOutput.DataSource = null;
-            //TODO: inserir hashDAO
+            
+            //hash aqui
+            
+            this.output_txt.AppendText("DAO Carregado!\n ");
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_delete_Click(object sender, EventArgs e){
+            ContadorOperacoes.Reset();
             output_txt.Clear();
             if (this.estruturaSelecionada.Equals("Pilha")){
                 output_txt.AppendText("Desempilhando...\n");
                 this.pilhaDAO.Desempilhar();
                 this.pilhaDAO.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
-                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                ContadorOperacoes.Reset();
+                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();  
             }
             else if(this.estruturaSelecionada.Equals("Fila")){
                 output_txt.AppendText("Desenfileirando...\n");
@@ -205,8 +224,6 @@ namespace Trabalho_Pratico_AED{
                 this.filaDAO.SalvarDAO();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
-                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                ContadorOperacoes.Reset();
             }
             else if (this.estruturaSelecionada.Equals("Lista")){
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
@@ -214,11 +231,21 @@ namespace Trabalho_Pratico_AED{
                 this.listaDao.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
-                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                ContadorOperacoes.Reset();
             }
-            else if(this.estruturaSelecionada.Equals("Arvore")){}//TODO: inserir arvoreDAO
-            else if(this.estruturaSelecionada.Equals("Hash")){}//TODO: inserir hashDAO
+            else if (this.estruturaSelecionada.Equals("Arvore")){
+                int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
+                output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Árvore...\n");
+                this.arvoreDao.RemoveElement(valorASerRemovido);
+                this.arvoreDao.SalvarDAO();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k=> new {Valor = k}).ToList();
+            }
+            else if (this.estruturaSelecionada.Equals("Hash"))
+            {
+                
+            }//TODO: inserir hashDAO
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_inserir_Click(object sender, EventArgs e){
@@ -294,7 +321,9 @@ namespace Trabalho_Pratico_AED{
             }
             else if (this.estruturaSelecionada.Equals("Arvore"))
             {
-                
+                arvoreDao.LimparDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k => new { Valor = k }).ToList();
             }
             else if (this.estruturaSelecionada.Equals("Hash"))
             {

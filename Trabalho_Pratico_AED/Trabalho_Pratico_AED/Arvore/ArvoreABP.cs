@@ -120,7 +120,7 @@ namespace Trabalho_Pratico_AED.Arvore {
                 Withdraw(value, root);
                 Console.WriteLine("\n\t Valor removido!");
                 quantity--;
-                ContadorOperacoes.Incrementa(4);
+                ContadorOperacoes.Incrementa(3);
             }
         }
         private Node Withdraw(int value, Node node) {
