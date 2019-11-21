@@ -1,6 +1,6 @@
 ﻿using System;
 
-﻿namespace Exercicios.Exercicio3 {
+﻿namespace Trabalho_Pratico_AED.Arvore {
 
     public class Nodulo {
 
