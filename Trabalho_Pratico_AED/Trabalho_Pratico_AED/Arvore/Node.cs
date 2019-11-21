@@ -24,6 +24,7 @@
             this.balanceFactor = 0;
             this.height = 1;
             this.depth = 0;
+            ContadorOperacoes.Incrementa(6);
         }
         public Node(int value){
             esq = null;
@@ -32,10 +33,12 @@
             balanceFactor = 0;
             height = 1;
             depth = 0;
+            ContadorOperacoes.Incrementa(6);
         }
 
         public void setEsq(Node esq) {
             this.esq = esq;
+            ContadorOperacoes.Incrementa();
         }
 
         public Node getEsq() {
@@ -44,6 +47,7 @@
 
         public void setDir(Node dir) {
             this.dir = dir;
+            ContadorOperacoes.Incrementa();
         }
 
         public Node getDir() {
@@ -52,6 +56,7 @@
 
         public void setItem(object item) {
             this.item = (int)item;
+            ContadorOperacoes.Incrementa();
         }
 
         public object getItem() {

@@ -9,7 +9,6 @@
         <e p="App.config" t="Include" />
         <e p="Arvore" t="Include">
           <e p="ArvoreABP.cs" t="Include" />
-          <e p="ArvoreAVL.cs" t="Include" />
           <e p="ArvoreDAO.cs" t="Include" />
           <e p="Node.cs" t="Include" />
         </e>

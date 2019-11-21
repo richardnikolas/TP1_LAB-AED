@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Arvore\ArvoreABP.cs" />
-    <Compile Include="Arvore\ArvoreAVL.cs" />
     <Compile Include="Arvore\ArvoreDAO.cs" />
     <Compile Include="Arvore\Node.cs" />
     <Compile Include="ContadorOperacoes.cs" />

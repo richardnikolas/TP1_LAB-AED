@@ -27,13 +27,16 @@ namespace Trabalho_Pratico_AED.Fila {
         public void EnqueueElement(int elemento) {
             valuesToOutput.Add(elemento);
             this.queue.Enqueue(elemento);
+            ContadorOperacoes.Incrementa(2);
         }
 
         public void DequeueElement() {
             if(valuesToOutput.Count > 0) {
                 try {
                     queue.Dequeue();
+                    ContadorOperacoes.Incrementa();
                     valuesToOutput.RemoveAt(0);
+                    ContadorOperacoes.Incrementa();
                 }
                 catch (Exception e){
                     output_txt.AppendText("Ocorreu um erro interno!\n");
@@ -51,10 +54,13 @@ namespace Trabalho_Pratico_AED.Fila {
 
             try {
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+                ContadorOperacoes.Incrementa();
 
                 fs = new FileStream(path, FileMode.OpenOrCreate);
+                ContadorOperacoes.Incrementa();
 
                 ser.Serialize(fs, valuesToOutput);
+                ContadorOperacoes.Incrementa();
 
                 output_txt.AppendText("Fila salva!\n");
             } catch (Exception e) {
@@ -68,15 +74,19 @@ namespace Trabalho_Pratico_AED.Fila {
             output_txt.AppendText("Carregando fila...\n");
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            ContadorOperacoes.Incrementa(2);
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 valuesToOutput = ser.Deserialize(fs) as List<int>;
+                ContadorOperacoes.Incrementa();
             } catch(Exception e) { 
                 ser.Serialize(fs, valuesToOutput);
+                ContadorOperacoes.Incrementa();
                 throw e;
             } finally {
                 fs.Close();
+                ContadorOperacoes.Incrementa();
             }
 
             output_txt.AppendText("Fila carregada!\n");
@@ -86,6 +96,7 @@ namespace Trabalho_Pratico_AED.Fila {
             output_txt.AppendText("Limpando Lista...\n");
             queue = new Queue();
             this.valuesToOutput = new List<int>();
+            ContadorOperacoes.Incrementa(2);
             SalvarDAO();
             this.output_txt.AppendText("Lista Limpa!\n");
         }

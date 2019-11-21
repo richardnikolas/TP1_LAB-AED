@@ -23,13 +23,13 @@ namespace Trabalho_Pratico_AED.Pilha {
         
         private Pilha pilha;
         private RichTextBox output_txt;
-        private string caminho;
+        static private string caminho = "C://temp//pilha.xml";
 
         public PilhaDAO(RichTextBox output_txt) {
             this.pilha = new Pilha();
             this.valoresParaOutput = new List<int>();
             this.output_txt = output_txt;
-            this.caminho = "C://temp//pilha.xml";
+            ContadorOperacoes.Incrementa(3);
         }
 
         public List<int> Listar() { return this.valoresParaOutput; }
@@ -37,13 +37,16 @@ namespace Trabalho_Pratico_AED.Pilha {
         public void Empilhar(int elemento) {
             this.valoresParaOutput.Add(elemento);
             this.pilha.Empilha(elemento);
+            ContadorOperacoes.Incrementa(2);
         }
 
         public void Desempilhar() {
             if (this.valoresParaOutput.Count >0) {
                 try {
                     this.pilha.Desempilha();
+                    ContadorOperacoes.Incrementa();
                     this.valoresParaOutput.RemoveAt(this.valoresParaOutput.Count - 1);
+                    ContadorOperacoes.Incrementa();
                 }
                 catch (Exception e) {
                     this.output_txt.AppendText("Ocorreu um erro Interno!\n");
@@ -62,12 +65,15 @@ namespace Trabalho_Pratico_AED.Pilha {
             try {
                 //Acesso a dados XML (DAO):
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+                ContadorOperacoes.Incrementa();
 
                 //Carrega o aqruivo da memória:
                 fs = new FileStream(caminho, FileMode.OpenOrCreate);
+                ContadorOperacoes.Incrementa();
 
                 //Usando a lista criada e mandando para o FileStream, num formato de XML:
                 ser.Serialize(fs, this.valoresParaOutput);
+                ContadorOperacoes.Incrementa();
             }
             catch (Exception e) {
                 this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
@@ -81,18 +87,23 @@ namespace Trabalho_Pratico_AED.Pilha {
             this.output_txt.AppendText("Carregando Pilha...\n");
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+            ContadorOperacoes.Incrementa();
             FileStream fs = new FileStream(caminho, FileMode.OpenOrCreate);
+            ContadorOperacoes.Incrementa();
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 this.valoresParaOutput = ser.Deserialize(fs) as List<int>;
+                ContadorOperacoes.Incrementa();
             }
             catch(Exception e) {
                 ser.Serialize(fs, this.valoresParaOutput);
+                ContadorOperacoes.Incrementa();
                 throw e;
             }
             finally {
                 fs.Close();
+                ContadorOperacoes.Incrementa();
             }
 
             this.output_txt.AppendText("Pilha Carregada!\n");
@@ -102,6 +113,7 @@ namespace Trabalho_Pratico_AED.Pilha {
             this.output_txt.AppendText("Limpando Lista...\n");
             this.pilha = new Pilha();
             this.valoresParaOutput = new List<int>();
+            ContadorOperacoes.Incrementa(2);
             SalvarDao();
             this.output_txt.AppendText("Lista Limpa!\n");
         }
