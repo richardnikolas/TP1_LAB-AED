@@ -17,6 +17,9 @@ namespace Exercicios.Exercicio1{
 
         public TabelaHashLinear() {
             _struct = new List<int>[1000];
+            for (int i = 0; i < _struct.Length; i++){
+                _struct[i] = new List<int>();
+            }
             ContadorOperacoes.Increment();
         }
 

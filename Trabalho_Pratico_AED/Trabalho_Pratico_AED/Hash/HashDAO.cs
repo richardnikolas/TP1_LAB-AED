@@ -24,6 +24,9 @@ namespace Exercicios.Exercicio1
         public HashDAO(RichTextBox output_txt){
             this.linearHashTable = new TabelaHashLinear(1000);
             this.outputValues = new List<int>[1000];
+            for (int i = 0; i < outputValues.Length; i++){
+                outputValues[i] = new List<int>();
+            }
             this.output_txt = output_txt;
             ContadorOperacoes.Increment(3);
         }

@@ -47,6 +47,7 @@ namespace Trabalho_Pratico_AED{
             this.listaDao = new ListaDAO(output_txt);
             this.filaDAO = new QueueDAO(output_txt);
             this.arvoreDao = new ArvoreDAO(output_txt);
+            this.hashDao = new HashDAO(output_txt);
         }
 
         public void DisableDelete() {

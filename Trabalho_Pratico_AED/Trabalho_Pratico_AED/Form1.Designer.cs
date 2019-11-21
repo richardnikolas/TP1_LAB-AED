@@ -58,9 +58,6 @@
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btn_pilha
-            // 
             this.btn_pilha.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_pilha.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_pilha.ForeColor = System.Drawing.Color.White;
@@ -71,9 +68,6 @@
             this.btn_pilha.Text = "Pilha";
             this.btn_pilha.UseVisualStyleBackColor = false;
             this.btn_pilha.Click += new System.EventHandler(this.btn_pilha_Click_1);
-            // 
-            // grid_tabelaOutput
-            // 
             this.grid_tabelaOutput.BackgroundColor = System.Drawing.Color.DimGray;
             this.grid_tabelaOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid_tabelaOutput.ColumnHeadersHeightSizeMode =
@@ -82,9 +76,6 @@
             this.grid_tabelaOutput.Name = "grid_tabelaOutput";
             this.grid_tabelaOutput.Size = new System.Drawing.Size(398, 185);
             this.grid_tabelaOutput.TabIndex = 1;
-            // 
-            // btn_lista
-            // 
             this.btn_lista.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_lista.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_lista.ForeColor = System.Drawing.Color.White;
@@ -95,9 +86,6 @@
             this.btn_lista.Text = "Lista";
             this.btn_lista.UseVisualStyleBackColor = false;
             this.btn_lista.Click += new System.EventHandler(this.btn_lista_Click);
-            // 
-            // btn_fila
-            // 
             this.btn_fila.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_fila.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_fila.ForeColor = System.Drawing.Color.White;
@@ -108,9 +96,6 @@
             this.btn_fila.Text = "Fila";
             this.btn_fila.UseVisualStyleBackColor = false;
             this.btn_fila.Click += new System.EventHandler(this.btn_fila_Click);
-            // 
-            // btn_arvore
-            // 
             this.btn_arvore.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_arvore.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_arvore.ForeColor = System.Drawing.Color.White;
@@ -121,9 +106,6 @@
             this.btn_arvore.Text = "Árvore";
             this.btn_arvore.UseVisualStyleBackColor = false;
             this.btn_arvore.Click += new System.EventHandler(this.btn_arvore_Click);
-            // 
-            // btn_hash
-            // 
             this.btn_hash.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btn_hash.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_hash.ForeColor = System.Drawing.Color.White;
@@ -134,9 +116,6 @@
             this.btn_hash.Text = "Hash";
             this.btn_hash.UseVisualStyleBackColor = false;
             this.btn_hash.Click += new System.EventHandler(this.btn_hash_Click);
-            // 
-            // btn_inserir
-            // 
             this.btn_inserir.Location = new System.Drawing.Point(140, 18);
             this.btn_inserir.Name = "btn_inserir";
             this.btn_inserir.Size = new System.Drawing.Size(75, 23);
@@ -144,16 +123,10 @@
             this.btn_inserir.Text = "Inserir";
             this.btn_inserir.UseVisualStyleBackColor = true;
             this.btn_inserir.Click += new System.EventHandler(this.btn_inserir_Click);
-            // 
-            // inserir_txt
-            // 
             this.inserir_txt.Location = new System.Drawing.Point(48, 18);
             this.inserir_txt.Name = "inserir_txt";
             this.inserir_txt.Size = new System.Drawing.Size(84, 23);
             this.inserir_txt.TabIndex = 7;
-            // 
-            // btn_delete
-            // 
             this.btn_delete.Location = new System.Drawing.Point(140, 48);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(75, 24);
@@ -161,9 +134,6 @@
             this.btn_delete.Text = "Deletar";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
-            // 
-            // output_txt
-            // 
             this.output_txt.BackColor = System.Drawing.Color.Indigo;
             this.output_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.output_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F,
@@ -175,18 +145,12 @@
             this.output_txt.Size = new System.Drawing.Size(247, 255);
             this.output_txt.TabIndex = 9;
             this.output_txt.Text = "";
-            // 
-            // btn_ordenar
-            // 
             this.btn_ordenar.Location = new System.Drawing.Point(150, 31);
             this.btn_ordenar.Name = "btn_ordenar";
             this.btn_ordenar.Size = new System.Drawing.Size(79, 24);
             this.btn_ordenar.TabIndex = 10;
             this.btn_ordenar.Text = "Ordenar";
             this.btn_ordenar.UseVisualStyleBackColor = true;
-            // 
-            // btn_qtde
-            // 
             this.btn_qtde.Location = new System.Drawing.Point(237, 31);
             this.btn_qtde.Name = "btn_qtde";
             this.btn_qtde.Size = new System.Drawing.Size(168, 24);
@@ -194,9 +158,6 @@
             this.btn_qtde.Text = "Quantidade de Elementos";
             this.btn_qtde.UseVisualStyleBackColor = true;
             this.btn_qtde.Click += new System.EventHandler(this.btn_qtde_Click);
-            // 
-            // label1
-            // 
             this.label1.BackColor = System.Drawing.Color.Indigo;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold,
                 System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -207,9 +168,6 @@
             this.label1.TabIndex = 12;
             this.label1.Text = "Algoritmos e Estruturas de Dados";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // groupBox1
-            // 
             this.groupBox1.Controls.Add(this.grid_tabelaOutput);
             this.groupBox1.Location = new System.Drawing.Point(12, 135);
             this.groupBox1.Name = "groupBox1";
@@ -217,9 +175,6 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visualização da estrutura de dados";
-            // 
-            // groupBox2
-            // 
             this.groupBox2.Controls.Add(this.output_txt);
             this.groupBox2.Location = new System.Drawing.Point(435, 135);
             this.groupBox2.Name = "groupBox2";
@@ -227,9 +182,6 @@
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros";
-            // 
-            // groupBox3
-            // 
             this.groupBox3.Controls.Add(this.btn_limpar);
             this.groupBox3.Controls.Add(this.btn_ordenar);
             this.groupBox3.Controls.Add(this.btn_qtde);
@@ -239,9 +191,6 @@
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Painel de controle";
-            // 
-            // groupBox4
-            // 
             this.groupBox4.Controls.Add(this.btn_pilha);
             this.groupBox4.Controls.Add(this.btn_lista);
             this.groupBox4.Controls.Add(this.btn_fila);
@@ -253,9 +202,6 @@
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Selecione a estrutura de dados:";
-            // 
-            // groupBox5
-            // 
             this.groupBox5.Controls.Add(this.delete_txt);
             this.groupBox5.Controls.Add(this.inserir_txt);
             this.groupBox5.Controls.Add(this.btn_inserir);
@@ -266,25 +212,16 @@
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Inserir números";
-            // 
-            // delete_txt
-            // 
             this.delete_txt.Location = new System.Drawing.Point(48, 48);
             this.delete_txt.Name = "delete_txt";
             this.delete_txt.Size = new System.Drawing.Size(84, 23);
             this.delete_txt.TabIndex = 9;
-            // 
-            // label2
-            // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(10, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 15);
             this.label2.TabIndex = 18;
             this.label2.Text = "Estrutura Atual:";
-            // 
-            // labelSelectedStructure
-            // 
             this.labelSelectedStructure.BackColor = System.Drawing.Color.Indigo;
             this.labelSelectedStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F,
                 System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
@@ -294,9 +231,6 @@
             this.labelSelectedStructure.Size = new System.Drawing.Size(311, 27);
             this.labelSelectedStructure.TabIndex = 19;
             this.labelSelectedStructure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_limpar
-            // 
             this.btn_limpar.Location = new System.Drawing.Point(65, 32);
             this.btn_limpar.Name = "btn_limpar";
             this.btn_limpar.Size = new System.Drawing.Size(79, 24);
@@ -304,9 +238,6 @@
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = true;
             this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
-            // 
-            // formStructures
-            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
