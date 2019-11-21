@@ -47,32 +47,26 @@ namespace Exercicios.Exercicio1{
             }
         }
 
-        public static void testarTudo(){
-            TabelaHashLinear hashLinear = new TabelaHashLinear();
-            Console.WriteLine("Teste iniciado...");
-            int numeroInserido = geradorNumeroAleatorio.Next(0, 1000);
-            testarInsercao(hashLinear, numeroInserido);
-            testarRemocao(hashLinear,numeroInserido);
-            testarInsercao(hashLinear, (numeroInserido*10));
-            testarRemocao(hashLinear, numeroInserido);
-            Console.WriteLine("Teste encerrado");
+        public int getQuant(){
+            int count = 0;
+            if (!estaVazia()){
+                foreach (List<int> lista in estrutura){
+                    if (lista.Count > 0){
+                        foreach (int elemento in lista){
+                            ++count;
+                        }
+                    }
+                }
+            }
+            return count;
         }
 
-        private static void testarInsercao(TabelaHashLinear hashLinear, int numeroInserido){
-            Console.WriteLine("Inserindo número " + numeroInserido+"...");
-            hashLinear.inserir(numeroInserido);
-            hashLinear.imprimir();
-            Console.WriteLine("Aperte qualquer tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
-        }
-        private static void testarRemocao(TabelaHashLinear hashLinear, int numeroInserido){
-            Console.WriteLine("Removendo número " + numeroInserido+"...");
-            hashLinear.remover(numeroInserido);
-            hashLinear.imprimir();
-            Console.WriteLine("Aperte qualquer tecla para continuar...");
-            Console.ReadKey();
-            Console.Clear();
+        public bool estaVazia(){
+            foreach (List<int> lista in estrutura){
+                if (lista.Count > 0)
+                    return false;
+            }
+            return true;
         }
     }
 }

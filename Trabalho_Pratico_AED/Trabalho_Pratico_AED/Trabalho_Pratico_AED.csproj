@@ -64,6 +64,7 @@
     <Compile Include="FormExperimental.Designer.cs">
       <DependentUpon>FormExperimental.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hash\HashDAO.cs" />
     <Compile Include="Hash\TabelaHashLinear.cs" />
     <Compile Include="Lista\Celula.cs" />
     <Compile Include="Lista\ListaDAO.cs" />
