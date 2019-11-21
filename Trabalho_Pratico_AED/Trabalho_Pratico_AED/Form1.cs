@@ -44,7 +44,55 @@ namespace Trabalho_Pratico_AED{
             this.filaDAO = new FilaDAO(output_txt);
         }
 
+        public void changeEnabled(byte option) {
+            switch(option) {
+                case 1:
+                    btn_pilha.Enabled = false;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 2:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = false;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 3:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = false;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+                case 4:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = false;
+                    btn_hash.Enabled = true;
+                    break;
+                case 5:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = false;
+                    break;
+                default:
+                    btn_pilha.Enabled = true;
+                    btn_lista.Enabled = true;
+                    btn_fila.Enabled = true;
+                    btn_arvore.Enabled = true;
+                    btn_hash.Enabled = true;
+                    break;
+            }
+        }
+
         private void btn_pilha_Click_1(object sender, EventArgs e){
+            changeEnabled(1);
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
             grid_tabelaOutput.DataSource = null;
@@ -61,6 +109,7 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
+            changeEnabled(2);
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
             estruturaSelecionada = "Lista";
@@ -77,6 +126,7 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
+            changeEnabled(3);
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
             estruturaSelecionada = "Fila";
@@ -92,6 +142,7 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
+            changeEnabled(4);
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
             estruturaSelecionada = "Arvore";
@@ -100,6 +151,7 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_hash_Click(object sender, EventArgs e){
+            changeEnabled(5);
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
             estruturaSelecionada = "Hash";
