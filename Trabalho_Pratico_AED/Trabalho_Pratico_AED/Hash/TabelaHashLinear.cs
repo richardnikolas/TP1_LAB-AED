@@ -6,7 +6,6 @@ using System.Collections.Generic;
 namespace Exercicios.Exercicio1{
     public class TabelaHashLinear{
         private List<int>[] estrutura;
-        static private Random geradorNumeroAleatorio = new Random(DateTime.Now.Millisecond);
 
         public TabelaHashLinear() {
             estrutura = new List<int>[1000];
@@ -63,7 +62,6 @@ namespace Exercicios.Exercicio1{
 
         public int getQuant() {
             int count = 0;
-
             if (!estaVazia()){
                 foreach (List<int> lista in estrutura) {
                     if (lista.Count > 0) {
@@ -74,7 +72,6 @@ namespace Exercicios.Exercicio1{
                     }
                 }
             }
-
             return count;
         }
 
@@ -85,6 +82,10 @@ namespace Exercicios.Exercicio1{
                     return false;
             }
             return true;
+        }
+
+        public List<int>[] getEstrutura(){
+            return this.estrutura;
         }
     }
 }

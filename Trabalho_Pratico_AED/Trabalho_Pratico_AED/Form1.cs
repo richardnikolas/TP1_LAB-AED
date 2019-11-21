@@ -200,9 +200,16 @@ namespace Trabalho_Pratico_AED{
             ContadorOperacoes.Reset();
             estruturaSelecionada = "Hash";
             grid_tabelaOutput.DataSource = null;
-            
-            //hash aqui
-            
+            try
+            {
+                hashDao.CarregarDao();
+            }
+            catch (Exception ex)
+            {
+                this.output_txt.AppendText("Falha ao carregar Tabela Hash!\n ");
+                this.output_txt.AppendText("Exceção: \n " + ex.Message + "\n Local : \n" + ex.Source + "\n");
+            }
+            grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
             this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
             ContadorOperacoes.Reset();
@@ -240,15 +247,20 @@ namespace Trabalho_Pratico_AED{
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k=> new {Valor = k}).ToList();
             }
-            else if (this.estruturaSelecionada.Equals("Hash"))
-            {
-                
-            }//TODO: inserir hashDAO
+            else if (this.estruturaSelecionada.Equals("Hash")){
+                int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
+                output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Tabela Hash...\n");
+                this.hashDao.remover(valorASerRemovido);
+                this.hashDao.SalvarDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+            }
             this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
             ContadorOperacoes.Reset();
         }
 
         private void btn_inserir_Click(object sender, EventArgs e){
+            ContadorOperacoes.Reset();
             output_txt.Clear();
             grid_tabelaOutput.DataSource = null;
             int elemento;
@@ -259,8 +271,6 @@ namespace Trabalho_Pratico_AED{
                     this.pilhaDAO.SalvarDao();
                     grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
                     output_txt.AppendText("Empilhado!\n");
-                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                    ContadorOperacoes.Reset();
                 }
                 else if(this.estruturaSelecionada.Equals("Fila")) {
                     output_txt.AppendText("Enfileirando...\n");
@@ -268,30 +278,34 @@ namespace Trabalho_Pratico_AED{
                     filaDAO.SalvarDAO();
                     grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
                     output_txt.AppendText("Enfileirado!\n");
-                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                    ContadorOperacoes.Reset();
-
                 }
-                else if (this.estruturaSelecionada.Equals("Lista"))
-                {
+                else if (this.estruturaSelecionada.Equals("Lista")){
                     output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
                     this.listaDao.Inserir(elemento);
                     this.listaDao.SalvarDao();
                     grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
                     output_txt.AppendText("Elemento inserido!\n");
-                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-                    ContadorOperacoes.Reset();
                 }
-                else if (this.estruturaSelecionada.Equals("Arvore"))
-                {
+                else if (this.estruturaSelecionada.Equals("Arvore")){
+                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
+                    this.arvoreDao.InsertElement(elemento);
+                    this.arvoreDao.SalvarDAO();
+                    grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k=> new {Valor = k}).ToList();
+                    output_txt.AppendText("Elemento inserido!\n");
                 }
-                else if (this.estruturaSelecionada.Equals("Hash"))
-                {
+                else if (this.estruturaSelecionada.Equals("Hash")){
+                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
+                    this.hashDao.inserir(elemento);
+                    this.hashDao.SalvarDao();
+                    grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+                    output_txt.AppendText("Elemento inserido!\n");
                 }
             }
             else{
                 output_txt.AppendText("Não é possível inserir elementos não-inteiros!\n");
             }
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void formStructures_Load(object sender, EventArgs e) {
@@ -319,15 +333,15 @@ namespace Trabalho_Pratico_AED{
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k => new { Valor = k }).ToList();
             }
-            else if (this.estruturaSelecionada.Equals("Arvore"))
-            {
+            else if (this.estruturaSelecionada.Equals("Arvore")){
                 arvoreDao.LimparDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k => new { Valor = k }).ToList();
             }
-            else if (this.estruturaSelecionada.Equals("Hash"))
-            {
-                
+            else if (this.estruturaSelecionada.Equals("Hash")){
+                hashDao.LimparDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
             }
             this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
             ContadorOperacoes.Reset();
