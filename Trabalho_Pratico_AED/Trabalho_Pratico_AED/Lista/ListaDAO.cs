@@ -16,28 +16,28 @@ namespace VS_Code{
          *       Fabio Leandro Rodrigues Cordeiro
          */
         
-        private List<int> lista;
+        private List<int> list;
         private RichTextBox output_txt;
-        static private string caminho = "C://temp//lista.xml";
+        static private string path = "C://temp//lista.xml";
 
         public ListaDAO(RichTextBox output_txt) {
             this.output_txt = output_txt;
-            this.lista = new List<int>();
-            ContadorOperacoes.Incrementa(2);
+            this.list = new List<int>();
+            ContadorOperacoes.Increment(2);
         }
 
-        public List<int> Listar() { return this.lista; }
+        public List<int> Listar() { return this.list; }
 
-        public void Inserir(int elemento) {
-            lista.Add(elemento);
-            ContadorOperacoes.Incrementa();
+        public void Inserir(int element) {
+            list.Add(element);
+            ContadorOperacoes.Increment();
         }
 
-        public void Remover(int indiceDaRemocao) {
-            if (lista.Count > 0) {
+        public void Remover(int indexToRemove) {
+            if (list.Count > 0) {
                 try {
-                    lista.RemoveAt(indiceDaRemocao);
-                    ContadorOperacoes.Incrementa(2);
+                    list.RemoveAt(indexToRemove);
+                    ContadorOperacoes.Increment(2);
                 }
                 catch (Exception e) {
                     this.output_txt.AppendText("ERRO! Não é possivel remover o íncide específicado!\n");
@@ -56,22 +56,22 @@ namespace VS_Code{
             try {
                 //Acesso a dados XML (DAO):
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
 
                 //Carrega o aqruivo da memória:
-                fs = new FileStream(caminho, FileMode.OpenOrCreate);
-                ContadorOperacoes.Incrementa();
+                fs = new FileStream(path, FileMode.OpenOrCreate);
+                ContadorOperacoes.Increment();
 
                 //Usando a lista criada e mandando para o FileStream, num formato de XML:
-                ser.Serialize(fs, this.lista);
-                ContadorOperacoes.Incrementa();
+                ser.Serialize(fs, this.list);
+                ContadorOperacoes.Increment();
             }
             catch (Exception e) {
                 this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
             }
 
             fs.Close();
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
             this.output_txt.AppendText("Lista Salva!\n");
         }
 
@@ -79,23 +79,23 @@ namespace VS_Code{
             this.output_txt.AppendText("Carregando Lista...\n");
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-            ContadorOperacoes.Incrementa();
-            FileStream fs = new FileStream(caminho, FileMode.OpenOrCreate);
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
+            FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+            ContadorOperacoes.Increment();
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                this.lista = ser.Deserialize(fs) as List<int>;
-                ContadorOperacoes.Incrementa();
+                this.list = ser.Deserialize(fs) as List<int>;
+                ContadorOperacoes.Increment();
             }
             catch(Exception e) {
-                ser.Serialize(fs, this.lista);
-                ContadorOperacoes.Incrementa();
+                ser.Serialize(fs, this.list);
+                ContadorOperacoes.Increment();
                 throw e;
             }
             finally {
                 fs.Close();
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
             }
 
             this.output_txt.AppendText("Lista Carregada!\n");
@@ -103,10 +103,10 @@ namespace VS_Code{
 
         public void LimparDao(){
             this.output_txt.AppendText("Limpando Lista...\n");
-            this.lista = new List<int>();
+            this.list = new List<int>();
             SalvarDao();
             this.output_txt.AppendText("Lista Limpa!\n");
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
         }
     }
 }

@@ -4,16 +4,24 @@ using System.Collections;
 namespace Trabalho_Pratico_AED.Pilha {
 
     public class Pilha : IEnumerable {
+        /*
+         * Tabela hash feita por Rodrigo Richard para as aulas de AED
+         *
+         * Autor: Rodrigo Richard
+         *
+         * Com ajustes por:
+         *       Philemon da Silva Souza
+         */
         private Celula Topo = null;
         private int Qtde = 0;
         public Pilha(){}
 
         public bool Vazia() { return Topo == null; }
 
-        public void Empilha(Object ValorItem) {
-            Topo = new Celula(ValorItem, Topo);
+        public void Empilha(Object itemValue) {
+            Topo = new Celula(itemValue, Topo);
             Qtde++;
-            ContadorOperacoes.Incrementa(2);
+            ContadorOperacoes.Increment(2);
         }
 
         public Object Desempilha() {
@@ -25,19 +33,19 @@ namespace Trabalho_Pratico_AED.Pilha {
                 Qtde--;
             }
 
-            ContadorOperacoes.Incrementa(3);
+            ContadorOperacoes.Increment(3);
             return Item;
         }
 
         /// <summary>
         /// Verifica se o Item passado como parâmetro está contido na lista. (Obs: usa o comando FOR)
         /// </summary>
-        public bool ContemFor(Object elemento) {
+        public bool ContemFor(Object element) {
             bool achou = false;
 
             for (Celula aux = Topo; aux != null && !achou; aux = aux.Prox){
-                ContadorOperacoes.Incrementa();
-                achou = aux.Item.Equals(elemento);
+                ContadorOperacoes.Increment();
+                achou = aux.Item.Equals(element);
             }
                 
 

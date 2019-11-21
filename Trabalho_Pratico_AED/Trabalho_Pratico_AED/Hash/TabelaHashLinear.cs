@@ -5,68 +5,76 @@ using System.Collections.Generic;
 
 namespace Exercicios.Exercicio1{
     public class TabelaHashLinear{
-        private List<int>[] estrutura;
+        /*
+         * Tabela hash feita de acordo com as recomendações de Fabio Leandro Rodrigues Cordeiro
+         *
+         * Autor: Felipe Ribeiro Lisboa Moreira
+         *
+         * Com suporte de:
+         *       Philemon da Silva Souza
+         */
+        private List<int>[] _struct;
 
         public TabelaHashLinear() {
-            estrutura = new List<int>[1000];
-            ContadorOperacoes.Incrementa();
+            _struct = new List<int>[1000];
+            ContadorOperacoes.Increment();
         }
 
-        public TabelaHashLinear(int tamanho) {
-            estrutura = new List<int>[tamanho];
-            ContadorOperacoes.Incrementa();
+        public TabelaHashLinear(int size) {
+            _struct = new List<int>[size];
+            ContadorOperacoes.Increment();
         }
 
-        private int retornaIndiceValido(int elemento) {
-            int indiceValido = elemento % estrutura.Length;
-            ContadorOperacoes.Incrementa();
-            while (estrutura[indiceValido].Count > 0 && indiceValido < estrutura.Length){
-                ContadorOperacoes.Incrementa();
+        private int GetValidIndex(int element) {
+            int indiceValido = element % _struct.Length;
+            ContadorOperacoes.Increment();
+            while (_struct[indiceValido].Count > 0 && indiceValido < _struct.Length){
+                ContadorOperacoes.Increment();
                 indiceValido++;
             }
 
             return indiceValido;
         }
 
-        public void inserir(int elemento) {
-            int indice = retornaIndiceValido(elemento);
-            estrutura[indice].Add(elemento);
-            ContadorOperacoes.Incrementa(2);
+        public void Inserir(int element) {
+            int indice = GetValidIndex(element);
+            _struct[indice].Add(element);
+            ContadorOperacoes.Increment(2);
         }
 
-        public void remover(int elemento) {
-            int indice = retornaIndiceValido(elemento);
+        public void Remover(int element) {
+            int indice = GetValidIndex(element);
 
-            if (estrutura[indice].Contains(elemento)){
-                ContadorOperacoes.Incrementa();
-                estrutura[indice].Remove(elemento);
+            if (_struct[indice].Contains(element)){
+                ContadorOperacoes.Increment();
+                _struct[indice].Remove(element);
             }
             else
-                WriteLine("Elemento " + elemento + " não encontrado na tabela!");
-            ContadorOperacoes.Incrementa(2);
+                WriteLine("Elemento " + element + " não encontrado na tabela!");
+            ContadorOperacoes.Increment(2);
         }
 
-        public void imprimir() {
-            int indice = 0;
+        public void Imprimir() {
+            int index = 0;
 
-            foreach (List<int> lista in estrutura) {
-                Write(indice + "[");
+            foreach (List<int> list in _struct) {
+                Write(index + "[");
 
-                foreach (int elemento in lista)
-                    Write(elemento);
+                foreach (int element in list)
+                    Write(element);
                 
                 WriteLine("]");
-                ++indice;
+                ++index;
             }
         }
 
-        public int getQuant() {
+        public int GetQuant() {
             int count = 0;
-            if (!estaVazia()){
-                foreach (List<int> lista in estrutura) {
-                    if (lista.Count > 0) {
-                        foreach (int elemento in lista) {
-                            ContadorOperacoes.Incrementa();
+            if (!IsEmpty()){
+                foreach (List<int> list in _struct) {
+                    if (list.Count > 0) {
+                        foreach (int elemento in list) {
+                            ContadorOperacoes.Increment();
                             ++count;
                         }
                     }
@@ -75,17 +83,17 @@ namespace Exercicios.Exercicio1{
             return count;
         }
 
-        public bool estaVazia() {
-            foreach (List<int> lista in estrutura) {
-                ContadorOperacoes.Incrementa();
+        public bool IsEmpty() {
+            foreach (List<int> lista in _struct) {
+                ContadorOperacoes.Increment();
                 if (lista.Count > 0)
                     return false;
             }
             return true;
         }
 
-        public List<int>[] getEstrutura(){
-            return this.estrutura;
+        public List<int>[] GetInternalStruct(){
+            return this._struct;
         }
     }
 }

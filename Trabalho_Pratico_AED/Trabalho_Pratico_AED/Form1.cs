@@ -20,11 +20,13 @@ namespace Trabalho_Pratico_AED{
         /*
          * Classe controladora do formulário.
          *
-         * Design: André Valentim
-         * Lógica: Philemon da Silva Souza
+         * Design: André Valentim 
+         * Lógica: Philemon da Silva Souza, André Valentim e Felipe Ribeiro Lisboa Moreira
+         * Documentação e ajustes de Legibilidade: Richard Nikolas, André Valentim e Philemon da Silva Souza
+         * Revisão, Testes e Correção de Bugs: Felipe Ribeiro lisboa Moreira
+         * 
          * Classes: Adicionadas do exercício de AED's passado na mesma semana.
          *          (créditos individuais podem ser encontrados na classe)
-         * Documentação: Richard Nikolas e André Valentim
          * 
          */
         public PilhaDAO pilhaDAO;
@@ -36,8 +38,6 @@ namespace Trabalho_Pratico_AED{
         public ArvoreDAO arvoreDao;
         
         public HashDAO hashDao;
-
-        //TODO: inserir hashDAO
         
         public string estruturaSelecionada;
         
@@ -49,15 +49,15 @@ namespace Trabalho_Pratico_AED{
             this.arvoreDao = new ArvoreDAO(output_txt);
         }
 
-        public void disableDelete() {
+        public void DisableDelete() {
             delete_txt.Enabled = false;
             btn_delete.Enabled = false;
         }
-        public void enableDelete() {
+        public void EnableDelete() {
             delete_txt.Enabled = true;
             btn_delete.Enabled = true;
         }
-        public void changeEnabled(byte option) {
+        public void ChangeEnabled(byte option) {
             switch(option) {
                 case 1:
                     btn_pilha.Enabled = false;
@@ -105,8 +105,8 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_pilha_Click_1(object sender, EventArgs e){
-            changeEnabled(1);
-            disableDelete();
+            ChangeEnabled(1);
+            DisableDelete();
             labelSelectedStructure.Text = "PILHA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
@@ -127,8 +127,8 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
-            changeEnabled(2);
-            enableDelete();
+            ChangeEnabled(2);
+            EnableDelete();
             labelSelectedStructure.Text = "LISTA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
@@ -149,8 +149,8 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
-            changeEnabled(3);
-            disableDelete();
+            ChangeEnabled(3);
+            DisableDelete();
             labelSelectedStructure.Text = "FILA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
@@ -170,8 +170,8 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
-            changeEnabled(4);
-            enableDelete();
+            ChangeEnabled(4);
+            EnableDelete();
             labelSelectedStructure.Text = "ÁRVORE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
@@ -192,8 +192,8 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void btn_hash_Click(object sender, EventArgs e){
-            changeEnabled(5);
-            enableDelete();
+            ChangeEnabled(5);
+            EnableDelete();
             labelSelectedStructure.Text = "HASHTABLE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
@@ -250,7 +250,7 @@ namespace Trabalho_Pratico_AED{
             else if (this.estruturaSelecionada.Equals("Hash")){
                 int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
                 output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Tabela Hash...\n");
-                this.hashDao.remover(valorASerRemovido);
+                this.hashDao.Remover(valorASerRemovido);
                 this.hashDao.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
@@ -295,7 +295,7 @@ namespace Trabalho_Pratico_AED{
                 }
                 else if (this.estruturaSelecionada.Equals("Hash")){
                     output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
-                    this.hashDao.inserir(elemento);
+                    this.hashDao.Inserir(elemento);
                     this.hashDao.SalvarDao();
                     grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
                     output_txt.AppendText("Elemento inserido!\n");
@@ -309,7 +309,7 @@ namespace Trabalho_Pratico_AED{
         }
 
         private void formStructures_Load(object sender, EventArgs e) {
-            disableDelete();
+            DisableDelete();
         }
 
         private void btn_qtde_Click(object sender, EventArgs e) {

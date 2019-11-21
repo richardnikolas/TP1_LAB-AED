@@ -18,7 +18,7 @@ namespace Trabalho_Pratico_AED.Arvore {
             tree = new ArvoreABP();
             valuesToOutput = new List<int>(1000);
             this.output_txt = output_txt;
-            ContadorOperacoes.Incrementa(3);
+            ContadorOperacoes.Increment(3);
         }
 
         public List<int> Listar() { return valuesToOutput; }
@@ -29,16 +29,16 @@ namespace Trabalho_Pratico_AED.Arvore {
         public void InsertElement(int elemento) {
             valuesToOutput.Add(elemento);
             this.tree.Insert(elemento);
-            ContadorOperacoes.Incrementa(2);
+            ContadorOperacoes.Increment(2);
         }
 
         public void RemoveElement(int elemento) {
             if(valuesToOutput.Count > 0) {
                 try {
                     tree.Remove(elemento);
-                    ContadorOperacoes.Incrementa();
+                    ContadorOperacoes.Increment();
                     valuesToOutput.Remove(elemento); // não será funcional.
-                    ContadorOperacoes.Incrementa();
+                    ContadorOperacoes.Increment();
                 } catch(Exception e) {
                     output_txt.AppendText("Ocorreu um erro interno!\n");
                     output_txt.AppendText("Mensagem da Exceção:\n" + e.Message);
@@ -46,7 +46,7 @@ namespace Trabalho_Pratico_AED.Arvore {
                 }
             } else
                 output_txt.AppendText("Não é possível remover um elemento de uma árvore de vazia!\n");
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
         }
 
         public void SalvarDAO() {
@@ -55,13 +55,13 @@ namespace Trabalho_Pratico_AED.Arvore {
 
             try {
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
 
                 fs = new FileStream(path, FileMode.OpenOrCreate);
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
 
                 ser.Serialize(fs, valuesToOutput);
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
 
                 output_txt.AppendText("Árvore binária salva!\n");
             } catch(Exception e) {
@@ -69,26 +69,26 @@ namespace Trabalho_Pratico_AED.Arvore {
             }
 
             fs.Close();
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
         }
 
         public void CarregarDAO() {
             output_txt.AppendText("Carregando árvore binária...\n");
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            ContadorOperacoes.Incrementa(2);
+            ContadorOperacoes.Increment(2);
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 valuesToOutput = ser.Deserialize(fs) as List<int>;
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
             } catch(Exception e) {
                 ser.Serialize(fs, valuesToOutput);
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
                 throw e;
             } finally {
                 fs.Close();
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
             }
 
             output_txt.AppendText("Árvore binária carregada!\n");
@@ -98,7 +98,7 @@ namespace Trabalho_Pratico_AED.Arvore {
             output_txt.AppendText("Limpando árvore binária...\n");
             tree = new ArvoreABP();
             this.valuesToOutput = new List<int>();
-            ContadorOperacoes.Incrementa(2);
+            ContadorOperacoes.Increment(2);
             SalvarDAO();
             this.output_txt.AppendText("Árvore binária limpa!\n");
         }

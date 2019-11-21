@@ -13,23 +13,23 @@ namespace Trabalho_Pratico_AED.Fila {
             firstCell = new Cell();
             lastCell = firstCell;
             quantity = 0;
-            ContadorOperacoes.Incrementa(3);
+            ContadorOperacoes.Increment(3);
         }
 
         public void Clear() {
             firstCell = new Cell();
             lastCell = firstCell;
             quantity = 0;
-            ContadorOperacoes.Incrementa(3);
+            ContadorOperacoes.Increment(3);
         }
 
         public int GetQuantity() {
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
             return quantity;
         }
         public void Enqueue(int value) {
             if (quantity <= 1000){
-                ContadorOperacoes.Incrementa();
+                ContadorOperacoes.Increment();
                 InsertNewCell(value);
             }
             else
@@ -41,7 +41,7 @@ namespace Trabalho_Pratico_AED.Fila {
             lastCell.Next = newCell;
             lastCell = lastCell.Next;
             quantity++;
-            ContadorOperacoes.Incrementa(4);
+            ContadorOperacoes.Increment(4);
         }
 
         public void Dequeue() {
@@ -52,9 +52,9 @@ namespace Trabalho_Pratico_AED.Fila {
             if(firstCell != lastCell) {
                 firstCell = firstCell.Next;
                 quantity--;
-                ContadorOperacoes.Incrementa(2);
+                ContadorOperacoes.Increment(2);
             }
-            ContadorOperacoes.Incrementa();
+            ContadorOperacoes.Increment();
         }
     }
 }

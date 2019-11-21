@@ -6,10 +6,10 @@
         public static void Reset(){
             quantOperacoes = 0;
         }
-        public static void Incrementa(){
+        public static void Increment(){
             ++quantOperacoes;
         }
-        public static void Incrementa(int numero){
+        public static void Increment(int numero){
             quantOperacoes+=numero;
         }
 
