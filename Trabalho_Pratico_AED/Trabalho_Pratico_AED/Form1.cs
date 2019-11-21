@@ -211,9 +211,9 @@ namespace Trabalho_Pratico_AED{
             else if (this.estruturaSelecionada.Equals("Lista")){
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
                 this.listaDao.Remover(grid_tabelaOutput.CurrentRow.Index);
-                this.pilhaDAO.SalvarDao();
+                this.listaDao.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
                 this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
                 ContadorOperacoes.Reset();
             }
