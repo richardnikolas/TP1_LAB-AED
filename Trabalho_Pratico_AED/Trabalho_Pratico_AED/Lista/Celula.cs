@@ -4,7 +4,7 @@ namespace VS_Code{
     
     #region Classe Celula - representa a célula utilizada pelas classes CLista, Fila e CPilha
     /// <summary>
-    /// Classe utilizada pelas classes CLista, Fila e CPilha
+    /// Classe utilizada pelas classes Lista, Fila e Pilha
     /// </summary>
     class Celula
     {

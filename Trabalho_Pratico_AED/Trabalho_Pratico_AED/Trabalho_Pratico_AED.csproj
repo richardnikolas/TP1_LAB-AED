@@ -50,6 +50,7 @@
     <Compile Include="Arvore\ArvoreAVL.cs" />
     <Compile Include="Arvore\ArvoreDAO.cs" />
     <Compile Include="Arvore\Node.cs" />
+    <Compile Include="ContadorOperacoes.cs" />
     <Compile Include="Fila\Cell.cs" />
     <Compile Include="Fila\Queue.cs" />
     <Compile Include="Fila\QueueDAO.cs" />
@@ -69,7 +70,6 @@
     <Compile Include="Hash\TabelaHashLinear.cs" />
     <Compile Include="Lista\Celula.cs" />
     <Compile Include="Lista\ListaDAO.cs" />
-    <Compile Include="Lista\ListaSimples.cs" />
     <Compile Include="Pilha\Celula.cs" />
     <Compile Include="Pilha\Pilha.cs" />
     <Compile Include="Pilha\PilhaDAO.cs" />

@@ -14,6 +14,7 @@
           <e p="Node.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="ContadorOperacoes.cs" t="Include" />
         <e p="Fila" t="Include">
           <e p="Cell.cs" t="Include" />
           <e p="Queue.cs" t="Include" />
@@ -32,7 +33,6 @@
         <e p="Lista" t="Include">
           <e p="Celula.cs" t="Include" />
           <e p="ListaDAO.cs" t="Include" />
-          <e p="ListaSimples.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive" />
         <e p="Pilha" t="Include">

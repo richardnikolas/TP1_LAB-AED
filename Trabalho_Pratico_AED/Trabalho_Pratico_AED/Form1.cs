@@ -18,7 +18,7 @@ namespace Trabalho_Pratico_AED{
         /*
          * Classe controladora do formulário.
          *
-         * Design: Philemon da Silva Souza
+         * Design: André Valentim
          * Lógica: Philemon da Silva Souza
          * Classes: Adicionadas do exercício de AED's passado na mesma semana.
          *          (créditos individuais podem ser encontrados na classe)
@@ -105,6 +105,7 @@ namespace Trabalho_Pratico_AED{
             labelSelectedStructure.Text = "PILHA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
+            ContadorOperacoes.Reset();
             grid_tabelaOutput.DataSource = null;
             this.estruturaSelecionada = "Pilha";
             try{
@@ -116,6 +117,8 @@ namespace Trabalho_Pratico_AED{
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
@@ -124,6 +127,7 @@ namespace Trabalho_Pratico_AED{
             labelSelectedStructure.Text = "LISTA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
+            ContadorOperacoes.Reset();
             estruturaSelecionada = "Lista";
             grid_tabelaOutput.DataSource = null;
             try{
@@ -135,6 +139,8 @@ namespace Trabalho_Pratico_AED{
             }
             grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
@@ -143,6 +149,7 @@ namespace Trabalho_Pratico_AED{
             labelSelectedStructure.Text = "FILA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
+            ContadorOperacoes.Reset();
             estruturaSelecionada = "Fila";
             grid_tabelaOutput.DataSource = null;
             try {
@@ -153,6 +160,8 @@ namespace Trabalho_Pratico_AED{
             }
             grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
@@ -161,6 +170,7 @@ namespace Trabalho_Pratico_AED{
             labelSelectedStructure.Text = "ÁRVORE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
+            ContadorOperacoes.Reset();
             estruturaSelecionada = "Arvore";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir arvoreDAO
@@ -172,6 +182,7 @@ namespace Trabalho_Pratico_AED{
             labelSelectedStructure.Text = "HASHTABLE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
+            ContadorOperacoes.Reset();
             estruturaSelecionada = "Hash";
             grid_tabelaOutput.DataSource = null;
             //TODO: inserir hashDAO
@@ -185,13 +196,17 @@ namespace Trabalho_Pratico_AED{
                 this.pilhaDAO.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                ContadorOperacoes.Reset();
             }
             else if(this.estruturaSelecionada.Equals("Fila")){
-                output_txt.AppendText("Desempilhando...\n");
+                output_txt.AppendText("Desenfileirando...\n");
                 this.filaDAO.DequeueElement();
                 this.filaDAO.SalvarDAO();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
+                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                ContadorOperacoes.Reset();
             }
             else if (this.estruturaSelecionada.Equals("Lista")){
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
@@ -199,6 +214,8 @@ namespace Trabalho_Pratico_AED{
                 this.pilhaDAO.SalvarDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                ContadorOperacoes.Reset();
             }
             else if(this.estruturaSelecionada.Equals("Arvore")){}//TODO: inserir arvoreDAO
             else if(this.estruturaSelecionada.Equals("Hash")){}//TODO: inserir hashDAO
@@ -215,6 +232,8 @@ namespace Trabalho_Pratico_AED{
                     this.pilhaDAO.SalvarDao();
                     grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
                     output_txt.AppendText("Empilhado!\n");
+                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                    ContadorOperacoes.Reset();
                 }
                 else if(this.estruturaSelecionada.Equals("Fila")) {
                     output_txt.AppendText("Enfileirando...\n");
@@ -222,6 +241,8 @@ namespace Trabalho_Pratico_AED{
                     filaDAO.SalvarDAO();
                     grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
                     output_txt.AppendText("Enfileirado!\n");
+                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                    ContadorOperacoes.Reset();
 
                 }
                 else if (this.estruturaSelecionada.Equals("Lista"))
@@ -231,6 +252,8 @@ namespace Trabalho_Pratico_AED{
                     this.listaDao.SalvarDao();
                     grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
                     output_txt.AppendText("Elemento inserido!\n");
+                    this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+                    ContadorOperacoes.Reset();
                 }
                 else if (this.estruturaSelecionada.Equals("Arvore"))
                 {

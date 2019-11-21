@@ -13,20 +13,25 @@ namespace Trabalho_Pratico_AED.Fila {
             firstCell = new Cell();
             lastCell = firstCell;
             quantity = 0;
+            ContadorOperacoes.Incrementa(3);
         }
 
         public void Clear() {
             firstCell = new Cell();
             lastCell = firstCell;
             quantity = 0;
+            ContadorOperacoes.Incrementa(3);
         }
 
         public int GetQuantity() {
+            ContadorOperacoes.Incrementa();
             return quantity;
         }
         public void Enqueue(int value) {
-            if(quantity <= 1000)
+            if (quantity <= 1000){
+                ContadorOperacoes.Incrementa();
                 InsertNewCell(value);
+            }
             else
                 Console.WriteLine("O tamanho máximo da fila foi atingido! [{0} elementos]", quantity);
         }
@@ -36,6 +41,7 @@ namespace Trabalho_Pratico_AED.Fila {
             lastCell.Next = newCell;
             lastCell = lastCell.Next;
             quantity++;
+            ContadorOperacoes.Incrementa(4);
         }
 
         public void Dequeue() {
@@ -46,7 +52,9 @@ namespace Trabalho_Pratico_AED.Fila {
             if(firstCell != lastCell) {
                 firstCell = firstCell.Next;
                 quantity--;
+                ContadorOperacoes.Incrementa(2);
             }
+            ContadorOperacoes.Incrementa();
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Trabalho_Pratico_AED.Pilha {
         public void Empilha(Object ValorItem) {
             Topo = new Celula(ValorItem, Topo);
             Qtde++;
+            ContadorOperacoes.Incrementa(2);
         }
 
         public Object Desempilha() {
@@ -24,6 +25,7 @@ namespace Trabalho_Pratico_AED.Pilha {
                 Qtde--;
             }
 
+            ContadorOperacoes.Incrementa(3);
             return Item;
         }
 
@@ -33,8 +35,11 @@ namespace Trabalho_Pratico_AED.Pilha {
         public bool ContemFor(Object elemento) {
             bool achou = false;
 
-            for (Celula aux = Topo; aux != null && !achou; aux = aux.Prox)
+            for (Celula aux = Topo; aux != null && !achou; aux = aux.Prox){
+                ContadorOperacoes.Incrementa();
                 achou = aux.Item.Equals(elemento);
+            }
+                
 
             return achou;
         }
