@@ -1,7 +1,7 @@
 ﻿﻿using System;
 
-namespace Exercicios.Exercicio3{
-    public class ArvoreAVL{
+namespace Trabalho_Pratico_AED.Arvore {
+    public class ArvoreAVL {
         
         /*
          * Arvore binária AVL feita por:

@@ -51,20 +51,15 @@ namespace Trabalho_Pratico_AED.Fila {
             quantity++;
         }
 
-        public object dequeue() {
-            return removeFirstCell();
+        public void dequeue() {
+           removeFirstCell();
         }
-
-        private object removeFirstCell() {
-            Celula firstOfQueue = null;
-
+        
+        private void removeFirstCell() {
             if(firstCell != lastCell) {
-                firstOfQueue = firstCell.getNext();
-                firstCell.setNext(firstCell.getNext().getNext());
+                firstCell = firstCell.getNext();
                 quantity--;
             }
-
-            return firstOfQueue.getValue();
         }
     }
 }
