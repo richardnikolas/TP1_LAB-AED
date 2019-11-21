@@ -61,7 +61,7 @@ namespace Trabalho_Pratico_AED.Fila {
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 valoresParaOutput = ser.Deserialize(fs) as List<int>;
-            } catch(Exception e) {
+            } catch(Exception e) { 
                 ser.Serialize(fs, valoresParaOutput);
                 throw e;
             } finally {

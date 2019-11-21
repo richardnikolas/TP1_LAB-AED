@@ -1,5 +1,4 @@
-﻿﻿namespace Exercicios.Exercicio3
-{
+﻿namespace Trabalho_Pratico_AED.Arvore {
     public class Nodulo
     {
         /*
@@ -9,17 +8,26 @@
          */
         private Nodulo esq;
         private Nodulo dir;
+        public int balanceFactor;
+        public int height;
+        public int depth;
         public object item;
 
         public Nodulo(){
             this.esq = null;
             this.dir = null;
             this.item = null;
+            this.balanceFactor = 0;
+            this.height = 1;
+            this.depth = 0;
         }
-        public Nodulo(object item){
-            this.esq = null;
-            this.dir = null;
-            this.item = item;
+        public Nodulo(object value){
+            esq = null;
+            dir = null;
+            item = value;
+            balanceFactor = 0;
+            height = 1;
+            depth = 0;
         }
         public void setEsq(Nodulo esq){
             this.esq = esq;

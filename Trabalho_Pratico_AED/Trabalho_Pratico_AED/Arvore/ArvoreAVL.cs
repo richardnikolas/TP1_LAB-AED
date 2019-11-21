@@ -1,7 +1,7 @@
 ﻿﻿using System;
 
-namespace Exercicios.Exercicio3{
-    public class ArvoreAVL{
+namespace Trabalho_Pratico_AED.Arvore {
+    public class ArvoreAVL {
         
         /*
          * Arvore binária AVL feita por:
@@ -21,6 +21,7 @@ namespace Exercicios.Exercicio3{
         private Nodulo raiz;
         
         public ArvoreAVL(){
+
         }
         
         public void inserir(int elemento){

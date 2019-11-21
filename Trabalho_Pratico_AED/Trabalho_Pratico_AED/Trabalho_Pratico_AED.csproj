@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arvore\ArvoreABP.cs" />
     <Compile Include="Arvore\ArvoreAVL.cs" />
     <Compile Include="Arvore\Nodulo.cs" />
     <Compile Include="Fila\Celula.cs" />
