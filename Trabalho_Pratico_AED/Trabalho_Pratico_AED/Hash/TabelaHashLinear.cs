@@ -41,7 +41,7 @@ namespace Exercicios.Exercicio1{
         public void imprimir() {
             int indice = 0;
 
-            foreach (List<int> lista in estrutura){
+            foreach (List<int> lista in estrutura) {
                 Write(indice + "[");
 
                 foreach (int elemento in lista)
@@ -52,7 +52,7 @@ namespace Exercicios.Exercicio1{
             }
         }
 
-        public static void testarTudo(){
+        public static void testarTudo() {
             TabelaHashLinear hashLinear = new TabelaHashLinear();
             WriteLine("Teste iniciado...");
             int numeroInserido = geradorNumeroAleatorio.Next(0, 1000);
@@ -63,7 +63,7 @@ namespace Exercicios.Exercicio1{
             WriteLine("Teste encerrado");
         }
 
-        private static void testarInsercao(TabelaHashLinear hashLinear, int numeroInserido){
+        private static void testarInsercao(TabelaHashLinear hashLinear, int numeroInserido) {
             WriteLine("Inserindo número " + numeroInserido+"...");
             hashLinear.inserir(numeroInserido);
             hashLinear.imprimir();
@@ -71,13 +71,38 @@ namespace Exercicios.Exercicio1{
             ReadKey();
             Clear();
         }
-        private static void testarRemocao(TabelaHashLinear hashLinear, int numeroInserido){
+
+        private static void testarRemocao(TabelaHashLinear hashLinear, int numeroInserido) {
             WriteLine("Removendo número " + numeroInserido+"...");
             hashLinear.remover(numeroInserido);
             hashLinear.imprimir();
             WriteLine("Aperte qualquer tecla para continuar...");
             ReadKey();
             Clear();
+        }
+
+        public int getQuant() {
+            int count = 0;
+
+            if (!estaVazia()){
+                foreach (List<int> lista in estrutura) {
+                    if (lista.Count > 0) {
+                        foreach (int elemento in lista) {
+                            ++count;
+                        }
+                    }
+                }
+            }
+
+            return count;
+        }
+
+        public bool estaVazia() {
+            foreach (List<int> lista in estrutura) {
+                if (lista.Count > 0)
+                    return false;
+            }
+            return true;
         }
     }
 }
