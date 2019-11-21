@@ -274,5 +274,34 @@ namespace Trabalho_Pratico_AED{
         private void btn_qtde_Click(object sender, EventArgs e) {
 
         }
+        private void btn_limpar_Click(object sender, EventArgs e){
+            ContadorOperacoes.Reset();
+            output_txt.Clear();
+            if (this.estruturaSelecionada.Equals("Pilha")){
+                pilhaDAO.LimparDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k => new { Valor = k }).ToList();
+            }
+            else if (this.estruturaSelecionada.Equals("Fila")){
+                filaDAO.LimparDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
+            } 
+            else if (this.estruturaSelecionada.Equals("Lista")){
+                listaDao.LimparDao();
+                grid_tabelaOutput.DataSource = null;
+                grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k => new { Valor = k }).ToList();
+            }
+            else if (this.estruturaSelecionada.Equals("Arvore"))
+            {
+                
+            }
+            else if (this.estruturaSelecionada.Equals("Hash"))
+            {
+                
+            }
+            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            ContadorOperacoes.Reset();
+        }
     }
 }
