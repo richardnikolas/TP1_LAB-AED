@@ -115,7 +115,7 @@ namespace Trabalho_Pratico_AED{
             estruturaSelecionada = "Lista";
             grid_tabelaOutput.DataSource = null;
             try{
-                this.pilhaDAO.CarregarDao();
+                this.listaDao.CarregarDao();
             }
             catch (Exception ex){
                 this.output_txt.AppendText("Falha ao carregar ListaDAO!\n ");
