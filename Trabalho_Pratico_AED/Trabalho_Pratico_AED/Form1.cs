@@ -483,15 +483,14 @@ namespace Trabalho_Pratico_AED {
             //Pilha
             sw = Stopwatch.StartNew();
             
-            try
-            {
+            try {
                 pilhaDao.LoadDAO();
-            }catch{}
+            } catch {}
             
             output_txt.AppendText("Pilha: "+ pilhaDao.GetQuant() + "\n");
-            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
-            
+            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");            
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+
             totalOperacoes += OperationCounter.QuantOperacoes;
             OperationCounter.Reset();
             sw.Stop();
@@ -499,16 +498,17 @@ namespace Trabalho_Pratico_AED {
             //Fila
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();
-            try
-            {
+
+            try {
                 filaDao.LoadDAO();
-            }catch{}
+            } catch {}
             
             output_txt.AppendText("Fila: "+ filaDao.GetQuant() + "\n");
             output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
             
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             totalOperacoes += OperationCounter.QuantOperacoes;
+
             OperationCounter.Reset();
             sw.Stop();
                 
@@ -516,16 +516,16 @@ namespace Trabalho_Pratico_AED {
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();
             
-            try
-            {
+            try {
                 listaDao.LoadDAO();
-            }catch{}
+            } catch {}
             
             output_txt.AppendText("Lista: "+ listaDao.GetQuant() + "\n");
             output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
             
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             totalOperacoes += OperationCounter.QuantOperacoes;
+
             OperationCounter.Reset();
             sw.Stop();
             
@@ -533,15 +533,14 @@ namespace Trabalho_Pratico_AED {
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();
             
-            try
-            {
+            try {
                 arvoreDao.LoadDAO();
-            }catch{}
+            } catch {}
             
             output_txt.AppendText("Árvore: "+ arvoreDao.GetQuant() + "\n");
-            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
-            
+            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");            
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+
             totalOperacoes += OperationCounter.QuantOperacoes;
             OperationCounter.Reset();
             sw.Stop();
@@ -550,21 +549,21 @@ namespace Trabalho_Pratico_AED {
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();
             
-            try
-            {
+            try {
                 hashDao.LoadDAO();
-            }catch{}
+            } catch {}
             
             output_txt.AppendText("Tabela Hash: "+ hashDao.GetQuant() + "\n");
-            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
-            
+            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");            
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+
             totalOperacoes += OperationCounter.QuantOperacoes;
             OperationCounter.Reset();
             sw.Stop();
             
             //Total
             this.output_txt.AppendText("================================\n");
+
             int total = pilhaDao.GetQuant() + 
                         hashDao.GetQuant() + 
                         filaDao.GetQuant() + 
@@ -574,10 +573,11 @@ namespace Trabalho_Pratico_AED {
             output_txt.AppendText("Total de elementos: "+ total + "\n");
             output_txt.AppendText("Total de operações: "+ totalOperacoes + "\n");
             output_txt.AppendText("Tempo total de execução: "+ stopWatchTotal.ElapsedMilliseconds.ToString() + "ms \n");
+
             stopWatchTotal.Stop();
         }
 
-        private void btn_limpar_Click(object sender, EventArgs e){
+        private void btn_limpar_Click(object sender, EventArgs e) {
             OperationCounter.Reset();
             output_txt.Clear();
 
@@ -620,7 +620,7 @@ namespace Trabalho_Pratico_AED {
             OperationCounter.Reset();
             Stopwatch sw;
             
-            if (this.selectedStruct.Equals("Lista")){
+            if (this.selectedStruct.Equals("Lista")) {
                 sw = Stopwatch.StartNew();
                 
                 this.output_txt.AppendText("Ordenando Lista...\n");
@@ -633,7 +633,8 @@ namespace Trabalho_Pratico_AED {
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.listaDao.List().Select(k => new { Valor = k }).ToList();
             }
-            else if (this.selectedStruct.Equals("Pilha")){
+
+            else if (this.selectedStruct.Equals("Pilha")) {
                 sw = Stopwatch.StartNew();
                 
                 output_txt.AppendText("Ordenando a Pilha...");
@@ -646,7 +647,8 @@ namespace Trabalho_Pratico_AED {
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.pilhaDao.List().Select(k => new { Valor = k }).ToList();
             }
-            else if (this.selectedStruct.Equals("Fila")){
+
+            else if (this.selectedStruct.Equals("Fila")) {
                 sw = Stopwatch.StartNew();
                 
                 output_txt.AppendText("Ordenando a Fila...");
@@ -659,10 +661,11 @@ namespace Trabalho_Pratico_AED {
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.filaDao.List().Select(k => new { Valor = k }).ToList();
             }
-            else if (this.selectedStruct.Equals("Arvore")){
-                output_txt.AppendText("Não é possível ordenar uma àrvore ABP!\n");
-            }
-            else if (this.selectedStruct.Equals("Hash")){
+
+            else if (this.selectedStruct.Equals("Arvore")) 
+                output_txt.AppendText("Não é possível ordenar uma àrvore ABP!\n");            
+
+            else if (this.selectedStruct.Equals("Hash")) {
                 sw = Stopwatch.StartNew();
                 
                 output_txt.AppendText("Ordenando Tabela Hash...");
@@ -671,6 +674,7 @@ namespace Trabalho_Pratico_AED {
                 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
+
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
             }

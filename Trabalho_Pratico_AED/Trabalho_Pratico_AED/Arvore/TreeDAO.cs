@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace Trabalho_Pratico_AED.Arvore {
+
     public class TreeDAO {
         private List<int> outputValues;
         private ABPTree tree;
@@ -26,6 +27,7 @@ namespace Trabalho_Pratico_AED.Arvore {
         public int GetNumberOfElements() {
             return tree.GetQuantity();
         }
+
         public void InsertElement(int elemento) {
             outputValues.Add(elemento);
             this.tree.Insert(elemento);
@@ -33,7 +35,7 @@ namespace Trabalho_Pratico_AED.Arvore {
         }
 
         public void RemoveElement(int elemento) {
-            if(outputValues.Count > 0) {
+            if (outputValues.Count > 0) {
                 
                 try {
                     
