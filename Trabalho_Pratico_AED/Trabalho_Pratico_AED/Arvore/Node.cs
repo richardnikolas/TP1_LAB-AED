@@ -26,6 +26,7 @@
             this.depth = 0;
             OperationCounter.Increment(6);
         }
+
         public Node(int value){
             esq = null;
             dir = null;
