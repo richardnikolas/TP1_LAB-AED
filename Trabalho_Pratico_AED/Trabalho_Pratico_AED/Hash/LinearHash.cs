@@ -59,14 +59,21 @@ namespace Exercicios.Exercicio1{
             OperationCounter.Increment(3);
         }
 
-        public void RemoveAt(int index){
-            _struct[index] = null;
-            --quant;
-            OperationCounter.Increment(3);
+        public void Remove(int value){
+            int index = Array.IndexOf(_struct, value);
+            if (index >= 0){
+                _struct[Array.IndexOf(_struct, value)] = null;
+                --quant;
+            }
+            OperationCounter.Increment(4);
         }
 
         public int GetQuant() {
             return this.quant;
+        }
+
+        public void SetQuant(int quant){
+            this.quant = quant;
         }
 
         public bool IsEmpty(){
@@ -78,6 +85,10 @@ namespace Exercicios.Exercicio1{
 
         public int?[] GetInternalStruct(){
             return this._struct;
+        }
+
+        public void SetInternalStruct(int?[] _struct){
+            this._struct = _struct;
         }
     }
 }

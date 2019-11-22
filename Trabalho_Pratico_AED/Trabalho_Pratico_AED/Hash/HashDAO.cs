@@ -28,7 +28,6 @@ namespace Exercicios.Exercicio1
             OperationCounter.Increment(3);
         }
         public void LoadDAO(){
-
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             OperationCounter.Increment();
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
@@ -43,13 +42,20 @@ namespace Exercicios.Exercicio1
                 OperationCounter.Increment();
                 throw e;
             }
-            finally {
+            finally{
                 fs.Close();
-                OperationCounter.Increment();
+                foreach (int elemento in outputValues){
+                    this._hashTable.Insert(elemento);
+                    OperationCounter.Increment();
+                }
+                this._hashTable.SetQuant(outputValues.Count);
+                SaveDao();
+                OperationCounter.Increment(4);
             }
         }
 
         public List<int> List(){
+            UpdateOutput();
             return outputValues;
         }
         public void Insert(int element){
@@ -69,10 +75,11 @@ namespace Exercicios.Exercicio1
             }
         }
 
-        public void Remove(int indexToRemove)
+        public void Remove(int valueToRemove)
         {
             if (_hashTable.GetQuant() > 0){
-              _hashTable.RemoveAt(indexToRemove);
+              _hashTable.Remove(valueToRemove);
+              SaveDao();
               OperationCounter.Increment();
             }
             else{
