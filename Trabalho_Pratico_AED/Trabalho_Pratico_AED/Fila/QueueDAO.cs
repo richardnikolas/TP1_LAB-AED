@@ -34,16 +34,16 @@ namespace Trabalho_Pratico_AED.Fila {
         public void EnqueueElement(int elemento) {
             valuesToOutput.Add(elemento);
             this.queue.Enqueue(elemento);
-            ContadorOperacoes.Increment(2);
+            OperationCounter.Increment(2);
         }
 
         public void DequeueElement() {
             if(valuesToOutput.Count > 0) {
                 try {
                     queue.Dequeue();
-                    ContadorOperacoes.Increment();
+                    OperationCounter.Increment();
                     valuesToOutput.RemoveAt(0);
-                    ContadorOperacoes.Increment();
+                    OperationCounter.Increment();
                 }
                 catch (Exception e){
                     output_txt.AppendText("Ocorreu um erro interno!\n");
@@ -55,19 +55,19 @@ namespace Trabalho_Pratico_AED.Fila {
                 output_txt.AppendText("Não é possível desenfileirar uma fila vazia!\n");            
         }
 
-        public void SalvarDAO() {
+        public void SaveDAO() {
             output_txt.AppendText("Salvando fila...\n");
             FileStream fs = null;
 
             try {
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
 
                 fs = new FileStream(path, FileMode.OpenOrCreate);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
 
                 ser.Serialize(fs, valuesToOutput);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
 
                 output_txt.AppendText("Fila salva!\n");
             } catch (Exception e) {
@@ -83,19 +83,19 @@ namespace Trabalho_Pratico_AED.Fila {
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
 
-            ContadorOperacoes.Increment(2);
+            OperationCounter.Increment(2);
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 valuesToOutput = ser.Deserialize(fs) as List<int>;
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
             } catch(Exception e) { 
                 ser.Serialize(fs, valuesToOutput);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
                 throw e;
             } finally {
                 fs.Close();
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
             }
 
             output_txt.AppendText("Fila carregada!\n");
@@ -105,8 +105,8 @@ namespace Trabalho_Pratico_AED.Fila {
             output_txt.AppendText("Limpando Lista...\n");
             queue = new Queue();
             this.valuesToOutput = new List<int>();
-            ContadorOperacoes.Increment(2);
-            SalvarDAO();
+            OperationCounter.Increment(2);
+            SaveDAO();
             this.output_txt.AppendText("Lista Limpa!\n");
         }
     }

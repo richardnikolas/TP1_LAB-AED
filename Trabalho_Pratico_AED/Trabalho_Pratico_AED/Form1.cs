@@ -20,45 +20,62 @@ namespace Trabalho_Pratico_AED {
         /*
          * Classe controladora do formulário.
          *
-         * Design: André Valentim 
-         * Lógica: Philemon da Silva Souza, André Valentim, Richard Nikolas e Felipe Ribeiro Lisboa Moreira
-         * Documentação e ajustes de Legibilidade: Richard Nikolas, André Valentim e Philemon da Silva Souza
-         * Revisão, Testes e Correção de Bugs: Richard Nikolas e Felipe Ribeiro lisboa Moreira
+         * Design: André Valentim
+         * 
+         * Lógica: Philemon da Silva Souza,
+         *         André Valentim,
+         *         Richard Nikolas e
+         *         Felipe Ribeiro Lisboa Moreira
+         * 
+         * Documentação e ajustes de Legibilidade:
+         *         Richard Nikolas,
+         *         André Valentim e
+         *         Philemon da Silva Souza
+         * 
+         * Revisão, Testes e Correções:
+         *         Richard Nikolas e
+         *         Felipe Ribeiro lisboa Moreira
          * 
          * Classes: Adicionadas do exercício de AED's passado na mesma semana.
          *          (créditos individuais podem ser encontrados na classe)
          * 
          */
-        public PilhaDAO pilhaDAO;
+        public StackDAO StackDao;
 
         public QueueDAO filaDAO;
 
-        public ListaDAO listaDao;
+        public ListDAO ListDao;
 
-        public ArvoreDAO arvoreDao;
+        public TreeDAO TreeDao;
         
         public HashDAO hashDao;
         
-        public string estruturaSelecionada;
+        public string selectedStruct;
         
         public formStructures() {
             InitializeComponent();
-            this.pilhaDAO = new PilhaDAO(output_txt);
-            this.listaDao = new ListaDAO(output_txt);
+            this.StackDao = new StackDAO(output_txt);
+            this.ListDao = new ListDAO(output_txt);
             this.filaDAO = new QueueDAO(output_txt);
-            this.arvoreDao = new ArvoreDAO(output_txt);
+            this.TreeDao = new TreeDAO(output_txt);
             this.hashDao = new HashDAO(output_txt);
         }
 
         public void DisableDelete() {
-            delete_txt.Enabled = false;
             btn_delete.Enabled = false;
         }
 
         public void EnableDelete() {
-            delete_txt.Enabled = true;
             btn_delete.Enabled = true;
         }
+
+        public void EnableOrder(){
+            btn_ordenar.Enabled = true;
+        }
+        public void DisableOrder(){
+            btn_ordenar.Enabled = false;
+        }
+        
 
         public void ChangeEnabled(byte option) {
             switch(option) {
@@ -108,8 +125,10 @@ namespace Trabalho_Pratico_AED {
         }
 
         private void btn_pilha_Click_1(object sender, EventArgs e){
+            OperationCounter.Reset();
             ChangeEnabled(1);
             DisableDelete();
+            EnableOrder();
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -117,32 +136,31 @@ namespace Trabalho_Pratico_AED {
             labelSelectedStructure.Text = "PILHA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Pilha...\n");
-
-            ContadorOperacoes.Reset();
-
+            
             grid_tabelaOutput.DataSource = null;
-            this.estruturaSelecionada = "Pilha";
+            this.selectedStruct = "Pilha";
 
             try {
-                this.pilhaDAO.CarregarDao();
+                this.StackDao.LoadDao();
             }
             catch (Exception ex) {
                 this.output_txt.AppendText("Falha ao carregar DAO.\n ");
                 this.output_txt.AppendText("Excessão: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
             }
 
-            grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+            grid_tabelaOutput.DataSource = this.StackDao.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
 
             sw.Stop();
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
         }
 
         private void btn_lista_Click(object sender, EventArgs e){
             ChangeEnabled(2);
             EnableDelete();
+            EnableOrder();
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -150,30 +168,31 @@ namespace Trabalho_Pratico_AED {
             labelSelectedStructure.Text = "LISTA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Lista...\n");
-            ContadorOperacoes.Reset();
-            estruturaSelecionada = "Lista";
+            OperationCounter.Reset();
+            selectedStruct = "Lista";
             grid_tabelaOutput.DataSource = null;
 
             try {
-                this.listaDao.CarregarDao();
+                this.ListDao.LoadDao();
             }
             catch (Exception ex) {
                 this.output_txt.AppendText("Falha ao carregar ListaDAO!\n ");
                 this.output_txt.AppendText("Exceção: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
             }
 
-            grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+            grid_tabelaOutput.DataSource = this.StackDao.Listar().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
 
             sw.Stop();
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
         }
 
         private void btn_fila_Click(object sender, EventArgs e){
             ChangeEnabled(3);
             DisableDelete();
+            EnableOrder();
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -181,8 +200,8 @@ namespace Trabalho_Pratico_AED {
             labelSelectedStructure.Text = "FILA";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Fila...\n");
-            ContadorOperacoes.Reset();
-            estruturaSelecionada = "Fila";
+            OperationCounter.Reset();
+            selectedStruct = "Fila";
             grid_tabelaOutput.DataSource = null;
 
             try {
@@ -195,16 +214,17 @@ namespace Trabalho_Pratico_AED {
 
             grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
 
             sw.Stop();
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
         }
 
         private void btn_arvore_Click(object sender, EventArgs e){
             ChangeEnabled(4);
             EnableDelete();
+            DisableOrder();
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -212,30 +232,31 @@ namespace Trabalho_Pratico_AED {
             labelSelectedStructure.Text = "ÁRVORE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Árvore AVL...\n");
-            ContadorOperacoes.Reset();
-            estruturaSelecionada = "Arvore";
+            OperationCounter.Reset();
+            selectedStruct = "Arvore";
             grid_tabelaOutput.DataSource = null;
 
             try {
-                arvoreDao.CarregarDAO();
+                TreeDao.LoadDAO();
             }
             catch (Exception ex) {
                 this.output_txt.AppendText("Falha ao carregar Arvore!\n ");
                 this.output_txt.AppendText("Exceção: \n " + ex.Message + "\n Local : \n" + ex.Source + "\n");
             }
 
-            grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k => new { Valor = k }).ToList();
+            grid_tabelaOutput.DataSource = this.TreeDao.List().Select(k => new { Valor = k }).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
 
             sw.Stop();
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
         }
 
         private void btn_hash_Click(object sender, EventArgs e) {
             ChangeEnabled(5);
             EnableDelete();
+            EnableOrder();
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -243,52 +264,52 @@ namespace Trabalho_Pratico_AED {
             labelSelectedStructure.Text = "HASHTABLE";
             output_txt.Clear();
             output_txt.AppendText("Mostrando Tabela Hash...\n");
-            ContadorOperacoes.Reset();
-            estruturaSelecionada = "Hash";
+            OperationCounter.Reset();
+            selectedStruct = "Hash";
             grid_tabelaOutput.DataSource = null;
 
             try {
-                hashDao.CarregarDao();
+                hashDao.LoadDao();
             }
             catch (Exception ex) {
                 this.output_txt.AppendText("Falha ao carregar Tabela Hash!\n ");
                 this.output_txt.AppendText("Exceção: \n " + ex.Message + "\n Local : \n" + ex.Source + "\n");
             }
 
-            grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+            grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valor = k }).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
 
             sw.Stop();
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
         }
 
         private void btn_delete_Click(object sender, EventArgs e) {
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
             Stopwatch sw;
 
             output_txt.Clear();
 
-            if (this.estruturaSelecionada.Equals("Pilha")) {
+            if (this.selectedStruct.Equals("Pilha")) {
                 sw = Stopwatch.StartNew();
                 
                 output_txt.AppendText("Desempilhando...\n");
-                this.pilhaDAO.Desempilhar();
-                this.pilhaDAO.SalvarDao();
+                this.StackDao.Unstack();
+                this.StackDao.SaveDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                grid_tabelaOutput.DataSource = this.StackDao.Listar().Select(k=> new {Valor = k}).ToList();
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
             }
 
-            else if(this.estruturaSelecionada.Equals("Fila")) {
+            else if(this.selectedStruct.Equals("Fila")) {
                 sw = Stopwatch.StartNew();
 
                 output_txt.AppendText("Desenfileirando...\n");
                 this.filaDAO.DequeueElement();
-                this.filaDAO.SalvarDAO();
+                this.filaDAO.SaveDAO();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
 
@@ -296,68 +317,67 @@ namespace Trabalho_Pratico_AED {
                 sw.Stop();
             }
 
-            else if (this.estruturaSelecionada.Equals("Lista")) {
+            else if (this.selectedStruct.Equals("Lista")) {
                 sw = Stopwatch.StartNew();
 
                 output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
-                this.listaDao.Remover(grid_tabelaOutput.CurrentRow.Index);
-                this.listaDao.SalvarDao();
+                this.ListDao.RemoveAt(grid_tabelaOutput.CurrentRow.Index);
+                this.ListDao.SaveDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
+                grid_tabelaOutput.DataSource = this.ListDao.List().Select(k=> new {Valor = k}).ToList();
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
             }
 
-            else if (this.estruturaSelecionada.Equals("Arvore")) {
+            else if (this.selectedStruct.Equals("Arvore")) {
                 sw = Stopwatch.StartNew();
 
                 int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
                 output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Árvore...\n");
-                this.arvoreDao.RemoveElement(valorASerRemovido);
-                this.arvoreDao.SalvarDAO();
+                this.TreeDao.RemoveElement(valorASerRemovido);
+                this.TreeDao.SaveDAO();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k=> new {Valor = k}).ToList();
+                grid_tabelaOutput.DataSource = this.TreeDao.List().Select(k=> new {Valor = k}).ToList();
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
             }
 
-            else if (this.estruturaSelecionada.Equals("Hash")) {
+            else if (this.selectedStruct.Equals("Hash")) {
                 sw = Stopwatch.StartNew();
 
-                int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
-                output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Tabela Hash...\n");
-                this.hashDao.Remover(valorASerRemovido);
-                this.hashDao.SalvarDao();
+                output_txt.AppendText("Removendo elemento " + grid_tabelaOutput.CurrentRow.Index + " da Tabela Hash...\n");
+                this.hashDao.Remove(grid_tabelaOutput.CurrentRow.Index);
+                this.hashDao.SaveDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+                grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
             }
 
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-            ContadorOperacoes.Reset();
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            OperationCounter.Reset();
         }
 
         private void btn_inserir_Click(object sender, EventArgs e)  {
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
             Stopwatch sw;
 
             output_txt.Clear();
             grid_tabelaOutput.DataSource = null;
 
-            int elemento;
+            int element;
 
-            if (int.TryParse(inserir_txt.Text, out elemento)) {
-                if (this.estruturaSelecionada.Equals("Pilha")) {
+            if (int.TryParse(inserir_txt.Text, out element)) {
+                if (this.selectedStruct.Equals("Pilha")) {
                     sw = Stopwatch.StartNew();
 
                     output_txt.AppendText("Empilhando...\n");
-                    this.pilhaDAO.Empilhar(elemento);
-                    this.pilhaDAO.SalvarDao();
-                    grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k=> new {Valor = k}).ToList();
+                    this.StackDao.Stack(element);
+                    this.StackDao.SaveDao();
+                    grid_tabelaOutput.DataSource = this.StackDao.Listar().Select(k=> new {Valor = k}).ToList();
 
                     output_txt.AppendText("Empilhado!\n");
                     output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
@@ -365,12 +385,12 @@ namespace Trabalho_Pratico_AED {
                     sw.Stop(); 
                 }
 
-                else if(this.estruturaSelecionada.Equals("Fila")) {
+                else if(this.selectedStruct.Equals("Fila")) {
                     sw = Stopwatch.StartNew();
 
                     output_txt.AppendText("Enfileirando...\n");
-                    filaDAO.EnqueueElement(elemento);
-                    filaDAO.SalvarDAO();
+                    filaDAO.EnqueueElement(element);
+                    filaDAO.SaveDAO();
                     grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
 
                     output_txt.AppendText("Enfileirado!\n");
@@ -379,13 +399,13 @@ namespace Trabalho_Pratico_AED {
                     sw.Stop();
                 }
 
-                else if (this.estruturaSelecionada.Equals("Lista")) {
+                else if (this.selectedStruct.Equals("Lista")) {
                     sw = Stopwatch.StartNew();
 
-                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
-                    this.listaDao.Inserir(elemento);
-                    this.listaDao.SalvarDao();
-                    grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k=> new {Valor = k}).ToList();
+                    output_txt.AppendText("Inserindo elemento "+ element +"...\n");
+                    this.ListDao.Insert(element);
+                    this.ListDao.SaveDao();
+                    grid_tabelaOutput.DataSource = this.ListDao.List().Select(k=> new {Valor = k}).ToList();
 
                     output_txt.AppendText("Elemento inserido!\n");
                     output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
@@ -393,26 +413,26 @@ namespace Trabalho_Pratico_AED {
                     sw.Stop();
                 }
 
-                else if (this.estruturaSelecionada.Equals("Arvore")) {
+                else if (this.selectedStruct.Equals("Arvore")) {
                     sw = Stopwatch.StartNew();
 
-                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
-                    this.arvoreDao.InsertElement(elemento);
-                    this.arvoreDao.SalvarDAO();
-                    grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k=> new {Valor = k}).ToList();
+                    output_txt.AppendText("Inserindo elemento "+ element +"...\n");
+                    this.TreeDao.InsertElement(element);
+                    this.TreeDao.SaveDAO();
+                    grid_tabelaOutput.DataSource = this.TreeDao.List().Select(k=> new {Valor = k}).ToList();
 
                     output_txt.AppendText("Elemento inserido!\n");
                     output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                     sw.Stop();
                 }
 
-                else if (this.estruturaSelecionada.Equals("Hash")) {
+                else if (this.selectedStruct.Equals("Hash")) {
                     sw = Stopwatch.StartNew();
 
-                    output_txt.AppendText("Inserindo elemento "+ elemento +"...\n");
-                    this.hashDao.Inserir(elemento);
-                    this.hashDao.SalvarDao();
-                    grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+                    output_txt.AppendText("Inserindo elemento "+ element +"...\n");
+                    this.hashDao.Insert(element);
+                    this.hashDao.SaveDao();
+                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
 
                     output_txt.AppendText("Elemento inserido!\n");
                     output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
@@ -422,8 +442,8 @@ namespace Trabalho_Pratico_AED {
             else 
                 output_txt.AppendText("Não é possível inserir elementos não-inteiros!\n");
             
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-            ContadorOperacoes.Reset();
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            OperationCounter.Reset();
         }
 
         private void formStructures_Load(object sender, EventArgs e) {
@@ -435,48 +455,89 @@ namespace Trabalho_Pratico_AED {
         }
 
         private void btn_limpar_Click(object sender, EventArgs e){
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
             output_txt.Clear();
 
-            if (this.estruturaSelecionada.Equals("Pilha")) {
-                pilhaDAO.LimparDao();
+            if (this.selectedStruct.Equals("Pilha")) {
+                StackDao.CleanDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.pilhaDAO.Listar().Select(k => new { Valor = k }).ToList();
+                grid_tabelaOutput.DataSource = this.StackDao.Listar().Select(k => new { Valor = k }).ToList();
             }
 
-            else if (this.estruturaSelecionada.Equals("Fila")) {
+            else if (this.selectedStruct.Equals("Fila")) {
                 filaDAO.LimparDao();
                 grid_tabelaOutput.DataSource = null;
                 grid_tabelaOutput.DataSource = this.filaDAO.Listar().Select(k => new { Valor = k }).ToList();
             } 
 
-            else if (this.estruturaSelecionada.Equals("Lista")) {
-                listaDao.LimparDao();
+            else if (this.selectedStruct.Equals("Lista")) {
+                ListDao.CleanDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.listaDao.Listar().Select(k => new { Valor = k }).ToList();
+                grid_tabelaOutput.DataSource = this.ListDao.List().Select(k => new { Valor = k }).ToList();
             }
 
-            else if (this.estruturaSelecionada.Equals("Arvore")) {
-                arvoreDao.LimparDao();
+            else if (this.selectedStruct.Equals("Arvore")) {
+                TreeDao.CleanDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.arvoreDao.Listar().Select(k => new { Valor = k }).ToList();
+                grid_tabelaOutput.DataSource = this.TreeDao.List().Select(k => new { Valor = k }).ToList();
             }
 
-            else if (this.estruturaSelecionada.Equals("Hash")) {
-                hashDao.LimparDao();
+            else if (this.selectedStruct.Equals("Hash")) {
+                hashDao.CleanDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.hashDao.Listar().Select(k => new { Valores = k }).ToList();
+                grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
             }
 
-            this.output_txt.AppendText("Quantidade de operações: " + ContadorOperacoes.QuantOperacoes + "\n");
-            ContadorOperacoes.Reset();
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            OperationCounter.Reset();
         }
 
         private void Btn_ordenar_Click(object sender, EventArgs e) {
-            ContadorOperacoes.Reset();
+            OperationCounter.Reset();
+            Stopwatch sw;
             
-            if (this.estruturaSelecionada.Equals("Lista"))
-                listaDao.OrdernarDao();            
+            if (this.selectedStruct.Equals("Lista")){
+                sw = Stopwatch.StartNew();
+                
+                this.output_txt.AppendText("Ordenando Lista...\n");
+                ListDao.SortDao();
+                this.output_txt.AppendText("Lista ordenada!...\n");
+                
+                output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
+                sw.Stop();
+            }
+            else if (this.selectedStruct.Equals("Pilha")){
+                sw = Stopwatch.StartNew();
+                
+                output_txt.AppendText("Ordenando a Pilha...");
+                StackDao.SortDao();
+                output_txt.AppendText("Pilha Ordenada!");
+                
+                output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
+                sw.Stop();
+            }
+            else if (this.selectedStruct.Equals("Fila")){
+                sw = Stopwatch.StartNew();
+                
+                output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
+                sw.Stop();
+            }
+            else if (this.selectedStruct.Equals("Arvore")){
+                output_txt.AppendText("Não é possível ordenar uma àrvore ABP!\n");
+            }
+            else if (this.selectedStruct.Equals("Hash")){
+                sw = Stopwatch.StartNew();
+                
+                output_txt.AppendText("Ordenando Tabela Hash...");
+                hashDao.SortDao();
+                output_txt.AppendText("Tabela Hash Ordenada!");
+                
+                output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
+                sw.Stop();
+            }
+
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            OperationCounter.Reset();
         }
     }
 }

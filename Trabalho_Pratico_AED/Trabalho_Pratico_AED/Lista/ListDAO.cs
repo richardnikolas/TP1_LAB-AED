@@ -6,7 +6,7 @@ using System.Xml.Serialization;
 using Trabalho_Pratico_AED;
 
 namespace VS_Code{
-    public class ListaDAO{
+    public class ListDAO{
         /*
          * Classe para manipulação de arquivo XML encontrado em "C:/temp/lista.xml"
          *
@@ -20,24 +20,24 @@ namespace VS_Code{
         private RichTextBox output_txt;
         static private string path = "C://temp//lista.xml";
 
-        public ListaDAO(RichTextBox output_txt) {
+        public ListDAO(RichTextBox output_txt) {
             this.output_txt = output_txt;
             this.list = new List<int>();
-            ContadorOperacoes.Increment(2);
+            OperationCounter.Increment(2);
         }
 
-        public List<int> Listar() { return this.list; }
+        public List<int> List() { return this.list; }
 
-        public void Inserir(int element) {
+        public void Insert(int element) {
             list.Add(element);
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
         }
 
-        public void Remover(int indexToRemove) {
+        public void RemoveAt(int indexToRemove) {
             if (list.Count > 0) {
                 try {
                     list.RemoveAt(indexToRemove);
-                    ContadorOperacoes.Increment(2);
+                    OperationCounter.Increment(2);
                 }
                 catch (Exception e) {
                     this.output_txt.AppendText("ERRO! Não é possivel remover o íncide específicado!\n");
@@ -49,76 +49,72 @@ namespace VS_Code{
                 this.output_txt.AppendText("Não é possível remover elementos de uma lista vazia!\n");            
         }
 
-        public void SalvarDao() {
+        public void SaveDao() {
             this.output_txt.AppendText("Salvando Lista...\n");
             FileStream fs = null;
 
             try {
                 //Acesso a dados XML (DAO):
                 XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
 
                 //Carrega o aqruivo da memória:
                 fs = new FileStream(path, FileMode.OpenOrCreate);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
 
                 //Usando a lista criada e mandando para o FileStream, num formato de XML:
                 ser.Serialize(fs, this.list);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
             }
             catch (Exception e) {
                 this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
             }
 
             fs.Close();
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
             this.output_txt.AppendText("Lista Salva!\n");
         }
 
-        public void CarregarDao(){
+        public void LoadDao(){
             this.output_txt.AppendText("Carregando Lista...\n");
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
 
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 this.list = ser.Deserialize(fs) as List<int>;
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
             }
             catch(Exception e) {
                 ser.Serialize(fs, this.list);
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
                 throw e;
             }
             finally {
                 fs.Close();
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
             }
 
             this.output_txt.AppendText("Lista Carregada!\n");
         }
 
-        public void LimparDao() {
+        public void CleanDao() {
             this.output_txt.AppendText("Limpando Lista...\n");
             this.list = new List<int>();
 
-            SalvarDao();
+            SaveDao();
 
             this.output_txt.AppendText("Lista Limpa!\n");
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
         }
 
-        public void OrdernarDao() {
-            this.output_txt.AppendText("Ordenando Lista...\n");
-
+        public void SortDao() {
             this.list.Sort();
-
-            this.output_txt.AppendText("Lista ordenada!...\n");
-            ContadorOperacoes.Increment();
+            OperationCounter.Increment();
         }
     }
 }

@@ -18,13 +18,13 @@ namespace Trabalho_Pratico_AED.Pilha {
 
         public bool Vazia() { return Topo == null; }
 
-        public void Empilha(Object itemValue) {
+        public void Stack(Object itemValue) {
             Topo = new Celula(itemValue, Topo);
             Qtde++;
-            ContadorOperacoes.Increment(2);
+            OperationCounter.Increment(2);
         }
 
-        public Object Desempilha() {
+        public Object Unstack() {
             Object Item = null;
 
             if (Topo != null) {
@@ -33,7 +33,7 @@ namespace Trabalho_Pratico_AED.Pilha {
                 Qtde--;
             }
 
-            ContadorOperacoes.Increment(3);
+            OperationCounter.Increment(3);
             return Item;
         }
 
@@ -44,7 +44,7 @@ namespace Trabalho_Pratico_AED.Pilha {
             bool achou = false;
 
             for (Celula aux = Topo; aux != null && !achou; aux = aux.Prox){
-                ContadorOperacoes.Increment();
+                OperationCounter.Increment();
                 achou = aux.Item.Equals(element);
             }
                 

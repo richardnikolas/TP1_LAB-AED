@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Arvore\ArvoreABP.cs" />
-    <Compile Include="Arvore\ArvoreDAO.cs" />
+    <Compile Include="Arvore\ABPTree.cs" />
+    <Compile Include="Arvore\TreeDAO.cs" />
     <Compile Include="Arvore\Node.cs" />
-    <Compile Include="ContadorOperacoes.cs" />
+    <Compile Include="OperationCounter.cs" />
     <Compile Include="Fila\Cell.cs" />
     <Compile Include="Fila\Queue.cs" />
     <Compile Include="Fila\QueueDAO.cs" />
@@ -66,12 +66,12 @@
       <DependentUpon>FormExperimental.cs</DependentUpon>
     </Compile>
     <Compile Include="Hash\HashDAO.cs" />
-    <Compile Include="Hash\TabelaHashLinear.cs" />
+    <Compile Include="Hash\LinearHash.cs" />
     <Compile Include="Lista\Celula.cs" />
-    <Compile Include="Lista\ListaDAO.cs" />
+    <Compile Include="Lista\ListDAO.cs" />
     <Compile Include="Pilha\Celula.cs" />
     <Compile Include="Pilha\Pilha.cs" />
-    <Compile Include="Pilha\PilhaDAO.cs" />
+    <Compile Include="Pilha\StackDAO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
