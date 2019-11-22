@@ -47,3 +47,14 @@ C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_A
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.cache
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.exe.config
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.exe
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.pdb
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csprojAssemblyReference.cache
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.formStructures.resources
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.FormExperimental.resources
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Properties.Resources.resources
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.cache
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.CoreCompileInputs.cache
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
+C:\Users\Dell\Documents\PUC\Lab AED\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.pdb
