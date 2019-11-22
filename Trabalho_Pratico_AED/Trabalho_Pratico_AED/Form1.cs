@@ -468,7 +468,7 @@ namespace Trabalho_Pratico_AED {
         }
 
         private void formStructures_Load(object sender, EventArgs e) {
-
+            btn_pilha_Click_1(sender , e);
         }
 
         private void btn_qtde_Click(object sender, EventArgs e) {
