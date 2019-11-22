@@ -61,12 +61,19 @@ namespace Trabalho_Pratico_AED {
             this.hashDao = new HashDAO(output_txt);
         }
 
-        public void DisableDelete() {
-            btn_delete.Enabled = false;
-        }
-
-        public void EnableDelete() {
-            btn_delete.Enabled = true;
+        public void ChangeDeleteButtonText(byte dataStructureType) {
+            /*Atribui-se o número 0 para determinar o texto para o botão da Pilha
+             * Atribui-se o número 1 para determinar o texto para o botão da Fila
+             * Atribui-se o número 0 para as demais estruturas.
+             */
+            switch(dataStructureType) {
+                case 0: btn_delete.Text = "Desempilhar";
+                    break;
+                case 1: btn_delete.Text = "Desenfileirar";
+                    break;
+                default: btn_delete.Text = "Deletar selecionado";
+                    break;
+            }
         }
 
         public void EnableOrder(){
@@ -127,8 +134,9 @@ namespace Trabalho_Pratico_AED {
         private void btn_pilha_Click_1(object sender, EventArgs e){
             OperationCounter.Reset();
             ChangeEnabled(1);
-            DisableDelete();
+            ChangeDeleteButtonText (0);
             EnableOrder();
+
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -157,10 +165,12 @@ namespace Trabalho_Pratico_AED {
             OperationCounter.Reset();
         }
 
-        private void btn_lista_Click(object sender, EventArgs e){
+        private void btn_lista_Click(object sender, EventArgs e) {
+            OperationCounter.Reset();
             ChangeEnabled(2);
-            EnableDelete();
+            ChangeDeleteButtonText(2);
             EnableOrder();
+
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -189,10 +199,12 @@ namespace Trabalho_Pratico_AED {
             OperationCounter.Reset();
         }
 
-        private void btn_fila_Click(object sender, EventArgs e){
+        private void btn_fila_Click(object sender, EventArgs e) {
+            OperationCounter.Reset();
             ChangeEnabled(3);
-            DisableDelete();
+            ChangeDeleteButtonText(1);
             EnableOrder();
+
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -221,10 +233,12 @@ namespace Trabalho_Pratico_AED {
             OperationCounter.Reset();
         }
 
-        private void btn_arvore_Click(object sender, EventArgs e){
+        private void btn_arvore_Click(object sender, EventArgs e) {
+            OperationCounter.Reset();
             ChangeEnabled(4);
-            EnableDelete();
+            ChangeDeleteButtonText(2);
             DisableOrder();
+
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -254,9 +268,11 @@ namespace Trabalho_Pratico_AED {
         }
 
         private void btn_hash_Click(object sender, EventArgs e) {
+            OperationCounter.Reset();
             ChangeEnabled(5);
-            EnableDelete();
+            ChangeDeleteButtonText(2);
             EnableOrder();
+
             Stopwatch sw;
 
             sw = Stopwatch.StartNew();
@@ -447,7 +463,7 @@ namespace Trabalho_Pratico_AED {
         }
 
         private void formStructures_Load(object sender, EventArgs e) {
-            DisableDelete();
+
         }
 
         private void btn_qtde_Click(object sender, EventArgs e) {

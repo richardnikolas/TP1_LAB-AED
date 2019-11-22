@@ -23,7 +23,7 @@ namespace Trabalho_Pratico_AED.Pilha {
         
         private Pilha stack;
         private RichTextBox output_txt;
-        static private string path = "C://temp//pilha.xml";
+        static private string path = "C://temp/pilha.xml";
 
         public StackDAO(RichTextBox output_txt) {
             this.stack = new Pilha();
