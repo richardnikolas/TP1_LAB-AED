@@ -80,6 +80,7 @@ namespace VS_Code{
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             ContadorOperacoes.Increment();
+
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             ContadorOperacoes.Increment();
 
@@ -101,11 +102,22 @@ namespace VS_Code{
             this.output_txt.AppendText("Lista Carregada!\n");
         }
 
-        public void LimparDao(){
+        public void LimparDao() {
             this.output_txt.AppendText("Limpando Lista...\n");
             this.list = new List<int>();
+
             SalvarDao();
+
             this.output_txt.AppendText("Lista Limpa!\n");
+            ContadorOperacoes.Increment();
+        }
+
+        public void OrdernarDao() {
+            this.output_txt.AppendText("Ordenando Lista...\n");
+
+            this.list.Sort();
+
+            this.output_txt.AppendText("Lista ordenada!...\n");
             ContadorOperacoes.Increment();
         }
     }

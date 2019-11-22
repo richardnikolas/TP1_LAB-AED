@@ -79,8 +79,10 @@ namespace Trabalho_Pratico_AED.Fila {
 
         public void CarregarDAO() {
             output_txt.AppendText("Carregando fila...\n");
+
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
+
             ContadorOperacoes.Increment(2);
 
             try {
