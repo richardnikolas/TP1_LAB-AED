@@ -32,7 +32,7 @@ namespace Trabalho_Pratico_AED.Pilha {
             OperationCounter.Increment(3);
         }
 
-        public List<int> Listar() { return this.outputValues; }
+        public List<int> List() { return this.outputValues; }
 
         public void Stack(int element) {
             this.outputValues.Add(element);
@@ -83,8 +83,7 @@ namespace Trabalho_Pratico_AED.Pilha {
             this.output_txt.AppendText("Pilha Salva!\n");
         }
 
-        public void LoadDao() {
-            this.output_txt.AppendText("Carregando Pilha...\n");
+        public void LoadDAO() {
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             OperationCounter.Increment();
@@ -105,8 +104,6 @@ namespace Trabalho_Pratico_AED.Pilha {
                 fs.Close();
                 OperationCounter.Increment();
             }
-
-            this.output_txt.AppendText("Pilha Carregada!\n");
         }
 
         public void CleanDao() {
@@ -121,6 +118,10 @@ namespace Trabalho_Pratico_AED.Pilha {
         public void SortDao(){
             this.outputValues.Sort();
             SaveDao();
+        }
+
+        public int GetQuant(){
+            return this.outputValues.Count;
         }
     }
 }

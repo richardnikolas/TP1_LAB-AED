@@ -13,17 +13,17 @@ namespace Exercicios.Exercicio1{
          * Com suporte de:
          *       Philemon da Silva Souza
          */
-        private int[] _struct;
+        private int?[] _struct;
         private int quant;
 
         public LinearHash() {
-            _struct = new int[1000];
+            _struct = new int?[1000];
             OperationCounter.Increment(2);
             quant = 0;
         }
 
         public LinearHash(int size) {
-            _struct = new int[size];
+            _struct = new int?[size];
             quant = 0;
             OperationCounter.Increment(2);
         }
@@ -59,14 +59,14 @@ namespace Exercicios.Exercicio1{
             OperationCounter.Increment(3);
         }
 
-        public void Remove(int index){
-            _struct[index] = new int();
+        public void RemoveAt(int index){
+            _struct[index] = null;
             --quant;
             OperationCounter.Increment(3);
         }
 
         public int GetQuant() {
-            return _struct.Length;
+            return this.quant;
         }
 
         public bool IsEmpty(){
@@ -76,7 +76,7 @@ namespace Exercicios.Exercicio1{
             return true;
         }
 
-        public int[] GetInternalStruct(){
+        public int?[] GetInternalStruct(){
             return this._struct;
         }
     }

@@ -15,34 +15,34 @@ namespace Trabalho_Pratico_AED.Fila {
          * com suporte de:
          *       Fabio Leandro Rodrigues Cordeiro
          */
-        List<int> valuesToOutput;
+        List<int> outputValues;
         private Queue queue;
         private RichTextBox output_txt;
         static private string path = "C://temp/fila.xml";
 
         public QueueDAO(RichTextBox output_txt) {
             queue = new Queue();
-            valuesToOutput = new List<int>(1000);
+            outputValues = new List<int>(1000);
             this.output_txt = output_txt;
         }
 
-        public List<int> Listar() { return valuesToOutput; }
+        public List<int> List() { return outputValues; }
 
-        public int GetNumberOfElements() {
-            return queue.GetQuantity();
+        public int GetQuant() {
+            return this.outputValues.Count;
         }
         public void EnqueueElement(int elemento) {
-            valuesToOutput.Add(elemento);
+            outputValues.Add(elemento);
             this.queue.Enqueue(elemento);
             OperationCounter.Increment(2);
         }
 
         public void DequeueElement() {
-            if(valuesToOutput.Count > 0) {
+            if(outputValues.Count > 0) {
                 try {
                     queue.Dequeue();
                     OperationCounter.Increment();
-                    valuesToOutput.RemoveAt(0);
+                    outputValues.RemoveAt(0);
                     OperationCounter.Increment();
                 }
                 catch (Exception e){
@@ -66,7 +66,7 @@ namespace Trabalho_Pratico_AED.Fila {
                 fs = new FileStream(path, FileMode.OpenOrCreate);
                 OperationCounter.Increment();
 
-                ser.Serialize(fs, valuesToOutput);
+                ser.Serialize(fs, outputValues);
                 OperationCounter.Increment();
 
                 output_txt.AppendText("Fila salva!\n");
@@ -77,9 +77,7 @@ namespace Trabalho_Pratico_AED.Fila {
             fs.Close();
         }
 
-        public void CarregarDAO() {
-            output_txt.AppendText("Carregando fila...\n");
-
+        public void LoadDAO() {
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
 
@@ -87,27 +85,29 @@ namespace Trabalho_Pratico_AED.Fila {
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                valuesToOutput = ser.Deserialize(fs) as List<int>;
+                outputValues = ser.Deserialize(fs) as List<int>;
                 OperationCounter.Increment();
             } catch(Exception e) { 
-                ser.Serialize(fs, valuesToOutput);
+                ser.Serialize(fs, outputValues);
                 OperationCounter.Increment();
                 throw e;
             } finally {
                 fs.Close();
                 OperationCounter.Increment();
             }
-
-            output_txt.AppendText("Fila carregada!\n");
         }
 
         public void LimparDao() {
             output_txt.AppendText("Limpando Lista...\n");
             queue = new Queue();
-            this.valuesToOutput = new List<int>();
+            this.outputValues = new List<int>();
             OperationCounter.Increment(2);
             SaveDAO();
             this.output_txt.AppendText("Lista Limpa!\n");
+        }
+        public void SortDao(){
+            this.outputValues.Sort();
+            SaveDAO();
         }
     }
 }

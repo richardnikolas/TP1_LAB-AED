@@ -75,8 +75,7 @@ namespace VS_Code{
             this.output_txt.AppendText("Lista Salva!\n");
         }
 
-        public void LoadDao(){
-            this.output_txt.AppendText("Carregando Lista...\n");
+        public void LoadDAO(){
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             OperationCounter.Increment();
@@ -98,8 +97,6 @@ namespace VS_Code{
                 fs.Close();
                 OperationCounter.Increment();
             }
-
-            this.output_txt.AppendText("Lista Carregada!\n");
         }
 
         public void CleanDao() {
@@ -115,6 +112,10 @@ namespace VS_Code{
         public void SortDao() {
             this.list.Sort();
             OperationCounter.Increment();
+        }
+
+        public int GetQuant(){
+            return this.list.Count;
         }
     }
 }

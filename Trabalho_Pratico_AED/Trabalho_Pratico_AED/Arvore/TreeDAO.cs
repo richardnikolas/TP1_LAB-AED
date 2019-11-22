@@ -9,37 +9,37 @@ using System.Xml.Serialization;
 
 namespace Trabalho_Pratico_AED.Arvore {
     public class TreeDAO {
-        private List<int> valuesToOutput;
+        private List<int> outputValues;
         private ABPTree tree;
         private RichTextBox output_txt;
         static private string path = "C://temp/treeABP.xml";
 
         public TreeDAO(RichTextBox output_txt) {
             tree = new ABPTree();
-            valuesToOutput = new List<int>(1000);
+            outputValues = new List<int>(1000);
             this.output_txt = output_txt;
             OperationCounter.Increment(3);
         }
 
-        public List<int> List() { return valuesToOutput; }
+        public List<int> List() { return outputValues; }
 
         public int GetNumberOfElements() {
             return tree.GetQuantity();
         }
         public void InsertElement(int elemento) {
-            valuesToOutput.Add(elemento);
+            outputValues.Add(elemento);
             this.tree.Insert(elemento);
             OperationCounter.Increment(2);
         }
 
         public void RemoveElement(int elemento) {
-            if(valuesToOutput.Count > 0) {
+            if(outputValues.Count > 0) {
                 
                 try {
                     
                     tree.Remove(elemento);
                     OperationCounter.Increment();
-                    valuesToOutput.Remove(elemento); // não será funcional.
+                    outputValues.Remove(elemento); // não será funcional.
                     OperationCounter.Increment();
                     
                 } catch(Exception e) {
@@ -66,7 +66,7 @@ namespace Trabalho_Pratico_AED.Arvore {
                 fs = new FileStream(path, FileMode.OpenOrCreate);
                 OperationCounter.Increment();
 
-                ser.Serialize(fs, valuesToOutput);
+                ser.Serialize(fs, outputValues);
                 OperationCounter.Increment();
 
                 output_txt.AppendText("Árvore binária salva!\n");
@@ -79,34 +79,35 @@ namespace Trabalho_Pratico_AED.Arvore {
         }
 
         public void LoadDAO() {
-            output_txt.AppendText("Carregando árvore binária...\n");
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
             OperationCounter.Increment(2);
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                valuesToOutput = ser.Deserialize(fs) as List<int>;
+                outputValues = ser.Deserialize(fs) as List<int>;
                 OperationCounter.Increment();
             } catch(Exception e) {
-                ser.Serialize(fs, valuesToOutput);
+                ser.Serialize(fs, outputValues);
                 OperationCounter.Increment();
                 throw e;
             } finally {
                 fs.Close();
                 OperationCounter.Increment();
             }
-
-            output_txt.AppendText("Árvore binária carregada!\n");
         }
 
         public void CleanDao() {
             output_txt.AppendText("Limpando árvore binária...\n");
             tree = new ABPTree();
-            this.valuesToOutput = new List<int>();
+            this.outputValues = new List<int>();
             OperationCounter.Increment(2);
             SaveDAO();
             this.output_txt.AppendText("Árvore binária limpa!\n");
+        }
+
+        public int GetQuant(){
+            return this.outputValues.Count;
         }
     }
 }

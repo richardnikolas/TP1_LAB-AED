@@ -27,8 +27,7 @@ namespace Exercicios.Exercicio1
             this.output_txt = output_txt;
             OperationCounter.Increment(3);
         }
-        public void LoadDao(){
-            this.output_txt.AppendText("Carregando Tabela Hash...\n");
+        public void LoadDAO(){
 
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             OperationCounter.Increment();
@@ -48,8 +47,6 @@ namespace Exercicios.Exercicio1
                 fs.Close();
                 OperationCounter.Increment();
             }
-
-            this.output_txt.AppendText("Tabela Hash Carregada!\n");
         }
 
         public List<int> List(){
@@ -65,16 +62,17 @@ namespace Exercicios.Exercicio1
             outputValues = new List<int>();
             OperationCounter.Increment();
             
-            foreach (int n in _hashTable.GetInternalStruct()){
+            foreach (int? n in _hashTable.GetInternalStruct()){
                 OperationCounter.Increment();
-                outputValues.Add(n);
+                if(n!=null)
+                    outputValues.Add((int)n);
             }
         }
 
         public void Remove(int indexToRemove)
         {
             if (_hashTable.GetQuant() > 0){
-              _hashTable.Remove(indexToRemove);
+              _hashTable.RemoveAt(indexToRemove);
               OperationCounter.Increment();
             }
             else{
@@ -120,6 +118,10 @@ namespace Exercicios.Exercicio1
         public void SortDao(){
             this.outputValues.Sort();
             SaveDao();
+        }
+
+        public int GetQuant(){
+            return this.outputValues.Count;
         }
     }
 }
