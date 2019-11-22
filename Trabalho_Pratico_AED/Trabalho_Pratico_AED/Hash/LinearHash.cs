@@ -60,12 +60,18 @@ namespace Exercicios.Exercicio1{
         }
 
         public void Remove(int value){
-            int index = Array.IndexOf(_struct, value);
-            if (index >= 0){
-                _struct[Array.IndexOf(_struct, value)] = null;
-                --quant;
+            if (this.quant > 0){
+                int index = Array.IndexOf(_struct, value);
+                
+                if (index >= 0){    
+                    _struct[Array.IndexOf(_struct, value)] = null;
+                    --quant;
+                }
+                OperationCounter.Increment(4);
             }
-            OperationCounter.Increment(4);
+            else{
+                throw new Exception("Não é possível remover elementos de uma lista vazia!");
+            }
         }
 
         public int GetQuant() {
