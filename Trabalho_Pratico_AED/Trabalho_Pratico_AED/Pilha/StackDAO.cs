@@ -93,7 +93,8 @@ namespace Trabalho_Pratico_AED.Pilha {
             try {
                 //Carregar o arquivo xml e jogar na lista:
                 this.outputValues = ser.Deserialize(fs) as List<int>;
-                OperationCounter.Increment();
+                stack.SetQuantidade(outputValues.Count);
+                OperationCounter.Increment(2);
             }
             catch(Exception e) {
                 ser.Serialize(fs, this.outputValues);

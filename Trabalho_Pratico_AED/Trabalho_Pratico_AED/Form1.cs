@@ -510,24 +510,7 @@ namespace Trabalho_Pratico_AED {
             totalOperacoes += OperationCounter.QuantOperacoes;
             OperationCounter.Reset();
             sw.Stop();
-                
-            //Fila
-            this.output_txt.AppendText("================================\n");
-            sw = Stopwatch.StartNew();
-
-            try {
-                filaDao.LoadDAO();
-            } catch {}
             
-            output_txt.AppendText("Fila: "+ filaDao.GetQuant() + "\n");
-            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
-            
-            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
-            totalOperacoes += OperationCounter.QuantOperacoes;
-
-            OperationCounter.Reset();
-            sw.Stop();
-                
             //Lista
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();
@@ -544,7 +527,25 @@ namespace Trabalho_Pratico_AED {
 
             OperationCounter.Reset();
             sw.Stop();
-            
+
+            //Fila
+            this.output_txt.AppendText("================================\n");
+            sw = Stopwatch.StartNew();
+
+            try {
+                filaDao.LoadDAO();
+            } catch {}
+
+            output_txt.AppendText("Fila: "+ filaDao.GetQuant() + "\n");
+            output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
+
+            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            totalOperacoes += OperationCounter.QuantOperacoes;
+
+            OperationCounter.Reset();
+            sw.Stop();
+
+
             //Árvore
             this.output_txt.AppendText("================================\n");
             sw = Stopwatch.StartNew();

@@ -64,6 +64,10 @@ namespace Trabalho_Pratico_AED.Pilha {
 
         public int Quantidade() { return Qtde; }
 
+        public void SetQuantidade(int quantidade){
+            this.Qtde = quantidade;
+        }
+
         /// <summary>
         /// Torna possível iterar sobre a CPilha usando o comando foreach
         /// </summary>
