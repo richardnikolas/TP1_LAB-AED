@@ -341,11 +341,15 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Lista")) {
                 sw = Stopwatch.StartNew();
 
-                output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
-                this.listaDao.RemoveAt(grid_tabelaOutput.CurrentRow.Index);
-                this.listaDao.SaveDao();
-                grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.listaDao.List().Select(k=> new {Valor = k}).ToList();
+                if (grid_tabelaOutput.CurrentCell != null){
+                    
+                    output_txt.AppendText("Removendo linha "+grid_tabelaOutput.CurrentRow.Index+" da Lista...\n");
+                    this.listaDao.RemoveAt(grid_tabelaOutput.CurrentRow.Index);
+                    this.listaDao.SaveDao();
+                    grid_tabelaOutput.DataSource = null;
+                    grid_tabelaOutput.DataSource = this.listaDao.List().Select(k=> new {Valor = k}).ToList();
+                    
+                }
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
@@ -354,12 +358,16 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Arvore")) {
                 sw = Stopwatch.StartNew();
 
-                int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
-                output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Árvore...\n");
-                this.arvoreDao.RemoveElement(valorASerRemovido);
-                this.arvoreDao.SaveDAO();
-                grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.arvoreDao.List().Select(k=> new {Valor = k}).ToList();
+                if (grid_tabelaOutput.CurrentCell != null){
+                    
+                    int valorASerRemovido = (int) grid_tabelaOutput.CurrentCell.Value;
+                    output_txt.AppendText("Removendo elemento "+valorASerRemovido+" da Árvore...\n");
+                    this.arvoreDao.RemoveElement(valorASerRemovido);
+                    this.arvoreDao.SaveDAO();
+                    grid_tabelaOutput.DataSource = null;
+                    grid_tabelaOutput.DataSource = this.arvoreDao.List().Select(k=> new {Valor = k}).ToList();
+                    
+                }
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
@@ -368,13 +376,14 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Hash")) {
                 sw = Stopwatch.StartNew();
 
-                if (grid_tabelaOutput.CurrentCell != null)
-                {
+                if (grid_tabelaOutput.CurrentCell != null){
+                    
                     output_txt.AppendText("Removendo elemento " + (int) grid_tabelaOutput.CurrentCell.Value + " da Tabela Hash...\n");
                     this.hashDao.Remove((int) grid_tabelaOutput.CurrentCell.Value);
                     this.hashDao.SaveDao();
                     grid_tabelaOutput.DataSource = null;
                     grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                    
                 }
                 else
                 {
