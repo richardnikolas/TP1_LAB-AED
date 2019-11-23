@@ -368,11 +368,18 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Hash")) {
                 sw = Stopwatch.StartNew();
 
-                output_txt.AppendText("Removendo elemento " + (int) grid_tabelaOutput.CurrentCell.Value + " da Tabela Hash...\n");
-                this.hashDao.Remove((int) grid_tabelaOutput.CurrentCell.Value);
-                this.hashDao.SaveDao();
-                grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                if (grid_tabelaOutput.CurrentCell != null)
+                {
+                    output_txt.AppendText("Removendo elemento " + (int) grid_tabelaOutput.CurrentCell.Value + " da Tabela Hash...\n");
+                    this.hashDao.Remove((int) grid_tabelaOutput.CurrentCell.Value);
+                    this.hashDao.SaveDao();
+                    grid_tabelaOutput.DataSource = null;
+                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                }
+                else
+                {
+                    output_txt.AppendText("Não é possível remover elementos de uma Tabela Hash vazia\n");
+                }
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
