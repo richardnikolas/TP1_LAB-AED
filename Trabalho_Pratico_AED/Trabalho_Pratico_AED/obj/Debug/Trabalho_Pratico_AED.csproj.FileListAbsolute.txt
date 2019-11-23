@@ -62,7 +62,6 @@ D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.pdb
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csprojAssemblyReference.cache
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.formStructures.resources
-D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.FormExperimental.resources
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Properties.Resources.resources
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.cache
 D:\Richard\FACULDADE\PUC\Sistemas de Informação\3º Período\Lab de AEDS\TP\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.CoreCompileInputs.cache
