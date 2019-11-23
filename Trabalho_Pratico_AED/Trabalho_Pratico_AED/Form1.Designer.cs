@@ -78,7 +78,7 @@
             this.grid_tabelaOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grid_tabelaOutput.Location = new System.Drawing.Point(6, 19);
             this.grid_tabelaOutput.Name = "grid_tabelaOutput";
-            this.grid_tabelaOutput.Size = new System.Drawing.Size(341, 160);
+            this.grid_tabelaOutput.Size = new System.Drawing.Size(196, 346);
             this.grid_tabelaOutput.TabIndex = 1;
             // 
             // btn_lista
@@ -135,9 +135,9 @@
             // 
             // btn_inserir
             // 
-            this.btn_inserir.Location = new System.Drawing.Point(120, 16);
+            this.btn_inserir.Location = new System.Drawing.Point(121, 16);
             this.btn_inserir.Name = "btn_inserir";
-            this.btn_inserir.Size = new System.Drawing.Size(64, 20);
+            this.btn_inserir.Size = new System.Drawing.Size(64, 21);
             this.btn_inserir.TabIndex = 6;
             this.btn_inserir.Text = "Inserir";
             this.btn_inserir.UseVisualStyleBackColor = true;
@@ -145,14 +145,14 @@
             // 
             // inserir_txt
             // 
-            this.inserir_txt.Location = new System.Drawing.Point(41, 16);
+            this.inserir_txt.Location = new System.Drawing.Point(42, 17);
             this.inserir_txt.Name = "inserir_txt";
             this.inserir_txt.Size = new System.Drawing.Size(73, 20);
             this.inserir_txt.TabIndex = 7;
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(41, 42);
+            this.btn_delete.Location = new System.Drawing.Point(42, 43);
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(143, 21);
             this.btn_delete.TabIndex = 8;
@@ -169,15 +169,15 @@
             this.output_txt.Location = new System.Drawing.Point(6, 18);
             this.output_txt.Name = "output_txt";
             this.output_txt.ReadOnly = true;
-            this.output_txt.Size = new System.Drawing.Size(212, 221);
+            this.output_txt.Size = new System.Drawing.Size(212, 347);
             this.output_txt.TabIndex = 9;
             this.output_txt.Text = "";
             // 
             // btn_ordenar
             // 
-            this.btn_ordenar.Location = new System.Drawing.Point(129, 27);
+            this.btn_ordenar.Location = new System.Drawing.Point(10, 54);
             this.btn_ordenar.Name = "btn_ordenar";
-            this.btn_ordenar.Size = new System.Drawing.Size(68, 21);
+            this.btn_ordenar.Size = new System.Drawing.Size(123, 21);
             this.btn_ordenar.TabIndex = 10;
             this.btn_ordenar.Text = "Ordenar";
             this.btn_ordenar.UseVisualStyleBackColor = true;
@@ -185,9 +185,10 @@
             // 
             // btn_qtde
             // 
-            this.btn_qtde.Location = new System.Drawing.Point(203, 27);
+            this.btn_qtde.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_qtde.Location = new System.Drawing.Point(10, 81);
             this.btn_qtde.Name = "btn_qtde";
-            this.btn_qtde.Size = new System.Drawing.Size(144, 21);
+            this.btn_qtde.Size = new System.Drawing.Size(123, 50);
             this.btn_qtde.TabIndex = 11;
             this.btn_qtde.Text = "Quantidade de Elementos";
             this.btn_qtde.UseVisualStyleBackColor = true;
@@ -208,9 +209,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.grid_tabelaOutput);
-            this.groupBox1.Location = new System.Drawing.Point(10, 117);
+            this.groupBox1.Location = new System.Drawing.Point(155, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(353, 185);
+            this.groupBox1.Size = new System.Drawing.Size(208, 373);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visualização da estrutura de dados";
@@ -220,7 +221,7 @@
             this.groupBox2.Controls.Add(this.output_txt);
             this.groupBox2.Location = new System.Drawing.Point(373, 117);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(221, 245);
+            this.groupBox2.Size = new System.Drawing.Size(221, 373);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros";
@@ -230,18 +231,18 @@
             this.groupBox3.Controls.Add(this.btn_limpar);
             this.groupBox3.Controls.Add(this.btn_ordenar);
             this.groupBox3.Controls.Add(this.btn_qtde);
-            this.groupBox3.Location = new System.Drawing.Point(10, 308);
+            this.groupBox3.Location = new System.Drawing.Point(10, 117);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(353, 54);
+            this.groupBox3.Size = new System.Drawing.Size(139, 373);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Painel de controle";
             // 
             // btn_limpar
             // 
-            this.btn_limpar.Location = new System.Drawing.Point(56, 28);
+            this.btn_limpar.Location = new System.Drawing.Point(10, 27);
             this.btn_limpar.Name = "btn_limpar";
-            this.btn_limpar.Size = new System.Drawing.Size(68, 21);
+            this.btn_limpar.Size = new System.Drawing.Size(123, 21);
             this.btn_limpar.TabIndex = 12;
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = true;
@@ -268,7 +269,7 @@
             this.groupBox5.Controls.Add(this.btn_delete);
             this.groupBox5.Location = new System.Drawing.Point(373, 36);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(218, 75);
+            this.groupBox5.Size = new System.Drawing.Size(221, 75);
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Inserir números";
@@ -298,7 +299,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(601, 371);
+            this.ClientSize = new System.Drawing.Size(600, 494);
             this.Controls.Add(this.labelSelectedStructure);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox5);
