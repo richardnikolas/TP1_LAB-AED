@@ -74,7 +74,14 @@ namespace Exercicios.Exercicio1{
             }
         }
 
-        public int GetQuant() {
+        public int GetQuant(){
+            this.quant = 0;
+            foreach (int?  n in _struct){
+                if (n != null){
+                    this.quant++;
+                    OperationCounter.Increment(2);
+                }
+            }
             return this.quant;
         }
 
