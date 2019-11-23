@@ -105,7 +105,7 @@ namespace Exercicios.Exercicio1
                 OperationCounter.Increment();
             }
             catch (Exception e){
-                this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
+                this.output_txt.AppendText("Ocorreu um erro interno! Exceção: \n" + e.Message+"\n");
             }
             
             fs.Close();

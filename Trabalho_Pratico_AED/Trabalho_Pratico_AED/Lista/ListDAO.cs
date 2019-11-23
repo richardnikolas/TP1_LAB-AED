@@ -41,8 +41,8 @@ namespace VS_Code{
                 }
                 catch (Exception e) {
                     this.output_txt.AppendText("ERRO! Não é possivel remover o íncide específicado!\n");
-                    this.output_txt.AppendText("Mensagem da Excessão:\n" + e.Message);
-                    this.output_txt.AppendText("Local da Excessão:\n" + e.Source);
+                    this.output_txt.AppendText("Mensagem da Exceção:\n" + e.Message);
+                    this.output_txt.AppendText("Local da Exceção:\n" + e.Source);
                 }
             }
             else 
@@ -67,7 +67,7 @@ namespace VS_Code{
                 OperationCounter.Increment();
             }
             catch (Exception e) {
-                this.output_txt.AppendText("Ocorreu um erro interno! Excessão: \n" + e.Message+"\n");
+                this.output_txt.AppendText("Ocorreu um erro interno! Exceção: \n" + e.Message+"\n");
             }
 
             fs.Close();
