@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Trabalho_Pratico_AED.Arvore {
 
@@ -28,11 +24,8 @@ namespace Trabalho_Pratico_AED.Arvore {
                 OperationCounter.Increment();
 
                 if (this.root != null) {
-                    SetNodesHeight(this.root);
-                    SetNodesDepth(this.root, 1);
-                    SetNodesBalanceFactor(this.root);
                     quantity++;
-                    OperationCounter.Increment(4);
+                    OperationCounter.Increment();
                 }
             }
             else 
@@ -71,65 +64,6 @@ namespace Trabalho_Pratico_AED.Arvore {
             }
 
             else return node;
-        }
-        private int SetNodesHeight(Node currentNode) {
-            if (currentNode == null) {
-                OperationCounter.Increment();
-                return 0;
-            }
-            else {
-                int leftHeight = SetNodesHeight(currentNode.getEsq());
-                int rightHeight = SetNodesHeight(currentNode.getDir());
-                currentNode.height = 1 + Math.Max(leftHeight, rightHeight);
-                OperationCounter.Increment(3);
-                return currentNode.height;
-            }
-        }
-        private void SetNodesDepth(Node currentNode, int depthParam) {
-            if (currentNode == null) {
-                OperationCounter.Increment();
-            }
-            else {
-                currentNode.depth = depthParam;
-                SetNodesDepth(currentNode.getEsq(), depthParam + 1);
-                SetNodesDepth(currentNode.getDir(), depthParam + 1);
-                OperationCounter.Increment(3);
-            }
-        }
-
-        private void SetNodesBalanceFactor(Node currentNode) {
-            if (currentNode == null) {
-                OperationCounter.Increment();
-            }
-            else {
-                setBalanceFactor(currentNode);
-                OperationCounter.Increment();
-                if (currentNode.getEsq() != null){
-                    OperationCounter.Increment();
-                    SetNodesBalanceFactor(currentNode.getEsq());
-                }
-                if (currentNode.getDir() != null){
-                    OperationCounter.Increment();
-                    SetNodesBalanceFactor(currentNode.getDir());
-                }
-            }
-        }
-        private void setBalanceFactor(Node currentNode) {
-            int subTreeLeftHeight = 0;
-            int subTreeRightHeight = 0;
-            OperationCounter.Increment(2);
-
-            if (currentNode.getEsq() != null) {
-                subTreeLeftHeight = currentNode.getEsq().height;
-                OperationCounter.Increment(2);
-            }
-            if (currentNode.getDir() != null) {
-                subTreeRightHeight = currentNode.getDir().height;
-                OperationCounter.Increment(2);
-            }
-
-            currentNode.balanceFactor = subTreeLeftHeight - subTreeRightHeight;
-            OperationCounter.Increment();
         }
 
         public void Remove(int value) {
@@ -184,7 +118,6 @@ namespace Trabalho_Pratico_AED.Arvore {
                 q.setItem(r.getItem());
                 r = r.getEsq();
             }
-
             OperationCounter.Increment(3);
             return r;
         }

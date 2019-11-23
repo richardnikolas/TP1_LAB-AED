@@ -1,5 +1,4 @@
 ﻿﻿using System;
-using System.Collections.Generic;
  using Trabalho_Pratico_AED;
  using static System.Console;
 
@@ -18,8 +17,8 @@ namespace Exercicios.Exercicio1{
 
         public LinearHash() {
             _struct = new int?[1000];
-            OperationCounter.Increment(2);
             quant = 0;
+            OperationCounter.Increment(2);
         }
 
         public LinearHash(int size) {

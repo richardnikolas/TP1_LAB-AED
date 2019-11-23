@@ -29,7 +29,7 @@ namespace Trabalho_Pratico_AED.Fila {
         public List<int> List() { return outputValues; }
 
         public int GetQuant() {
-            return this.outputValues.Count;
+            return queue.GetQuantity();
         }
         public void EnqueueElement(int elemento) {
             outputValues.Add(elemento);
@@ -80,7 +80,6 @@ namespace Trabalho_Pratico_AED.Fila {
         public void LoadDAO() {
             XmlSerializer ser = new XmlSerializer(typeof(List<int>));
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
-
             OperationCounter.Increment(2);
 
             try {

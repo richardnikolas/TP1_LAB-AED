@@ -505,7 +505,7 @@ namespace Trabalho_Pratico_AED {
             
             output_txt.AppendText("Pilha: "+ pilhaDao.GetQuant() + "\n");
             output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");            
-            this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
+            output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
 
             totalOperacoes += OperationCounter.QuantOperacoes;
             OperationCounter.Reset();

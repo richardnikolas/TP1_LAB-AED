@@ -1,4 +1,5 @@
 ﻿using System;
+using Trabalho_Pratico_AED;
 
 namespace VS_Code {
     
@@ -16,6 +17,7 @@ namespace VS_Code {
         public Celula() {
             Item = null;
             Prox = null;
+            OperationCounter.Increment(2);
         }
 
         /// <summary>
@@ -25,6 +27,7 @@ namespace VS_Code {
         public Celula(object ValorItem) {
             Item = ValorItem;
             Prox = null;
+            OperationCounter.Increment(2);
         }
 
         /// <summary>
@@ -35,6 +38,7 @@ namespace VS_Code {
         public Celula(object ValorItem, Celula ProxCelula) {
             Item = ValorItem;
             Prox = ProxCelula;
+            OperationCounter.Increment(2);
         }
     }
     #endregion

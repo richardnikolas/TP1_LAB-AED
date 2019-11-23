@@ -18,25 +18,30 @@ namespace VS_Code{
         
         private List<int> list;
         private RichTextBox output_txt;
-        static private string path = "C://temp//lista.xml";
+        private int quantidade;
+        static private string path = "C://temp/lista.xml";
 
         public ListDAO(RichTextBox output_txt) {
             this.output_txt = output_txt;
             this.list = new List<int>();
+            this.quantidade = 0;
             OperationCounter.Increment(2);
         }
 
         public List<int> List() { return this.list; }
 
         public void Insert(int element) {
-            list.Add(element);
+            if(quantidade < 1000)
+                list.Add(element);
             OperationCounter.Increment();
+            quantidade++;
         }
 
         public void RemoveAt(int indexToRemove) {
             if (list.Count > 0) {
                 try {
                     list.RemoveAt(indexToRemove);
+                    quantidade--;
                     OperationCounter.Increment(2);
                 }
                 catch (Exception e) {
@@ -115,7 +120,7 @@ namespace VS_Code{
         }
 
         public int GetQuant(){
-            return this.list.Count;
+            return quantidade;
         }
     }
 }

@@ -128,7 +128,7 @@ namespace Exercicios.Exercicio1
         }
 
         public int GetQuant(){
-            return this.outputValues.Count;
+            return _hashTable.GetQuant();
         }
     }
 }

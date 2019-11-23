@@ -1,6 +1,4 @@
-﻿using System;
-
-﻿namespace Trabalho_Pratico_AED.Arvore {
+﻿﻿namespace Trabalho_Pratico_AED.Arvore {
 
     public class Node {
 
@@ -12,29 +10,19 @@
 
         private Node esq;
         private Node dir;
-        public int balanceFactor;
-        public int height;
-        public int depth;
         public int item;
 
         public Node() {
             this.esq = null;
             this.dir = null;
-            this.item = 0;
-            this.balanceFactor = 0;
-            this.height = 1;
-            this.depth = 0;
-            OperationCounter.Increment(6);
+            OperationCounter.Increment(2);
         }
 
         public Node(int value){
             esq = null;
             dir = null;
             item = value;
-            balanceFactor = 0;
-            height = 1;
-            depth = 0;
-            OperationCounter.Increment(6);
+            OperationCounter.Increment(3);
         }
 
         public void setEsq(Node esq) {

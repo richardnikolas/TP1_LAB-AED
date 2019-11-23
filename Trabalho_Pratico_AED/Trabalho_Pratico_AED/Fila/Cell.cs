@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Trabalho_Pratico_AED.Fila {
+﻿namespace Trabalho_Pratico_AED.Fila {
 
     class Cell {
         public Cell Next;

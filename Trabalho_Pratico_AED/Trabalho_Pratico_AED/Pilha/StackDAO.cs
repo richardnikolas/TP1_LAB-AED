@@ -121,7 +121,7 @@ namespace Trabalho_Pratico_AED.Pilha {
         }
 
         public int GetQuant(){
-            return this.outputValues.Count;
+            return stack.Quantidade();
         }
     }
 }
