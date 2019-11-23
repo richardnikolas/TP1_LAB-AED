@@ -73,8 +73,7 @@
             // 
             // grid_tabelaOutput
             // 
-            this.grid_tabelaOutput.AutoSizeColumnsMode =
-                System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCellsExceptHeader;
+            this.grid_tabelaOutput.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_tabelaOutput.BackgroundColor = System.Drawing.Color.DimGray;
             this.grid_tabelaOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grid_tabelaOutput.ColumnHeadersHeightSizeMode =
