@@ -41,7 +41,6 @@ C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_A
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\bin\Debug\Trabalho_Pratico_AED.pdb
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csprojAssemblyReference.cache
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.formStructures.resources
-C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.FormExperimental.resources
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.Properties.Resources.resources
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.csproj.GenerateResource.cache
 C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED\obj\Debug\Trabalho_Pratico_AED.exe
