@@ -17,7 +17,12 @@ namespace Exercicios.Exercicio1 {
     }
 
     public class TabelaHashLinear : TabelaHash {
-        public TabelaHashLinear() { }
+        public TabelaHashLinear(){
+            for (int i = 0; i < this.tableSize; i++){
+                OperationCounter.Increment();
+                this.table[i] = new HashCell(i);
+            }
+        }
 
         public TabelaHashLinear(int size) {
             
@@ -32,7 +37,6 @@ namespace Exercicios.Exercicio1 {
                 OperationCounter.Increment();
                 this.table[i] = new HashCell(i);
             }
-                
         }
 
         public object Search (int key) {
@@ -90,6 +94,14 @@ namespace Exercicios.Exercicio1 {
                 quant += table[i] != null ? 1 : 0;
             }
             return quant;
+        }
+
+        public HashCell[] GetInternalStruct(){
+            return this.table;
+        }
+
+        public void SetInternalStruct(HashCell[] _struct){
+            this.table = _struct;
         }
     }
 }

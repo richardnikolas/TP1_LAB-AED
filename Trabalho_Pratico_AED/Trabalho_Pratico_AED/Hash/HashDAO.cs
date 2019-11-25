@@ -24,7 +24,7 @@ namespace Exercicios.Exercicio1 {
 
         public HashDAO(RichTextBox output_txt) {
             this._hashTable = new TabelaHashLinear(1000);
-            this.outputValues = new HashCell[_hashTable.table.Length];
+            this.outputValues = _hashTable.GetInternalStruct();
             this.output_txt = output_txt;
             OperationCounter.Increment(3);
         }
@@ -38,11 +38,11 @@ namespace Exercicios.Exercicio1 {
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                this.outputValues = ser.Deserialize(fs) as HashCell[];
+                _hashTable.SetInternalStruct(ser.Deserialize(fs) as HashCell[]); 
                 OperationCounter.Increment();
             }
             catch (Exception e) {
-                ser.Serialize(fs, this.outputValues);
+                ser.Serialize(fs, _hashTable.GetInternalStruct());
                 OperationCounter.Increment();
                 throw e;
             }
@@ -53,8 +53,8 @@ namespace Exercicios.Exercicio1 {
             }
         }
 
-        public HashCell[] List() {
-            return outputValues;
+        public HashCell[] List(){
+            return _hashTable.GetInternalStruct();
         }
 
         public void Insert(int element) {
@@ -88,7 +88,7 @@ namespace Exercicios.Exercicio1 {
                 OperationCounter.Increment();
 
                 //Usando a lista criada e mandando para o FileStream, num formato de XML:
-                ser.Serialize(fs, this.outputValues);
+                ser.Serialize(fs, this._hashTable.GetInternalStruct());
                 OperationCounter.Increment();
             }
             catch (Exception e) {
@@ -103,7 +103,7 @@ namespace Exercicios.Exercicio1 {
         public void CleanDao() {
             this.output_txt.AppendText("Limpando Tabela Hash...\n");
             this._hashTable = new TabelaHashLinear();
-            this.outputValues = new HashCell[_hashTable.table.Length];
+            this.outputValues = this._hashTable.GetInternalStruct();
             SaveDao();
             OperationCounter.Increment(3);
             this.output_txt.AppendText("Tabela Hash Limpa!\n");

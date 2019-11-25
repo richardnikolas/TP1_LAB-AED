@@ -6,12 +6,11 @@
     <e p="C:\Users\phile\RiderProjects\TP1_LAB-AED\Trabalho_Pratico_AED\Trabalho_Pratico_AED" t="IncludeRecursive">
       <e p="App.config" t="Include" />
       <e p="Arvore" t="Include">
-        <e p="ArvoreABP.cs" t="Include" />
-        <e p="ArvoreDAO.cs" t="Include" />
+        <e p="ABPTree.cs" t="Include" />
         <e p="Node.cs" t="Include" />
+        <e p="TreeDAO.cs" t="Include" />
       </e>
       <e p="bin" t="ExcludeRecursive" />
-      <e p="ContadorOperacoes.cs" t="Include" />
       <e p="Fila" t="Include">
         <e p="Cell.cs" t="Include" />
         <e p="Queue.cs" t="Include" />
@@ -20,23 +19,22 @@
       <e p="Form1.cs" t="Include" />
       <e p="Form1.Designer.cs" t="Include" />
       <e p="Form1.resx" t="Include" />
-      <e p="FormExperimental.cs" t="Include" />
-      <e p="FormExperimental.Designer.cs" t="Include" />
-      <e p="FormExperimental.resx" t="Include" />
       <e p="Hash" t="Include">
+        <e p="HashCell.cs" t="Include" />
         <e p="HashDAO.cs" t="Include" />
-        <e p="TabelaHashLinear.cs" t="Include" />
+        <e p="LinearHash.cs" t="Include" />
       </e>
       <e p="Lista" t="Include">
         <e p="Celula.cs" t="Include" />
-        <e p="ListaDAO.cs" t="Include" />
+        <e p="ListDAO.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
+      <e p="OperationCounter.cs" t="Include" />
       <e p="packages" t="ExcludeRecursive" />
       <e p="Pilha" t="Include">
         <e p="Celula.cs" t="Include" />
         <e p="Pilha.cs" t="Include" />
-        <e p="PilhaDAO.cs" t="Include" />
+        <e p="StackDAO.cs" t="Include" />
       </e>
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
