@@ -5,9 +5,9 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using Trabalho_Pratico_AED;
 
-namespace Exercicios.Exercicio1
-{
-    public class HashDAO{
+namespace Exercicios.Exercicio1 {
+
+    public class HashDAO {
         /*
          * Classe para manipulação de arquivo XML encontrado em "C:/temp/hash.xml"
          *

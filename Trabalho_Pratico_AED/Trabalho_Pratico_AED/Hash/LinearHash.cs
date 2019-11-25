@@ -1,9 +1,176 @@
 ﻿﻿using System;
- using Trabalho_Pratico_AED;
- using static System.Console;
+using System.Collections;
+using Trabalho_Pratico_AED;
+using static System.Console;
 
-namespace Exercicios.Exercicio1{
-    public class LinearHash{
+namespace Exercicios.Exercicio1 {
+
+    public class TabelaHash {
+        public class Cell {
+            public int key;
+            public object value;
+
+            public Cell(int key) {
+                this.key = key;
+                this.value = null;
+            }
+        }
+
+        public int M; // Table size
+        public Cell[] table;
+
+        public int HashKey(int key) {
+            return key % this.M;
+        }
+    }
+
+    public class TabelaHashLinear : TabelaHash {
+
+        public TabelaHashLinear(int size) {
+            if (size <= 3)
+                size = 3;
+
+            this.M = size;
+            this.table = new Cell[this.M];
+
+            for (int i = 0; i < this.M; i++)
+                this.table[i] = new Cell(i);
+        }
+
+        public TabelaHashLinear() { }
+
+        public object Search (int key) {
+            if (this.table[key].value == null)
+                return null;
+            else
+                return this.table[key].value;
+        }
+
+        public int Insert (int hashKey, int value, int counter) {
+
+            if (value == -1)
+                return -1;
+
+            if (hashKey == this.M)
+                hashKey = 0;
+
+            if (counter == this.M)
+                return -1;
+
+            if (this.Search(hashKey) == null) { 
+                this.table[hashKey].value = value;
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine("\n\t Valor inserido!");
+                ForegroundColor = ConsoleColor.White;
+                return 0;
+            }
+
+            else 
+                return this.Insert(hashKey + 1, value, counter + 1);                           
+        }
+
+        public void Remove (int value) {
+            int i = this.HashKey(value);
+
+            if (this.Search(value) == null) { 
+                ForegroundColor = ConsoleColor.Red;
+                WriteLine("\n\t Valor não encontrado!");
+                ForegroundColor = ConsoleColor.White;
+            }
+            else {
+                ForegroundColor = ConsoleColor.DarkYellow;
+                WriteLine("\n\t Valor removido!");
+                ForegroundColor = ConsoleColor.White;
+                this.table[i] = new Cell(i);            
+            }
+        }
+
+        public void Imprime() {
+            Write("\n---------------------------------------------");
+            WriteLine("\n Valores armazenados na HashTable:\n ");
+
+            for (int i = 0; i < this.M; i++)
+                WriteLine(" Valor da posição [" + i + "]:" + this.table[i].value);
+
+            WriteLine("---------------------------------------------\n");
+        }
+
+        public void Testar(Queue numbers) {
+            Clear();
+            WriteLine("\n\t\t----------- HASH TABLE LINEAR -----------\n\n");
+
+            int size, valueToInsert = 0, choice = 99;
+            bool keepExecuting = true;
+
+            Write(" Escolha o tamanho da tabela Hash: ");
+            size = int.Parse(ReadLine());
+
+            TabelaHashLinear hashTable = new TabelaHashLinear(size);
+
+            if (numbers != null) {
+                while(numbers.Count > 0) {
+                    valueToInsert = (int)numbers.Dequeue();
+                    int key = hashTable.HashKey(valueToInsert);
+                    hashTable.Insert(key, valueToInsert, 0);
+                }
+            }
+
+            while(keepExecuting) {
+                Clear();
+                WriteLine("\n\t\t----------- HASH TABLE LINEAR -----------\n\n");
+                WriteLine(" Temos as seguintes opções para Hash Table (0 a 3):");
+                WriteLine("\n 1 - Inserir novo número");
+                WriteLine(" 2 - Remover número");
+                WriteLine(" 3 - Imprimir toda tabela");
+                WriteLine(" 0 - Sair do programa");
+
+                Write("\n Insira o número da operação que deseja realizar: ");
+                choice = int.Parse(ReadLine());
+
+                switch(choice) {
+                    case 1:
+                        Write("\n Escolha um valor para inserir na tabela: ");
+                        valueToInsert = int.Parse(ReadLine());
+
+                        int key = hashTable.HashKey(valueToInsert);
+
+                        hashTable.Insert(key, valueToInsert, 0);
+
+                        WriteLine("\n\n\n\n Aperte qualquer tecla para voltar ao Menu...");
+                        ReadKey();
+                        break;
+
+                    case 2:
+                        int valueToRemove;
+                        Write("\n Escolha um valor para remover da na tabela: ");
+                        valueToRemove = int.Parse(ReadLine());
+
+                        hashTable.Remove(valueToRemove);
+
+                        WriteLine("\n\n\n\n Aperte qualquer tecla para voltar ao Menu...");
+                        ReadKey();
+                        break;
+
+                    case 3:
+                        Clear();
+                        hashTable.Imprime();
+
+                        WriteLine("\n\n\n\n Aperte qualquer tecla para voltar ao Menu...");
+                        ReadKey();
+                        break;
+
+                    case 0:
+                        keepExecuting = false;
+                        break;
+                    default:
+                        keepExecuting = true;
+                        break;
+                }
+            }
+        }
+    }
+
+    public class LinearHash {
         /*
          * Tabela hash feita de acordo com as recomendações de Fabio Leandro Rodrigues Cordeiro
          *

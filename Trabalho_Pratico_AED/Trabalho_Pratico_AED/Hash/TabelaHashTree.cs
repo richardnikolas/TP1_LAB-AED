@@ -18,14 +18,21 @@ namespace Trabalho_Pratico_AED.Arvore {
 
         public int SearchTree(int value) {
             return this.Search(value, this.root);
-        }        public void Insert(int value) {
+        }
+
+        public void Insert(int value) {
             this.root = this.InsertInTree(value, this.root);
         }
 
         public void Withdraw(int value) {
             this.root = this.Withdraw(value, this.root);
-        }        public void Print(Node node) {
-            this.Printall(node);        }        private int Search(int value, Node node) {
+        }
+
+        public void Print(Node node) {
+            this.Printall(node);
+        }
+
+        private int Search(int value, Node node) {
             if (node == null) return -1; // Registro não encontrado
 
             else if (value < node.value)
@@ -35,7 +42,8 @@ namespace Trabalho_Pratico_AED.Arvore {
                 return Search(value, node.right);
 
             else return node.value;
-        }        private Node InsertInTree(int value, Node node) {
+        }
+        private Node InsertInTree(int value, Node node) {
             if (node == null) {
                 node = new Node();
                 node.value = value;
@@ -58,7 +66,9 @@ namespace Trabalho_Pratico_AED.Arvore {
             }
 
             return node;
-        }        private Node Predecessor(Node q, Node r) {
+        }
+
+        private Node Predecessor(Node q, Node r) {
             if (r.right != null)
                 r.right = Predecessor(q, r.right);
 
