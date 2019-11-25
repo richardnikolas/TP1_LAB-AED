@@ -50,7 +50,7 @@
     <Compile Include="Arvore\ABPTree.cs" />
     <Compile Include="Arvore\TreeDAO.cs" />
     <Compile Include="Arvore\Node.cs" />
-    <Compile Include="Hash\TabelaHashTree.cs" />
+    <Compile Include="Hash\HashCell.cs" />
     <Compile Include="OperationCounter.cs" />
     <Compile Include="Fila\Cell.cs" />
     <Compile Include="Fila\Queue.cs" />

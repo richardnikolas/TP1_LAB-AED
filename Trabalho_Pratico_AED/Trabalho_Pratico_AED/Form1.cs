@@ -440,7 +440,7 @@ namespace Trabalho_Pratico_AED {
                     this.hashDao.Remove((int) grid_tabelaOutput.CurrentCell.Value);
                     this.hashDao.SaveDao();
                     grid_tabelaOutput.DataSource = null;
-                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                    grid_tabelaOutput.DataSource = this.hashDao.List();
                     
                 }
                 else
@@ -527,7 +527,7 @@ namespace Trabalho_Pratico_AED {
                     output_txt.AppendText("Inserindo elemento "+ element +"...\n");
                     this.hashDao.Insert(element);
                     this.hashDao.SaveDao();
-                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                    grid_tabelaOutput.DataSource = this.hashDao.List();
 
                     output_txt.AppendText("Elemento inserido!\n");
                     output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
@@ -683,7 +683,7 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Hash")) {
                 hashDao.CleanDao();
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                grid_tabelaOutput.DataSource = this.hashDao.List();
             }
 
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
@@ -751,7 +751,7 @@ namespace Trabalho_Pratico_AED {
                 sw.Stop();
 
                 grid_tabelaOutput.DataSource = null;
-                grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valores = k }).ToList();
+                grid_tabelaOutput.DataSource = this.hashDao.List();
             }
 
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");

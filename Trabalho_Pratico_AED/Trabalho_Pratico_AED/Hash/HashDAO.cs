@@ -17,20 +17,20 @@ namespace Exercicios.Exercicio1 {
          *       Fabio Leandro Rodrigues Cordeiro
          */
 
-        private LinearHash _hashTable;
-        private List<int> outputValues;
+        private TabelaHashLinear _hashTable;
+        private HashCell[] outputValues;
         private RichTextBox output_txt;
         static private string path = "C://temp/hash.xml";
 
         public HashDAO(RichTextBox output_txt) {
-            this._hashTable = new LinearHash(1000);
-            this.outputValues = new List<int>();
+            this._hashTable = new TabelaHashLinear(1000);
+            this.outputValues = new HashCell[_hashTable.table.Length];
             this.output_txt = output_txt;
             OperationCounter.Increment(3);
         }
 
         public void LoadDAO() {
-            XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+            XmlSerializer ser = new XmlSerializer(typeof(HashCell[]));
             OperationCounter.Increment();
 
             FileStream fs = new FileStream(path, FileMode.OpenOrCreate);
@@ -38,7 +38,7 @@ namespace Exercicios.Exercicio1 {
 
             try {
                 //Carregar o arquivo xml e jogar na lista:
-                this.outputValues = ser.Deserialize(fs) as List<int>;
+                this.outputValues = ser.Deserialize(fs) as HashCell[];
                 OperationCounter.Increment();
             }
             catch (Exception e) {
@@ -53,27 +53,13 @@ namespace Exercicios.Exercicio1 {
             }
         }
 
-        public List<int> List() {
-            UpdateOutput();
+        public HashCell[] List() {
             return outputValues;
         }
 
         public void Insert(int element) {
-            _hashTable.Insert(element);
-            UpdateOutput();
-            OperationCounter.Increment(2);
-        }
-
-        private void UpdateOutput() {
-            outputValues = new List<int>();
+            _hashTable.Insert(_hashTable.HashKey(element), element, 0);
             OperationCounter.Increment();
-            
-            foreach (int? n in _hashTable.GetInternalStruct()){
-                OperationCounter.Increment();
-
-                if (n != null)
-                    outputValues.Add((int)n); break;
-            }
         }
 
         public void Remove(int valueToRemove) {
@@ -94,7 +80,7 @@ namespace Exercicios.Exercicio1 {
             
             try {
                 //Acesso a dados XML (DAO):
-                XmlSerializer ser = new XmlSerializer(typeof(List<int>));
+                XmlSerializer ser = new XmlSerializer(typeof(HashCell[]));
                 OperationCounter.Increment();
 
                 //Carrega o aqruivo da memória:
@@ -116,15 +102,15 @@ namespace Exercicios.Exercicio1 {
 
         public void CleanDao() {
             this.output_txt.AppendText("Limpando Tabela Hash...\n");
-            this._hashTable = new LinearHash();
-            this.outputValues = new List<int>();
+            this._hashTable = new TabelaHashLinear();
+            this.outputValues = new HashCell[_hashTable.table.Length];
             SaveDao();
             OperationCounter.Increment(3);
             this.output_txt.AppendText("Tabela Hash Limpa!\n");
         }
 
         public void SortDao() {
-            this.outputValues.Sort();
+            //this.outputValues.Sort();
             SaveDao();
         }
 

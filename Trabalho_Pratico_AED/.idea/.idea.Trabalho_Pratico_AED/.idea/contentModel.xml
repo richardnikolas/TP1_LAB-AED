@@ -21,10 +21,8 @@
         <e p="Form1.cs" t="Include" />
         <e p="Form1.Designer.cs" t="Include" />
         <e p="Form1.resx" t="Include" />
-        <e p="FormExperimental.cs" t="Include" />
-        <e p="FormExperimental.Designer.cs" t="Include" />
-        <e p="FormExperimental.resx" t="Include" />
         <e p="Hash" t="Include">
+          <e p="HashCell.cs" t="Include" />
           <e p="HashDAO.cs" t="Include" />
           <e p="LinearHash.cs" t="Include" />
         </e>
