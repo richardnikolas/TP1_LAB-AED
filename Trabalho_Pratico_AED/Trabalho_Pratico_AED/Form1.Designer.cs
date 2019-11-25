@@ -50,7 +50,7 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelSelectedStructure = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize) (this.grid_tabelaOutput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_tabelaOutput)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -60,12 +60,12 @@
             // 
             // btn_pilha
             // 
-            this.btn_pilha.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_pilha.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_pilha.ForeColor = System.Drawing.Color.White;
-            this.btn_pilha.Location = new System.Drawing.Point(7, 18);
+            this.btn_pilha.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_pilha.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_pilha.ForeColor = System.Drawing.Color.Black;
+            this.btn_pilha.Location = new System.Drawing.Point(6, 16);
             this.btn_pilha.Name = "btn_pilha";
-            this.btn_pilha.Size = new System.Drawing.Size(75, 23);
+            this.btn_pilha.Size = new System.Drawing.Size(64, 20);
             this.btn_pilha.TabIndex = 0;
             this.btn_pilha.Text = "Pilha";
             this.btn_pilha.UseVisualStyleBackColor = false;
@@ -76,21 +76,20 @@
             this.grid_tabelaOutput.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid_tabelaOutput.BackgroundColor = System.Drawing.Color.DimGray;
             this.grid_tabelaOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.grid_tabelaOutput.ColumnHeadersHeightSizeMode =
-                System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grid_tabelaOutput.Location = new System.Drawing.Point(7, 22);
+            this.grid_tabelaOutput.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grid_tabelaOutput.Location = new System.Drawing.Point(6, 19);
             this.grid_tabelaOutput.Name = "grid_tabelaOutput";
-            this.grid_tabelaOutput.Size = new System.Drawing.Size(229, 399);
+            this.grid_tabelaOutput.Size = new System.Drawing.Size(196, 346);
             this.grid_tabelaOutput.TabIndex = 1;
             // 
             // btn_lista
             // 
-            this.btn_lista.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_lista.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_lista.ForeColor = System.Drawing.Color.White;
-            this.btn_lista.Location = new System.Drawing.Point(89, 18);
+            this.btn_lista.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_lista.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_lista.ForeColor = System.Drawing.Color.Black;
+            this.btn_lista.Location = new System.Drawing.Point(76, 16);
             this.btn_lista.Name = "btn_lista";
-            this.btn_lista.Size = new System.Drawing.Size(75, 23);
+            this.btn_lista.Size = new System.Drawing.Size(64, 20);
             this.btn_lista.TabIndex = 2;
             this.btn_lista.Text = "Lista";
             this.btn_lista.UseVisualStyleBackColor = false;
@@ -98,12 +97,12 @@
             // 
             // btn_fila
             // 
-            this.btn_fila.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_fila.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_fila.ForeColor = System.Drawing.Color.White;
-            this.btn_fila.Location = new System.Drawing.Point(169, 18);
+            this.btn_fila.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_fila.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_fila.ForeColor = System.Drawing.Color.Black;
+            this.btn_fila.Location = new System.Drawing.Point(145, 16);
             this.btn_fila.Name = "btn_fila";
-            this.btn_fila.Size = new System.Drawing.Size(75, 23);
+            this.btn_fila.Size = new System.Drawing.Size(64, 20);
             this.btn_fila.TabIndex = 3;
             this.btn_fila.Text = "Fila";
             this.btn_fila.UseVisualStyleBackColor = false;
@@ -111,12 +110,12 @@
             // 
             // btn_arvore
             // 
-            this.btn_arvore.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_arvore.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_arvore.ForeColor = System.Drawing.Color.White;
-            this.btn_arvore.Location = new System.Drawing.Point(251, 18);
+            this.btn_arvore.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_arvore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_arvore.ForeColor = System.Drawing.Color.Black;
+            this.btn_arvore.Location = new System.Drawing.Point(215, 16);
             this.btn_arvore.Name = "btn_arvore";
-            this.btn_arvore.Size = new System.Drawing.Size(75, 23);
+            this.btn_arvore.Size = new System.Drawing.Size(64, 20);
             this.btn_arvore.TabIndex = 4;
             this.btn_arvore.Text = "Árvore";
             this.btn_arvore.UseVisualStyleBackColor = false;
@@ -124,12 +123,12 @@
             // 
             // btn_hash
             // 
-            this.btn_hash.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.btn_hash.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_hash.ForeColor = System.Drawing.Color.White;
-            this.btn_hash.Location = new System.Drawing.Point(331, 18);
+            this.btn_hash.BackColor = System.Drawing.Color.DarkGray;
+            this.btn_hash.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_hash.ForeColor = System.Drawing.Color.Black;
+            this.btn_hash.Location = new System.Drawing.Point(284, 16);
             this.btn_hash.Name = "btn_hash";
-            this.btn_hash.Size = new System.Drawing.Size(75, 23);
+            this.btn_hash.Size = new System.Drawing.Size(64, 20);
             this.btn_hash.TabIndex = 5;
             this.btn_hash.Text = "Hash";
             this.btn_hash.UseVisualStyleBackColor = false;
@@ -137,9 +136,9 @@
             // 
             // btn_inserir
             // 
-            this.btn_inserir.Location = new System.Drawing.Point(141, 18);
+            this.btn_inserir.Location = new System.Drawing.Point(121, 16);
             this.btn_inserir.Name = "btn_inserir";
-            this.btn_inserir.Size = new System.Drawing.Size(75, 24);
+            this.btn_inserir.Size = new System.Drawing.Size(64, 21);
             this.btn_inserir.TabIndex = 6;
             this.btn_inserir.Text = "Inserir";
             this.btn_inserir.UseVisualStyleBackColor = true;
@@ -147,16 +146,16 @@
             // 
             // inserir_txt
             // 
-            this.inserir_txt.Location = new System.Drawing.Point(49, 20);
+            this.inserir_txt.Location = new System.Drawing.Point(42, 17);
             this.inserir_txt.Name = "inserir_txt";
-            this.inserir_txt.Size = new System.Drawing.Size(84, 23);
+            this.inserir_txt.Size = new System.Drawing.Size(73, 20);
             this.inserir_txt.TabIndex = 7;
             // 
             // btn_delete
             // 
-            this.btn_delete.Location = new System.Drawing.Point(49, 50);
+            this.btn_delete.Location = new System.Drawing.Point(42, 43);
             this.btn_delete.Name = "btn_delete";
-            this.btn_delete.Size = new System.Drawing.Size(167, 24);
+            this.btn_delete.Size = new System.Drawing.Size(143, 21);
             this.btn_delete.TabIndex = 8;
             this.btn_delete.Text = "Deletar Selecionado";
             this.btn_delete.UseVisualStyleBackColor = true;
@@ -166,21 +165,20 @@
             // 
             this.output_txt.BackColor = System.Drawing.Color.Indigo;
             this.output_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.output_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F,
-                System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.output_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.output_txt.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.output_txt.Location = new System.Drawing.Point(7, 21);
+            this.output_txt.Location = new System.Drawing.Point(6, 18);
             this.output_txt.Name = "output_txt";
             this.output_txt.ReadOnly = true;
-            this.output_txt.Size = new System.Drawing.Size(247, 400);
+            this.output_txt.Size = new System.Drawing.Size(212, 347);
             this.output_txt.TabIndex = 9;
             this.output_txt.Text = "";
             // 
             // btn_ordenar
             // 
-            this.btn_ordenar.Location = new System.Drawing.Point(12, 62);
+            this.btn_ordenar.Location = new System.Drawing.Point(10, 54);
             this.btn_ordenar.Name = "btn_ordenar";
-            this.btn_ordenar.Size = new System.Drawing.Size(143, 24);
+            this.btn_ordenar.Size = new System.Drawing.Size(123, 21);
             this.btn_ordenar.TabIndex = 10;
             this.btn_ordenar.Text = "Ordenar";
             this.btn_ordenar.UseVisualStyleBackColor = true;
@@ -188,11 +186,10 @@
             // 
             // btn_qtde
             // 
-            this.btn_qtde.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.btn_qtde.Location = new System.Drawing.Point(12, 93);
+            this.btn_qtde.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_qtde.Location = new System.Drawing.Point(10, 81);
             this.btn_qtde.Name = "btn_qtde";
-            this.btn_qtde.Size = new System.Drawing.Size(143, 58);
+            this.btn_qtde.Size = new System.Drawing.Size(123, 50);
             this.btn_qtde.TabIndex = 11;
             this.btn_qtde.Text = "Quantidade de Elementos";
             this.btn_qtde.UseVisualStyleBackColor = true;
@@ -201,12 +198,11 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Indigo;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold,
-                System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.Control;
             this.label1.Location = new System.Drawing.Point(-2, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(703, 27);
+            this.label1.Size = new System.Drawing.Size(603, 23);
             this.label1.TabIndex = 12;
             this.label1.Text = "Algoritmos e Estruturas de Dados";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -214,9 +210,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.grid_tabelaOutput);
-            this.groupBox1.Location = new System.Drawing.Point(181, 135);
+            this.groupBox1.Location = new System.Drawing.Point(155, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 430);
+            this.groupBox1.Size = new System.Drawing.Size(208, 373);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Visualização da estrutura de dados";
@@ -224,9 +220,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.output_txt);
-            this.groupBox2.Location = new System.Drawing.Point(435, 135);
+            this.groupBox2.Location = new System.Drawing.Point(373, 117);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(258, 430);
+            this.groupBox2.Size = new System.Drawing.Size(221, 373);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Registros";
@@ -236,18 +232,18 @@
             this.groupBox3.Controls.Add(this.btn_limpar);
             this.groupBox3.Controls.Add(this.btn_ordenar);
             this.groupBox3.Controls.Add(this.btn_qtde);
-            this.groupBox3.Location = new System.Drawing.Point(12, 135);
+            this.groupBox3.Location = new System.Drawing.Point(10, 117);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(162, 430);
+            this.groupBox3.Size = new System.Drawing.Size(139, 373);
             this.groupBox3.TabIndex = 16;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Painel de controle";
             // 
             // btn_limpar
             // 
-            this.btn_limpar.Location = new System.Drawing.Point(12, 31);
+            this.btn_limpar.Location = new System.Drawing.Point(10, 27);
             this.btn_limpar.Name = "btn_limpar";
-            this.btn_limpar.Size = new System.Drawing.Size(143, 24);
+            this.btn_limpar.Size = new System.Drawing.Size(123, 21);
             this.btn_limpar.TabIndex = 12;
             this.btn_limpar.Text = "Limpar";
             this.btn_limpar.UseVisualStyleBackColor = true;
@@ -260,9 +256,9 @@
             this.groupBox4.Controls.Add(this.btn_fila);
             this.groupBox4.Controls.Add(this.btn_arvore);
             this.groupBox4.Controls.Add(this.btn_hash);
-            this.groupBox4.Location = new System.Drawing.Point(12, 42);
+            this.groupBox4.Location = new System.Drawing.Point(10, 36);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(412, 52);
+            this.groupBox4.Size = new System.Drawing.Size(353, 45);
             this.groupBox4.TabIndex = 17;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Selecione a estrutura de dados:";
@@ -272,9 +268,9 @@
             this.groupBox5.Controls.Add(this.inserir_txt);
             this.groupBox5.Controls.Add(this.btn_inserir);
             this.groupBox5.Controls.Add(this.btn_delete);
-            this.groupBox5.Location = new System.Drawing.Point(435, 42);
+            this.groupBox5.Location = new System.Drawing.Point(373, 36);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(258, 87);
+            this.groupBox5.Size = new System.Drawing.Size(221, 75);
             this.groupBox5.TabIndex = 10;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Inserir números";
@@ -282,30 +278,29 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(10, 105);
+            this.label2.Location = new System.Drawing.Point(9, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 15);
+            this.label2.Size = new System.Drawing.Size(79, 13);
             this.label2.TabIndex = 18;
             this.label2.Text = "Estrutura Atual:";
             // 
             // labelSelectedStructure
             // 
             this.labelSelectedStructure.BackColor = System.Drawing.Color.Indigo;
-            this.labelSelectedStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F,
-                System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.labelSelectedStructure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelSelectedStructure.ForeColor = System.Drawing.SystemColors.Control;
-            this.labelSelectedStructure.Location = new System.Drawing.Point(105, 99);
+            this.labelSelectedStructure.Location = new System.Drawing.Point(90, 86);
             this.labelSelectedStructure.Name = "labelSelectedStructure";
-            this.labelSelectedStructure.Size = new System.Drawing.Size(311, 27);
+            this.labelSelectedStructure.Size = new System.Drawing.Size(267, 23);
             this.labelSelectedStructure.TabIndex = 19;
             this.labelSelectedStructure.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // formStructures
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(700, 570);
+            this.ClientSize = new System.Drawing.Size(600, 494);
             this.Controls.Add(this.labelSelectedStructure);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.groupBox5);
@@ -321,7 +316,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AED";
             this.Load += new System.EventHandler(this.formStructures_Load);
-            ((System.ComponentModel.ISupportInitialize) (this.grid_tabelaOutput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_tabelaOutput)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -330,6 +325,7 @@
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

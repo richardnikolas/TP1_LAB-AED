@@ -51,15 +51,15 @@ namespace Exercicios.Exercicio1{
                     throw new Exception("A estrutura está cheia!");
                 }
             }
-
             return validIndex;
         }
 
-        public void Insert(int element) {
+        public int Insert(int element) {
             int indice = GetValidIndex(element);
             _struct[indice] = element;
             quant++;
             OperationCounter.Increment(3);
+            return indice;
         }
 
         public void Remove(int value) {

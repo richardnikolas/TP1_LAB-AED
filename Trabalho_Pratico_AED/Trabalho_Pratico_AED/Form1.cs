@@ -84,6 +84,53 @@ namespace Trabalho_Pratico_AED {
         }
         
 
+        public void ChangeColors(byte option) {
+            switch(option) {
+                case 1:
+                    btn_pilha.BackColor = Color.MediumPurple;
+                    btn_lista.BackColor = Color.DarkGray;
+                    btn_fila.BackColor = Color.DarkGray;
+                    btn_arvore.BackColor = Color.DarkGray;
+                    btn_hash.BackColor = Color.DarkGray;
+                    break;
+                case 2:
+                    btn_pilha.BackColor = Color.DarkGray;
+                    btn_lista.BackColor = Color.MediumPurple;
+                    btn_fila.BackColor = Color.DarkGray;
+                    btn_arvore.BackColor = Color.DarkGray;
+                    btn_hash.BackColor = Color.DarkGray;
+                    break;
+                case 3:
+                    btn_pilha.BackColor = Color.DarkGray;
+                    btn_lista.BackColor = Color.DarkGray;
+                    btn_fila.BackColor = Color.MediumPurple;
+                    btn_arvore.BackColor = Color.DarkGray;
+                    btn_hash.BackColor = Color.DarkGray;
+                    break;
+                case 4:
+                    btn_pilha.BackColor = Color.DarkGray;
+                    btn_lista.BackColor = Color.DarkGray;
+                    btn_fila.BackColor = Color.DarkGray;
+                    btn_arvore.BackColor = Color.MediumPurple;
+                    btn_hash.BackColor = Color.DarkGray;
+                    break;
+                case 5:
+                    btn_pilha.BackColor = Color.DarkGray;
+                    btn_lista.BackColor = Color.DarkGray;
+                    btn_fila.BackColor = Color.DarkGray;
+                    btn_arvore.BackColor = Color.DarkGray;
+                    btn_hash.BackColor = Color.MediumPurple;
+                    break;
+                default:
+                    btn_pilha.BackColor = Color.DarkGray;
+                    btn_lista.BackColor = Color.DarkGray;
+                    btn_fila.BackColor = Color.DarkGray;
+                    btn_arvore.BackColor = Color.DarkGray;
+                    btn_hash.BackColor = Color.DarkGray;
+                    break;
+            }
+        }
+
         public void ChangeEnabled(byte option) {
             switch(option) {
                 case 1:
@@ -92,6 +139,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = true;
                     btn_arvore.Enabled = true;
                     btn_hash.Enabled = true;
+
                     break;
                 case 2:
                     btn_pilha.Enabled = true;
@@ -99,6 +147,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = true;
                     btn_arvore.Enabled = true;
                     btn_hash.Enabled = true;
+
                     break;
                 case 3:
                     btn_pilha.Enabled = true;
@@ -106,6 +155,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = false;
                     btn_arvore.Enabled = true;
                     btn_hash.Enabled = true;
+
                     break;
                 case 4:
                     btn_pilha.Enabled = true;
@@ -113,6 +163,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = true;
                     btn_arvore.Enabled = false;
                     btn_hash.Enabled = true;
+
                     break;
                 case 5:
                     btn_pilha.Enabled = true;
@@ -120,6 +171,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = true;
                     btn_arvore.Enabled = true;
                     btn_hash.Enabled = false;
+
                     break;
                 default:
                     btn_pilha.Enabled = true;
@@ -127,6 +179,7 @@ namespace Trabalho_Pratico_AED {
                     btn_fila.Enabled = true;
                     btn_arvore.Enabled = true;
                     btn_hash.Enabled = true;
+
                     break;
             }
         }
@@ -135,8 +188,9 @@ namespace Trabalho_Pratico_AED {
             output_txt.Clear();
             OperationCounter.Reset();
             ChangeEnabled(1);
-            ChangeDeleteButtonText (0);
-            EnableOrder();
+            ChangeColors(1);
+            ChangeDeleteButtonText(0);
+            DisableOrder();
 
             Stopwatch sw;
 
@@ -169,6 +223,7 @@ namespace Trabalho_Pratico_AED {
         private void btn_lista_Click(object sender, EventArgs e) {
             OperationCounter.Reset();
             ChangeEnabled(2);
+            ChangeColors(2);
             ChangeDeleteButtonText(2);
             EnableOrder();
 
@@ -191,7 +246,7 @@ namespace Trabalho_Pratico_AED {
                 this.output_txt.AppendText("Exceção: \n "+ ex.Message+"\n Local : \n"+ ex.Source +"\n");
             }
 
-            grid_tabelaOutput.DataSource = this.pilhaDao.List().Select(k=> new {Valor = k}).ToList();
+            grid_tabelaOutput.DataSource = this.listaDao.List().Select(k=> new {Valor = k}).ToList();
             this.output_txt.AppendText("DAO Carregado!\n ");
             this.output_txt.AppendText("Quantidade de operações: " + OperationCounter.QuantOperacoes + "\n");
             this.output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
@@ -204,8 +259,9 @@ namespace Trabalho_Pratico_AED {
             output_txt.Clear();
             OperationCounter.Reset();
             ChangeEnabled(3);
+            ChangeColors(3);
             ChangeDeleteButtonText(1);
-            EnableOrder();
+            DisableOrder();
 
             Stopwatch sw;
 
@@ -239,6 +295,7 @@ namespace Trabalho_Pratico_AED {
             output_txt.Clear();
             OperationCounter.Reset();
             ChangeEnabled(4);
+            ChangeColors(4);
             ChangeDeleteButtonText(2);
             DisableOrder();
 
@@ -274,8 +331,9 @@ namespace Trabalho_Pratico_AED {
             output_txt.Clear();
             OperationCounter.Reset();
             ChangeEnabled(5);
+            ChangeColors(5);
             ChangeDeleteButtonText(2);
-            EnableOrder();
+            DisableOrder();
 
             Stopwatch sw;
 

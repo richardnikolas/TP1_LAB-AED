@@ -72,7 +72,7 @@ namespace Exercicios.Exercicio1
                 OperationCounter.Increment();
 
                 if (n != null)
-                    outputValues.Add((int)n);
+                    outputValues.Add((int)n); break;
             }
         }
 
