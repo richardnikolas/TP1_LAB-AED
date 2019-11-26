@@ -23,9 +23,8 @@ namespace Trabalho_Pratico_AED {
          * Design: André Valentim
          * 
          * Lógica: Philemon da Silva Souza,
-         *         André Valentim,
-         *         Richard Nikolas e
-         *         Felipe Ribeiro Lisboa Moreira
+         *         André Valentim e
+         *         Richard Nikolas 
          * 
          * Documentação e ajustes de Legibilidade:
          *         Richard Nikolas,
@@ -33,6 +32,7 @@ namespace Trabalho_Pratico_AED {
          *         Philemon da Silva Souza
          * 
          * Revisão, Testes e Correções:
+         *         Philemon da Silva Souza
          *         Richard Nikolas e
          *         Felipe Ribeiro lisboa Moreira
          * 
