@@ -32,6 +32,7 @@ namespace Trabalho_Pratico_AED {
          *         Philemon da Silva Souza
          * 
          * Revisão, Testes e Correções:
+         *         André Valentim 
          *         Philemon da Silva Souza
          *         Richard Nikolas e
          *         Felipe Ribeiro lisboa Moreira
