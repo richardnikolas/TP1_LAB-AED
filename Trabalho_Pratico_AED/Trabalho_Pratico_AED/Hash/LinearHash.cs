@@ -78,20 +78,20 @@ namespace Exercicios.Exercicio1 {
         public void Remove (int value) {
             int i = this.HashKey(value);
 
-            OperationCounter.Increment(3);
             if (this.Search(value) == null) { 
                 throw new Exception("Não foi possível encontrar o valor especificado");
             }
             else {
                 this.table[i] = new HashCell(i);            
             }
+            OperationCounter.Increment(3);
         }
 
         public int GetQuant(){
             int quant = 0;
             for (int i = 0; i < table.Length; i++){
                 OperationCounter.Increment();
-                quant += table[i] != null ? 1 : 0;
+                quant += table[i].value != null ? 1 : 0;
             }
             return quant;
         }

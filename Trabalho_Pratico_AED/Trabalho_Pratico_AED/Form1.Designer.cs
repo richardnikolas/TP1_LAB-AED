@@ -67,6 +67,7 @@
             this.btn_pilha.Name = "btn_pilha";
             this.btn_pilha.Size = new System.Drawing.Size(64, 20);
             this.btn_pilha.TabIndex = 0;
+            this.btn_pilha.TabStop = false;
             this.btn_pilha.Text = "Pilha";
             this.btn_pilha.UseVisualStyleBackColor = false;
             this.btn_pilha.Click += new System.EventHandler(this.btn_pilha_Click_1);
@@ -91,6 +92,7 @@
             this.btn_lista.Name = "btn_lista";
             this.btn_lista.Size = new System.Drawing.Size(64, 20);
             this.btn_lista.TabIndex = 2;
+            this.btn_lista.TabStop = false;
             this.btn_lista.Text = "Lista";
             this.btn_lista.UseVisualStyleBackColor = false;
             this.btn_lista.Click += new System.EventHandler(this.btn_lista_Click);
@@ -104,6 +106,7 @@
             this.btn_fila.Name = "btn_fila";
             this.btn_fila.Size = new System.Drawing.Size(64, 20);
             this.btn_fila.TabIndex = 3;
+            this.btn_fila.TabStop = false;
             this.btn_fila.Text = "Fila";
             this.btn_fila.UseVisualStyleBackColor = false;
             this.btn_fila.Click += new System.EventHandler(this.btn_fila_Click);
@@ -113,10 +116,11 @@
             this.btn_arvore.BackColor = System.Drawing.Color.DarkGray;
             this.btn_arvore.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_arvore.ForeColor = System.Drawing.Color.Black;
-            this.btn_arvore.Location = new System.Drawing.Point(215, 16);
+            this.btn_arvore.Location = new System.Drawing.Point(214, 16);
             this.btn_arvore.Name = "btn_arvore";
             this.btn_arvore.Size = new System.Drawing.Size(64, 20);
             this.btn_arvore.TabIndex = 4;
+            this.btn_arvore.TabStop = false;
             this.btn_arvore.Text = "Árvore";
             this.btn_arvore.UseVisualStyleBackColor = false;
             this.btn_arvore.Click += new System.EventHandler(this.btn_arvore_Click);
@@ -130,6 +134,7 @@
             this.btn_hash.Name = "btn_hash";
             this.btn_hash.Size = new System.Drawing.Size(64, 20);
             this.btn_hash.TabIndex = 5;
+            this.btn_hash.TabStop = false;
             this.btn_hash.Text = "Hash";
             this.btn_hash.UseVisualStyleBackColor = false;
             this.btn_hash.Click += new System.EventHandler(this.btn_hash_Click);
@@ -140,6 +145,7 @@
             this.btn_inserir.Name = "btn_inserir";
             this.btn_inserir.Size = new System.Drawing.Size(64, 21);
             this.btn_inserir.TabIndex = 6;
+            this.btn_inserir.TabStop = false;
             this.btn_inserir.Text = "Inserir";
             this.btn_inserir.UseVisualStyleBackColor = true;
             this.btn_inserir.Click += new System.EventHandler(this.btn_inserir_Click);
@@ -149,7 +155,7 @@
             this.inserir_txt.Location = new System.Drawing.Point(42, 17);
             this.inserir_txt.Name = "inserir_txt";
             this.inserir_txt.Size = new System.Drawing.Size(73, 20);
-            this.inserir_txt.TabIndex = 7;
+            this.inserir_txt.TabIndex = 30;
             // 
             // btn_delete
             // 
@@ -157,6 +163,7 @@
             this.btn_delete.Name = "btn_delete";
             this.btn_delete.Size = new System.Drawing.Size(143, 21);
             this.btn_delete.TabIndex = 8;
+            this.btn_delete.TabStop = false;
             this.btn_delete.Text = "Deletar Selecionado";
             this.btn_delete.UseVisualStyleBackColor = true;
             this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
@@ -180,6 +187,7 @@
             this.btn_ordenar.Name = "btn_ordenar";
             this.btn_ordenar.Size = new System.Drawing.Size(123, 21);
             this.btn_ordenar.TabIndex = 10;
+            this.btn_ordenar.TabStop = false;
             this.btn_ordenar.Text = "Ordenar";
             this.btn_ordenar.UseVisualStyleBackColor = true;
             this.btn_ordenar.Click += new System.EventHandler(this.Btn_ordenar_Click);
@@ -191,6 +199,7 @@
             this.btn_qtde.Name = "btn_qtde";
             this.btn_qtde.Size = new System.Drawing.Size(123, 50);
             this.btn_qtde.TabIndex = 11;
+            this.btn_qtde.TabStop = false;
             this.btn_qtde.Text = "Quantidade de Elementos";
             this.btn_qtde.UseVisualStyleBackColor = true;
             this.btn_qtde.Click += new System.EventHandler(this.btn_qtde_Click);
@@ -244,8 +253,9 @@
             this.btn_limpar.Location = new System.Drawing.Point(10, 27);
             this.btn_limpar.Name = "btn_limpar";
             this.btn_limpar.Size = new System.Drawing.Size(123, 21);
-            this.btn_limpar.TabIndex = 12;
-            this.btn_limpar.Text = "Limpar";
+            this.btn_limpar.TabIndex = 2;
+            this.btn_limpar.TabStop = false;
+            this.btn_limpar.Text = "Limpar ";
             this.btn_limpar.UseVisualStyleBackColor = true;
             this.btn_limpar.Click += new System.EventHandler(this.btn_limpar_Click);
             // 

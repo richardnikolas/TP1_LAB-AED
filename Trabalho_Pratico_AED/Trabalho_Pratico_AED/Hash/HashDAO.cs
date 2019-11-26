@@ -102,7 +102,7 @@ namespace Exercicios.Exercicio1 {
 
         public void CleanDao() {
             this.output_txt.AppendText("Limpando Tabela Hash...\n");
-            this._hashTable = new TabelaHashLinear();
+            this._hashTable = new TabelaHashLinear(1000);
             this.outputValues = this._hashTable.GetInternalStruct();
             SaveDao();
             OperationCounter.Increment(3);

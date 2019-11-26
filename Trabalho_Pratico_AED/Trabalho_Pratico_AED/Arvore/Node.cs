@@ -3,7 +3,7 @@
     public class Node {
 
         /*
-         * Classe que caracteriza uma unidade de uma estrutura de árvoreAVL.
+         * Classe que caracteriza uma unidade de uma estrutura de Arvore Binária.
          *
          * Feita por Philemon da Silva Souza
          */

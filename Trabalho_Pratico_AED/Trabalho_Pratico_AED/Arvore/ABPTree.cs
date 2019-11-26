@@ -4,44 +4,43 @@ namespace Trabalho_Pratico_AED.Arvore {
 
     class ABPTree {
         /*
-         * Arvore AVP feita de acordo com as recomendações de Fabio Leandro Rodrigues Cordeiro
+         * Arvore ABP feita de acordo com as recomendações de Fabio Leandro Rodrigues Cordeiro
          *
          * Autor: André Valentim
-         *
-         * Com suporte de:
-         *       Internet (para os métodos de balanceamento, altura e profundidade)
          */
         public Node root;
         public int quantity;
 
         public ABPTree() {
             root = null;
+            quantity = 0;
         }
 
-        public void Insert(int value) {
+        public bool Insert(int value) {
+            bool checkAdded = false;
             if(quantity <= 1000) {
-                this.root = this.InsertInTree(value, this.root);
-                OperationCounter.Increment();
-
-                if (this.root != null) {
-                    quantity++;
-                    OperationCounter.Increment();
+                if(Search(value, root) == null) {
+                    this.root = this.InsertInTree(value, this.root);
+                    checkAdded = true;
                 }
+                OperationCounter.Increment();
             }
-            else 
+            else
                 Console.WriteLine("A árvore está cheia!");
             
             OperationCounter.Increment();
+            return checkAdded;
         }
         private Node InsertInTree(int value, Node node) {
 
-            if (node == null)
+            if(node == null) {
                 node = new Node(value);
-
-            else if (value < node.item)
+                quantity++;
+                OperationCounter.Increment(); 
+            } else if(value < node.item)
                 node.setEsq(InsertInTree(value, node.getEsq()));
 
-            else if (value > node.item)
+            else if(value > node.item)
                 node.setDir(InsertInTree(value, node.getDir()));
 
             OperationCounter.Increment(4);
@@ -50,7 +49,7 @@ namespace Trabalho_Pratico_AED.Arvore {
         private Node Search(int value, Node node) {
             if (node == null) {
                 OperationCounter.Increment();
-                return null; // Registro não encontrado
+                return null; // Registro não encontrado ou já existente
             }
 
             else if (value < node.item){

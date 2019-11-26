@@ -25,20 +25,22 @@ namespace Trabalho_Pratico_AED.Arvore {
             return tree.GetQuantity();
         }
 
-        public void InsertElement(int elemento) {
-            outputValues.Add(elemento);
-            this.tree.Insert(elemento);
-            OperationCounter.Increment(2);
+        public void InsertElement(int element) {
+            if(tree.Insert(element) == true) {
+                outputValues.Add(element);
+                OperationCounter.Increment();
+            } else {
+                output_txt.AppendText("Elemento já existente na árvore!\n");
+            }
+            OperationCounter.Increment();
         }
 
         public void RemoveElement(int elemento) {
-            if (outputValues.Count > 0) {
-                
-                try {
-                    
+            if (outputValues.Count > 0) {                
+                try {                    
                     tree.Remove(elemento);
                     OperationCounter.Increment();
-                    outputValues.Remove(elemento); // não será funcional.
+                    outputValues.Remove(elemento);
                     OperationCounter.Increment();
                     
                 } catch(Exception e) {
@@ -99,7 +101,7 @@ namespace Trabalho_Pratico_AED.Arvore {
         public void CleanDao() {
             output_txt.AppendText("Limpando árvore binária...\n");
             tree = new ABPTree();
-            this.outputValues = new List<int>();
+            this.outputValues = new List<int>(1000);
             OperationCounter.Increment(2);
             SaveDAO();
             this.output_txt.AppendText("Árvore binária limpa!\n");
