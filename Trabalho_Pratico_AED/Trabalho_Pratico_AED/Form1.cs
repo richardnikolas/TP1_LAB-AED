@@ -435,19 +435,16 @@ namespace Trabalho_Pratico_AED {
             else if (this.selectedStruct.Equals("Hash")) {
                 sw = Stopwatch.StartNew();
 
-                if (grid_tabelaOutput.CurrentCell != null){
-                    
+                if (grid_tabelaOutput.CurrentCell.Value != null){                    
                     output_txt.AppendText("Removendo elemento " + (int) grid_tabelaOutput.CurrentCell.Value + " da Tabela Hash...\n");
                     this.hashDao.Remove((int) grid_tabelaOutput.CurrentCell.Value);
                     this.hashDao.SaveDao();
+
                     grid_tabelaOutput.DataSource = null;
-                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valor = k.value }).ToList();
-                    
+                    grid_tabelaOutput.DataSource = this.hashDao.List().Select(k => new { Valor = k.value }).ToList();                    
                 }
-                else
-                {
-                    output_txt.AppendText("Não é possível remover elementos de uma Tabela Hash vazia\n");
-                }
+                else                
+                    output_txt.AppendText("Não é possível remover um elemento inexistente de uma Tabela Hash\n");                
 
                 output_txt.AppendText("Tempo gasto: " + sw.ElapsedMilliseconds.ToString() + " ms\n");
                 sw.Stop();
@@ -481,7 +478,7 @@ namespace Trabalho_Pratico_AED {
                     sw.Stop(); 
                 }
 
-                else if(this.selectedStruct.Equals("Fila")) {
+                else if (this.selectedStruct.Equals("Fila")) {
                     sw = Stopwatch.StartNew();
 
                     output_txt.AppendText("Enfileirando...\n");

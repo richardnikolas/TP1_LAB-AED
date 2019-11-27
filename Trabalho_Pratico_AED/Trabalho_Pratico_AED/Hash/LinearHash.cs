@@ -1,7 +1,6 @@
 ﻿﻿using System;
 using System.Collections;
 using Trabalho_Pratico_AED;
-using static System.Console;
 
 namespace Exercicios.Exercicio1 {
 
@@ -10,8 +9,12 @@ namespace Exercicios.Exercicio1 {
         public int tableSize; // Table size
         public HashCell[] table;
 
-        public int HashKey(int key) {
+        public int HashKey (int key) {
             OperationCounter.Increment();
+
+            if (key < 0)
+                key = key * -1;
+
             return key % this.tableSize;
         }
     }
@@ -43,14 +46,13 @@ namespace Exercicios.Exercicio1 {
             OperationCounter.Increment();
             if (this.table[key].value == null)
                 return null;
-            else{
+            else {
                 OperationCounter.Increment();
                 return this.table[key].value;
             }
         }
 
         public int Insert (int hashKey, int value, int counter) {
-
             OperationCounter.Increment();
             if (value == -1)
                 return -1;
@@ -78,21 +80,23 @@ namespace Exercicios.Exercicio1 {
         public void Remove (int value) {
             int i = this.HashKey(value);
 
-            if (this.Search(value) == null) { 
+            if (this.Search(value) == null)
                 throw new Exception("Não foi possível encontrar o valor especificado");
-            }
-            else {
+            
+            else 
                 this.table[i] = new HashCell(i);            
-            }
+            
             OperationCounter.Increment(3);
         }
 
-        public int GetQuant(){
+        public int GetQuant() {
             int quant = 0;
+
             for (int i = 0; i < table.Length; i++){
                 OperationCounter.Increment();
                 quant += table[i].value != null ? 1 : 0;
             }
+
             return quant;
         }
 
